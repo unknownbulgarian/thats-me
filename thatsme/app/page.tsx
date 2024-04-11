@@ -1,14 +1,14 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Link from 'next/link'
 
 //components
 import InputIcon from "./global-components/input-icon/InputIcon";
 import ButtonIcon from "./global-components/button-icon/buttonicon";
-import { FiLogIn } from "react-icons/fi";
 
 //icons
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+import { FiLogIn } from "react-icons/fi";
 
 
 export default function Home() {
@@ -49,23 +49,24 @@ export default function Home() {
             <FaLock />
           </InputIcon>
 
+
           <div className={styles.noaccount}>
-            <p className={styles.noaccounttxt}>Don't have an account? <span className={styles.signup}>Sign up</span></p>
+            <p className={styles.noaccounttxt}>Don't have an account? <Link className="no-decoration" href='/register'><span className={styles.signup}>Register</span></Link></p>
           </div>
 
-          <ButtonIcon
-            backgroundImage="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac);"
-            borderRadius="0.3em"
-            width="145px"
-            height="35px"
-            color="white"
-            title="Log in"
-            titleColor="white"
-            iconFontSize="1.1rem"
-            transform={false}
-          >
-            <FiLogIn />
-          </ButtonIcon>
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="145px"
+              height="35px"
+              color="white"
+              title="Log in"
+              titleColor="white"
+              iconFontSize="1.1rem"
+              transform={false}
+            >
+              <FiLogIn />
+            </ButtonIcon>
         </div>
       </div>
     </>
