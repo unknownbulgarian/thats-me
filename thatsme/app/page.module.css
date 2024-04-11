@@ -1,14 +1,48 @@
-.home{
+.home {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 100vh;
 }
 
-.maininputs{
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.thelogo{
+    width: 90px;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.maininputs {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 0.6em;
+}
+
+.noaccount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noaccounttxt {
+    font-size: 0.9rem;
+    margin: 0;
+    color: rgb(243, 243, 243);
+}
+
+.signup {
+    font-weight: 500;
+    cursor: pointer;
+    color: rgb(252, 248, 248);
 }
