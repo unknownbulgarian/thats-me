@@ -8,3 +8,11 @@ body{
 p,h1{
   color: white;
 }
+
+.purple{
+  color: rgb(123, 63, 202);
+}
+
+.home-inputs::placeholder{
+  color: rgb(165, 107, 240);
+}
