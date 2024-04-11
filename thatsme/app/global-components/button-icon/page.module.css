@@ -1,0 +1,19 @@
+.buttonicon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.title{
+    font-size: 1rem;
+    color: black;
+}
