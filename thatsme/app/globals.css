@@ -16,3 +16,7 @@ p,h1{
 .home-inputs::placeholder{
   color: rgb(165, 107, 240);
 }
+
+.no-decoration{
+  text-decoration: none !important;
+}
