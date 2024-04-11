@@ -19,10 +19,11 @@ interface ButtonIconProps {
     gap?: string;
     backgroundImage?: string;
     transform?: boolean;
+    background?: string;
 }
 
 export default function ButtonIcon({ backColor, width, height, borderRadius, color, children,
-    iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, gap, iconFontSize, backgroundImage, transform }: ButtonIconProps) {
+    iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, gap, iconFontSize, backgroundImage, transform, background }: ButtonIconProps) {
     return (
         <div className={styles.buttonicon} style={{
             backgroundColor: backColor,
@@ -31,6 +32,7 @@ export default function ButtonIcon({ backColor, width, height, borderRadius, col
             borderRadius: borderRadius,
             gap: gap,
             backgroundImage: backgroundImage,
+            background: background
         }}>
             <span className={styles.icon} style={{
                 backgroundColor: iconBackColor,
