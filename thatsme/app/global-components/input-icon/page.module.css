@@ -1,0 +1,27 @@
+.inputicon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    left: 10px;
+}
+
+.theinput{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    outline: transparent;
+    padding-left: 1em;
+    padding-right: 1em;
+    border: none;
+    background-color: red;
+}
