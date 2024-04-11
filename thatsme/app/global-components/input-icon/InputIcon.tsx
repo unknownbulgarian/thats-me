@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import styles from './page.module.css'; // Assuming you have defined styles for your component
-import './page.module.css'; // This line seems unnecessary
+import styles from './page.module.css';
 
 interface InputIconProps {
     backColor: string;
@@ -16,11 +15,12 @@ interface InputIconProps {
     titleColor: string;
     titleFontSize?: string;
     type: string;
+    classN?: string;
 }
 
 export default function InputIcon({
     backColor, width, height, borderRadius, children, color,
-    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type
+    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN
 }: InputIconProps) {
     return (
         <div className={styles.inputicon}
@@ -38,7 +38,7 @@ export default function InputIcon({
                 }}>
                 {children}
             </span>
-            <input className={styles.theinput}
+            <input spellCheck='false' autoComplete='off' className={`${styles.theinput} ${classN}`}
                 type={type}
                 placeholder={title}
                 style={{
