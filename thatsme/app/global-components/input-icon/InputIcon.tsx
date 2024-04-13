@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, forwardRef, Ref } from 'react';
 import styles from './page.module.css';
 
 interface InputIconProps {
@@ -18,10 +18,10 @@ interface InputIconProps {
     classN?: string;
 }
 
-export default function InputIcon({
+const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
     backColor, width, height, borderRadius, children, color,
     fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN
-}: InputIconProps) {
+}: InputIconProps, ref: Ref<HTMLInputElement>) => {
     return (
         <div className={styles.inputicon}
             style={{
@@ -39,6 +39,7 @@ export default function InputIcon({
                 {children}
             </span>
             <input spellCheck='false' autoComplete='off' className={`${styles.theinput} ${classN}`}
+                ref={ref}
                 type={type}
                 placeholder={title}
                 style={{
@@ -47,4 +48,6 @@ export default function InputIcon({
                 }} />
         </div>
     );
-}
+});
+
+export default InputIcon;
