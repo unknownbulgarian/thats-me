@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { MouseEventHandler, ReactNode } from 'react'
 import styles from './page.module.css'
 
 
@@ -20,12 +20,14 @@ interface ButtonIconProps {
     backgroundImage?: string;
     transform?: boolean;
     background?: string;
+    buttonType: any;
+    onClick: MouseEventHandler<HTMLDivElement>
 }
 
 export default function ButtonIcon({ backColor, width, height, borderRadius, color, children,
-    iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, gap, iconFontSize, backgroundImage, transform, background }: ButtonIconProps) {
+    iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, gap, iconFontSize, backgroundImage, transform, background, buttonType, onClick }: ButtonIconProps) {
     return (
-        <div className={styles.buttonicon} style={{
+        <div className={styles.buttonicon} onClick={onClick} style={{
             backgroundColor: backColor,
             width: width,
             height: height,
@@ -34,6 +36,7 @@ export default function ButtonIcon({ backColor, width, height, borderRadius, col
             backgroundImage: backgroundImage,
             background: background
         }}>
+            <button type={buttonType} className={styles.thebutton}>hey</button>
             <span className={styles.icon} style={{
                 backgroundColor: iconBackColor,
                 borderRadius: iconBorderRadius,
