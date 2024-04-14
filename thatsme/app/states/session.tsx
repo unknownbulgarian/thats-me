@@ -1,7 +1,12 @@
+'use client'
+
+
 import React, { createContext, useContext, useRef, ReactNode } from 'react';
+import { useError } from './errorstate';
+import { useApiUrl } from './api';
 
 interface FetchContextType {
-    fetchData: (url: string, options?: RequestInit) => Promise<any>;
+    checkSession: () => Promise<any>;
     setSession: (value: boolean) => void;
 }
 
@@ -21,23 +26,41 @@ interface FetchProviderProps {
 
 export const FetchProvider: React.FC<FetchProviderProps> = ({ children }) => {
 
+    const { showSuccess } = useError()
+    const apiUrl = useApiUrl()
+
     const sessionRef = useRef<boolean>(false);
 
     const setSession = (value: boolean) => {
         sessionRef.current = value;
     }
+    const checkSession = async () => {
+        if (localStorage.getItem('token')) {
+            try {
+                const response = await fetch(apiUrl + '/checkSession', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ token: localStorage.getItem('token') })
+                });
+                const data = await response.json();
 
-    const fetchData = async (url: string, options?: RequestInit) => {
-        try {
-            const response = await fetch(url, options);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            throw error;
+                if (data.error) {
+                    setSession(false);
+                }
+                if (data.success) {
+                    showSuccess(data.success);
+                    setSession(true);
+                }
+            } catch (error) {
+                setSession(false);
+                throw error;
+            }
         }
     };
 
-    const value: FetchContextType = { fetchData, setSession };
+    const value: FetchContextType = { checkSession, setSession };
 
     return (
         <FetchContext.Provider value={value}>
