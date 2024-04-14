@@ -1,7 +1,7 @@
 'use client'
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../page.module.css'
 
 import ButtonIcon from '../global-components/button-icon/buttonicon'
@@ -16,6 +16,38 @@ import { FaLock } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 
 export default function Login() {
+
+  const [username, setUsername] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+
+  const handleLogin = async () => {
+    const userData = {
+      username,
+      password
+    }
+
+    try {
+      const response = await fetch('http://localhost:3560/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+      })
+
+      const responseData = await response.json()
+
+      if (responseData.error) {
+        showError(responseData.error)
+      }
+
+      if (responseData.success) {
+        showSuccess(responseData.success)
+      }
+    } catch (error: any) {
+      showError(error)
+    }
+  }
 
   const { showError, showSuccess } = useError();
 
@@ -32,6 +64,7 @@ export default function Login() {
           titleColor="white"
           type="text"
           classN="home-inputs"
+          onInput={(e) => { setUsername(e.currentTarget.value) }}
         >
           <FaUserAlt />
         </InputIcon>
@@ -46,6 +79,7 @@ export default function Login() {
           titleColor="white"
           type="password"
           classN="home-inputs"
+          onInput={(e) => { setPassword(e.currentTarget.value) }}
         >
           <FaLock />
         </InputIcon>
@@ -66,7 +100,7 @@ export default function Login() {
           iconFontSize="1.1rem"
           transform={false}
           buttonType='submit'
-          onClick={() => { }}
+          onClick={() => { handleLogin() }}
         >
           <FiLogIn />
         </ButtonIcon>

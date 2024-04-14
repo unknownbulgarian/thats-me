@@ -1,7 +1,7 @@
 'use client'
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../page.module.css'
 
 
@@ -14,26 +14,63 @@ import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 import { BiSolidMessageSquareError } from "react-icons/bi";
+import { MdEmail } from "react-icons/md";
 
 import { useError } from '../states/errorstate'
 
 
 export default function RegisterForm() {
 
-    const [email, setEmail] = useState('fwa')
-    const [password, setPassword] = useState('fwa')
+    const [username, setUsername] = useState<string>('')
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+    const [confirmPassword, setConfirmPassword] = useState<string>('')
+    const [age, setAge] = useState<string>('')
 
     const { showError, showSuccess } = useError()
 
-
+    const clearValues = () => {
+        setUsername('')
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+        setAge('')
+    }
 
     const handleSignUp = async () => {
+        const userData = {
+            username,
+            email,
+            password,
+            confirmPassword,
+            age
+        };
+
         try {
-           
-        } catch (e) {
-            console.error(e)
+            const response = await fetch('http://localhost:3560/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+            const responseData = await response.json();
+
+            if (responseData.error) {
+                showError(responseData.error)
+            }
+            if (responseData.success) {
+                clearValues()
+                showSuccess(responseData.success)
+                console.log('User signed up successfully:', responseData);
+            }
+
+        } catch (error: any) {
+            showError(error)
         }
-    }
+    };
+
 
 
     return (
@@ -48,8 +85,24 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="text"
                 classN="home-inputs"
+                onInput={(e) => { setUsername(e.currentTarget.value) }}
             >
                 <FaUserAlt />
+            </InputIcon>
+
+            <InputIcon
+                backColor="#262c50"
+                borderRadius="0.3em"
+                width="360px"
+                height="35px"
+                color="rgb(123, 63, 202)"
+                title="Email"
+                titleColor="white"
+                type="text"
+                classN="home-inputs"
+                onInput={(e) => { setEmail(e.currentTarget.value) }}
+            >
+                <MdEmail />
             </InputIcon>
 
             <InputIcon
@@ -62,6 +115,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="password"
                 classN="home-inputs"
+                onInput={(e) => { setPassword(e.currentTarget.value) }}
             >
                 <FaLock />
             </InputIcon>
@@ -76,6 +130,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="password"
                 classN="home-inputs"
+                onInput={(e) => { setConfirmPassword(e.currentTarget.value) }}
             >
                 <FaLock />
             </InputIcon>
@@ -90,6 +145,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="text"
                 classN="home-inputs"
+                onInput={(e) => { setAge(e.currentTarget.value) }}
             >
                 <BiSolidMessageSquareError />
             </InputIcon>
