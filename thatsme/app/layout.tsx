@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 import { ErrorProvider } from "./states/errorstate";
 import { ApiUrlProvider } from "./states/api";
+import { FetchProvider } from "./states/session";
 import ErrorComp from "./global-components/error/error";
 
 export const metadata: Metadata = {
@@ -23,8 +24,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <ApiUrlProvider>
           <ErrorProvider>
-            <ErrorComp />
-            {children}
+            <FetchProvider>
+              <ErrorComp />
+              {children}
+            </FetchProvider>
           </ErrorProvider>
         </ApiUrlProvider>
       </body>
