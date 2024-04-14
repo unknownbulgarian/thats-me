@@ -1,7 +1,7 @@
 'use client'
 
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../page.module.css'
 
 
@@ -17,9 +17,23 @@ import { BiSolidMessageSquareError } from "react-icons/bi";
 
 import { useError } from '../states/errorstate'
 
+
 export default function RegisterForm() {
 
+    const [email, setEmail] = useState('fwa')
+    const [password, setPassword] = useState('fwa')
+
     const { showError, showSuccess } = useError()
+
+
+
+    const handleSignUp = async () => {
+        try {
+           
+        } catch (e) {
+            console.error(e)
+        }
+    }
 
 
     return (
@@ -95,7 +109,7 @@ export default function RegisterForm() {
                 iconFontSize="1.1rem"
                 transform={false}
                 buttonType='submit'
-                onClick={() => { }}
+                onClick={() => { handleSignUp() }}
             >
                 <FiLogIn />
             </ButtonIcon>
