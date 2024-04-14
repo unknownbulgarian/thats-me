@@ -52,7 +52,7 @@ export default function Login() {
 
 
         <div className={styles.noaccount}>
-          <p onClick={() => {showSuccess('You did it')}} className={styles.noaccounttxt}>Don't have an account? <Link className="no-decoration" href='/register'><span className={styles.signup}>Register</span></Link></p>
+          <p className={styles.noaccounttxt}>Don't have an account? <Link className="no-decoration" href='/register'><span className={styles.signup}>Register</span></Link></p>
         </div>
 
         <ButtonIcon
@@ -66,7 +66,7 @@ export default function Login() {
           iconFontSize="1.1rem"
           transform={false}
           buttonType='submit'
-          onClick={() => { showError('Password must be good looking bro') }}
+          onClick={() => { }}
         >
           <FiLogIn />
         </ButtonIcon>
