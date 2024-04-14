@@ -1,7 +1,7 @@
 'use client'
 
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../page.module.css'
 
 import ButtonIcon from '../global-components/button-icon/buttonicon'
@@ -10,6 +10,7 @@ import Link from 'next/link'
 
 import { useError } from '../states/errorstate'
 import { useApiUrl } from '../states/api'
+import { useFetchContext } from '../states/session'
 
 //icons
 import { FaUserAlt } from "react-icons/fa";
@@ -18,6 +19,8 @@ import { FiLogIn } from "react-icons/fi";
 
 export default function Login() {
 
+  const { checkSession } = useFetchContext()
+
   const apiUrl = useApiUrl();
 
   const { showError, showSuccess } = useError();
@@ -25,9 +28,13 @@ export default function Login() {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
+  useEffect(() => {
+    checkSession()
+  },[])
+
   const clearData = () => {
-     setUsername('')
-     setPassword('')
+    setUsername('')
+    setPassword('')
   }
 
   const handleLogin = async () => {

@@ -10,7 +10,7 @@ import InputIcon from '../global-components/input-icon/InputIcon'
 import Link from 'next/link'
 
 import { useApiUrl } from '../states/api'
-
+import { useFetchContext } from '../states/session'
 
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -23,6 +23,8 @@ import { useError } from '../states/errorstate'
 
 export default function RegisterForm() {
 
+    const { checkSession } = useFetchContext()
+
     const [username, setUsername] = useState<string>('')
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
@@ -32,6 +34,10 @@ export default function RegisterForm() {
     const apiUrl = useApiUrl()
 
     const { showError, showSuccess } = useError()
+
+    useEffect(() => {
+        checkSession()
+      },[])
 
     const clearValues = () => {
         setUsername('')
