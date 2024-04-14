@@ -9,6 +9,8 @@ import ButtonIcon from '../global-components/button-icon/buttonicon'
 import InputIcon from '../global-components/input-icon/InputIcon'
 import Link from 'next/link'
 
+import { useApiUrl } from '../states/api'
+
 
 import { FaUserAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -26,6 +28,8 @@ export default function RegisterForm() {
     const [password, setPassword] = useState<string>('')
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [age, setAge] = useState<string>('')
+
+    const apiUrl = useApiUrl()
 
     const { showError, showSuccess } = useError()
 
@@ -47,7 +51,7 @@ export default function RegisterForm() {
         };
 
         try {
-            const response = await fetch('http://localhost:3560/register', {
+            const response = await fetch(apiUrl + '/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -85,6 +89,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="text"
                 classN="home-inputs"
+                value={username}
                 onInput={(e) => { setUsername(e.currentTarget.value) }}
             >
                 <FaUserAlt />
@@ -100,6 +105,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="text"
                 classN="home-inputs"
+                value={email}
                 onInput={(e) => { setEmail(e.currentTarget.value) }}
             >
                 <MdEmail />
@@ -115,6 +121,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="password"
                 classN="home-inputs"
+                value={password}
                 onInput={(e) => { setPassword(e.currentTarget.value) }}
             >
                 <FaLock />
@@ -130,6 +137,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="password"
                 classN="home-inputs"
+                value={confirmPassword}
                 onInput={(e) => { setConfirmPassword(e.currentTarget.value) }}
             >
                 <FaLock />
@@ -145,6 +153,7 @@ export default function RegisterForm() {
                 titleColor="white"
                 type="text"
                 classN="home-inputs"
+                value={age}
                 onInput={(e) => { setAge(e.currentTarget.value) }}
             >
                 <BiSolidMessageSquareError />

@@ -9,6 +9,7 @@ import InputIcon from '../global-components/input-icon/InputIcon'
 import Link from 'next/link'
 
 import { useError } from '../states/errorstate'
+import { useApiUrl } from '../states/api'
 
 //icons
 import { FaUserAlt } from "react-icons/fa";
@@ -17,8 +18,17 @@ import { FiLogIn } from "react-icons/fi";
 
 export default function Login() {
 
+  const apiUrl = useApiUrl();
+
+  const { showError, showSuccess } = useError();
+
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+
+  const clearData = () => {
+     setUsername('')
+     setPassword('')
+  }
 
   const handleLogin = async () => {
     const userData = {
@@ -27,7 +37,7 @@ export default function Login() {
     }
 
     try {
-      const response = await fetch('http://localhost:3560/login', {
+      const response = await fetch(apiUrl + '/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,13 +53,14 @@ export default function Login() {
 
       if (responseData.success) {
         showSuccess(responseData.success)
+        clearData()
       }
     } catch (error: any) {
       showError(error)
     }
   }
 
-  const { showError, showSuccess } = useError();
+
 
   return (
     <>
@@ -64,6 +75,7 @@ export default function Login() {
           titleColor="white"
           type="text"
           classN="home-inputs"
+          value={username}
           onInput={(e) => { setUsername(e.currentTarget.value) }}
         >
           <FaUserAlt />
@@ -79,6 +91,7 @@ export default function Login() {
           titleColor="white"
           type="password"
           classN="home-inputs"
+          value={password}
           onInput={(e) => { setPassword(e.currentTarget.value) }}
         >
           <FaLock />
