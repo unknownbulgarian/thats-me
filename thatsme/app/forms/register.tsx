@@ -67,7 +67,7 @@ export default function RegisterForm() {
             if (responseData.success) {
                 clearValues()
                 showSuccess(responseData.success)
-                console.log('User signed up successfully:', responseData);
+                localStorage.setItem('token', responseData.token)
             }
 
         } catch (error: any) {

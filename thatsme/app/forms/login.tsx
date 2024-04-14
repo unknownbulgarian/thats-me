@@ -52,8 +52,9 @@ export default function Login() {
       }
 
       if (responseData.success) {
-        showSuccess(responseData.success)
         clearData()
+        showSuccess(responseData.success)
+        localStorage.setItem('token', responseData.token)
       }
     } catch (error: any) {
       showError(error)
