@@ -1,4 +1,4 @@
-import React, { ReactNode, forwardRef, Ref } from 'react';
+import React, { ReactNode, forwardRef, Ref, FormEventHandler } from 'react';
 import styles from './page.module.css';
 
 interface InputIconProps {
@@ -16,11 +16,12 @@ interface InputIconProps {
     titleFontSize?: string;
     type: string;
     classN?: string;
+    onInput?: FormEventHandler<HTMLInputElement>
 }
 
 const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
     backColor, width, height, borderRadius, children, color,
-    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN
+    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN, onInput
 }: InputIconProps, ref: Ref<HTMLInputElement>) => {
     return (
         <div className={styles.inputicon}
@@ -41,6 +42,7 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
             <input spellCheck='false' autoComplete='off' className={`${styles.theinput} ${classN}`}
                 ref={ref}
                 type={type}
+                onInput={onInput}
                 placeholder={title}
                 style={{
                     color: titleColor,
