@@ -5,6 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 import { ErrorProvider } from "./states/errorstate";
+import { ApiUrlProvider } from "./states/api";
 import ErrorComp from "./global-components/error/error";
 
 export const metadata: Metadata = {
@@ -20,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ErrorProvider>
-          <ErrorComp />
-          {children}
-        </ErrorProvider>
+        <ApiUrlProvider>
+          <ErrorProvider>
+            <ErrorComp />
+            {children}
+          </ErrorProvider>
+        </ApiUrlProvider>
       </body>
     </html>
   );
