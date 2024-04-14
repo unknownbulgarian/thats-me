@@ -17,11 +17,12 @@ interface InputIconProps {
     type: string;
     classN?: string;
     onInput?: FormEventHandler<HTMLInputElement>
+    value?: string
 }
 
 const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
     backColor, width, height, borderRadius, children, color,
-    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN, onInput
+    fontSize, iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, type, classN, onInput, value
 }: InputIconProps, ref: Ref<HTMLInputElement>) => {
     return (
         <div className={styles.inputicon}
@@ -44,6 +45,7 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
                 type={type}
                 onInput={onInput}
                 placeholder={title}
+                value={value}
                 style={{
                     color: titleColor,
                     fontSize: fontSize,
