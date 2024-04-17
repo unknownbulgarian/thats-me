@@ -37,7 +37,9 @@ export default function SessionProfile() {
     }
 
     useEffect(() => {
-        checkSession()
+        if (localStorage.getItem('token')) {
+            checkSession()
+        }
     }, [])
 
 
