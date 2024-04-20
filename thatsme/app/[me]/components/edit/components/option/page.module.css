@@ -1,0 +1,16 @@
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3em;
+    background: linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac);
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+.title{
+    font-size: 1rem;
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+    margin: 0;
+}
