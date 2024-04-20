@@ -18,6 +18,10 @@ export default function EditProfile() {
                         <Option title='Account' />
                         <Option title='Connections' />
                     </div>
+
+                    <div className={styles.theoptions}>
+
+                    </div>
                 </div>
             </div>
         </>

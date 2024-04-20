@@ -9,6 +9,8 @@
 }
 
 .theedit{
+    display: flex;
+    flex-direction: column;
     position: relative;
     background: black;
     width: 900px;
@@ -27,4 +29,14 @@
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+}
+
+.theoptions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
