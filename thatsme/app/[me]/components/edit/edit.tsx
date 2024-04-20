@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import styles from './page.module.css'
 
 import { useError } from '@/app/states/errorstate'
+import { useEditor } from '@/app/states/editor'
 
 import Toggle from './components/toggle/toggle'
 import Option from './components/option/option'
@@ -16,9 +17,12 @@ import { MdAnalytics } from "react-icons/md";
 import { MdMusicNote } from "react-icons/md";
 import { FaRegSnowflake } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+
 
 export default function EditProfile() {
 
+    const { toggleBoolean } = useEditor()
     const { showError } = useError()
 
     const [option, setOption] = useState<number>(1)
@@ -27,6 +31,7 @@ export default function EditProfile() {
         <>
             <div className={styles.edit}>
                 <div className={styles.theedit}>
+                    <IoMdClose onClick={() => { toggleBoolean() }} className={styles.closeedit} />
                     <h1 className={styles.title}><span className='purple'>ThatsMe</span> Settings</h1>
                     <div className={styles.options}>
                         <Option onClick={() => { setOption(1) }} backColor={option === 1 ? 'rgb(165, 107, 240)' : ''} title='All' />
