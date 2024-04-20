@@ -13,6 +13,10 @@ p,h1{
   color: rgb(123, 63, 202);
 }
 
+.lightpurple{
+  color: rgb(199, 120, 238);
+}
+
 .home-inputs::placeholder{
   color: rgb(165, 107, 240);
 }
