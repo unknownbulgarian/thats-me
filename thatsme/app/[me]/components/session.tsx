@@ -5,12 +5,14 @@ import React, { useEffect } from 'react'
 
 import { useFetchContext } from '@/app/states/session'
 import { useApiUrl } from '@/app/states/api'
+import { useError } from '@/app/states/errorstate'
 
 
 
 export default function SessionProfile() {
 
     const { setSession, sessionUsername } = useFetchContext()
+    const {showSuccess} = useError()
     const apiUrl = useApiUrl()
 
     const checkSession = async () => {
@@ -29,6 +31,7 @@ export default function SessionProfile() {
             }
             if (data.success) {
                 sessionUsername.current = data.username
+                showSuccess('Successfully connected to your account')
                 setSession(true);
             }
         } catch (error) {
