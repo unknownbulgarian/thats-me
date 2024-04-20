@@ -25,7 +25,7 @@ export default async function page({ params, searchParams }: any) {
 
                 <div className={styles.profile}>
                     <img className={styles.profileimg} src={searchParams.img_link}></img>
-                    <h1 className={styles.username}>{params.username}</h1>
+                    <h1 className={styles.username}>{searchParams.username}</h1>
                     <p className={styles.bio}>{searchParams.bio}</p>
                 </div>
 
