@@ -5,6 +5,7 @@ import styles from './page.module.css'
 
 import Toggle from './components/toggle/toggle'
 import Option from './components/option/option'
+import Feature from './components/feature/feature'
 
 export default function EditProfile() {
 
