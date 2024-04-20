@@ -33,10 +33,11 @@
 
 .thefeatures{
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5em;
+    gap: 1em;
     flex: 1;
+    padding-top: 2em;
+    padding-bottom: 2em;
     overflow-y: auto;
     overflow-x: hidden;
 }
