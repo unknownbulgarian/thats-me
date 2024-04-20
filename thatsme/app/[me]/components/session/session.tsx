@@ -11,13 +11,17 @@ import { useApiUrl } from '@/app/states/api'
 import { useError } from '@/app/states/errorstate'
 import { MdEdit } from "react-icons/md";
 
+import { useEditor } from '@/app/states/editor'
+
 interface SessionProfileProps {
     params: { me: string };
 }
 
 const SessionProfile: React.FC<SessionProfileProps> = ({ params }) => {
 
-    const [edit, setEdit] = useState<boolean>(false)
+    const {booleanState, toggleBoolean} = useEditor()
+
+
 
     const { sessionRef, setSession, sessionUsername } = useFetchContext()
     const { showSuccess } = useError()
@@ -57,8 +61,8 @@ const SessionProfile: React.FC<SessionProfileProps> = ({ params }) => {
 
     return (
         <>
-            {sessionRef.current && <MdEdit onClick={() => { setEdit(true) }} className={styles.editor} />}
-            {edit && <EditProfile />}
+            {sessionRef.current && <MdEdit onClick={() => { toggleBoolean() }} className={styles.editor} />}
+            {booleanState && <EditProfile />}
         </>
     )
 }
