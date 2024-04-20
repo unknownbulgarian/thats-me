@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './page.module.css'
 
 import SessionProfile from './components/session/session';
+import InfoProfile from './components/info/info';
 
 import { useApiUrl } from '../states/api';
 
@@ -19,6 +20,7 @@ export default async function page({ params }: { params: { me: string } }) {
     return (
         <>
             <SessionProfile params={params} />
+            <InfoProfile params={params} />
             <div className={styles.main}>
 
                 <div className={styles.profile}>
