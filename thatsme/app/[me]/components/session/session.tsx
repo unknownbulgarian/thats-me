@@ -9,9 +9,11 @@ import { useApiUrl } from '@/app/states/api'
 import { useError } from '@/app/states/errorstate'
 import { MdEdit } from "react-icons/md";
 
+interface SessionProfileProps {
+    params: { me: string };
+}
 
-
-export default function SessionProfile() {
+const SessionProfile: React.FC<SessionProfileProps> = ({ params }) => {
 
     const { sessionRef, setSession, sessionUsername } = useFetchContext()
     const { showSuccess } = useError()
@@ -32,9 +34,10 @@ export default function SessionProfile() {
                 setSession(false);
             }
             if (data.success) {
-                sessionUsername.current = data.username
-                showSuccess('Successfully connected to your account')
-                setSession(true);
+                if (data.username === params.me) {
+                    showSuccess('Successfully connected to your account')
+                    setSession(true);
+                }
             }
         } catch (error) {
             console.log(error)
@@ -54,3 +57,5 @@ export default function SessionProfile() {
         </>
     )
 }
+
+export default SessionProfile;

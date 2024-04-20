@@ -18,7 +18,7 @@ export default async function page({ params }: { params: { me: string } }) {
 
     return (
         <>
-            <SessionProfile />
+            <SessionProfile params={params} />
             <div className={styles.main}>
 
                 <div className={styles.profile}>
