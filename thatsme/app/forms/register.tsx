@@ -74,6 +74,7 @@ export default function RegisterForm() {
                 clearValues()
                 showSuccess(responseData.success)
                 localStorage.setItem('token', responseData.token)
+                checkSession()
             }
 
         } catch (error: any) {

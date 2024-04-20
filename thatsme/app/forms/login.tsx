@@ -62,6 +62,7 @@ export default function Login() {
         clearData()
         showSuccess(responseData.success)
         localStorage.setItem('token', responseData.token)
+        checkSession()
       }
     } catch (error: any) {
       showError(error)
