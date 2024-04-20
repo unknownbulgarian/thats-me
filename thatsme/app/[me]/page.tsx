@@ -16,8 +16,6 @@ import { MdEdit } from "react-icons/md";
 
 export default async function page({ params, searchParams }: any) {
 
-    console.log(searchParams)
-
 
     return (
         <>
@@ -26,9 +24,9 @@ export default async function page({ params, searchParams }: any) {
             <div className={styles.main}>
 
                 <div className={styles.profile}>
-                    <img className={styles.profileimg} src='https://wallpapercave.com/wp/wp12706151.jpg'></img>
-                    <h1 className={styles.username}>{params.me}</h1>
-                    <p className={styles.bio}>Thats my bio bro I feel so good haha :D :D :D</p>
+                    <img className={styles.profileimg} src={searchParams.img_link}></img>
+                    <h1 className={styles.username}>{params.username}</h1>
+                    <p className={styles.bio}>{searchParams.bio}</p>
                 </div>
 
 
