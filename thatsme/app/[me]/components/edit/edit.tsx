@@ -24,7 +24,10 @@ export default function EditProfile() {
                     </div>
 
                     <div className={styles.theoptions}>
-
+                        {option === 1 && <></>}
+                        {option === 2 && <></>}
+                        {option === 3 && <></>}
+                        {option === 4 && <></>}
                     </div>
                 </div>
             </div>
