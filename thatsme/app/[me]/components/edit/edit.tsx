@@ -3,11 +3,23 @@
 import React, { useState } from 'react'
 import styles from './page.module.css'
 
+import { useError } from '@/app/states/errorstate'
+
 import Toggle from './components/toggle/toggle'
 import Option from './components/option/option'
 import Feature from './components/feature/feature'
 
+import { IoIosColorPalette } from "react-icons/io";
+import { IoShareSocialSharp } from "react-icons/io5";
+import { BsPersonFill } from "react-icons/bs";
+import { MdAnalytics } from "react-icons/md";
+import { MdMusicNote } from "react-icons/md";
+import { FaRegSnowflake } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
+
 export default function EditProfile() {
+
+    const { showError } = useError()
 
     const [option, setOption] = useState<number>(1)
 
@@ -24,10 +36,74 @@ export default function EditProfile() {
                     </div>
 
                     <div className={styles.thefeatures}>
-                        {option === 1 && <></>}
-                        {option === 2 && <></>}
-                        {option === 3 && <></>}
-                        {option === 4 && <></>}
+                        {option === 1 &&
+                            <>
+                                <Feature title='Design'>
+                                    <IoIosColorPalette />
+                                </Feature>
+
+                                <Feature title='Connections'>
+                                    <IoShareSocialSharp />
+                                </Feature>
+
+                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Profile'>
+                                    <BsPersonFill />
+                                </Feature>
+
+                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Analytics'>
+                                    <MdAnalytics />
+                                </Feature>
+
+                                <Feature title='Music'>
+                                    <MdMusicNote />
+                                </Feature>
+
+                                <Feature title='Particles'>
+                                    <FaRegSnowflake />
+                                </Feature>
+
+                                <Feature title='Functionality'>
+                                    <IoMdSettings />
+                                </Feature>
+
+                            </>}
+                        {option === 2 &&
+                            <>
+                                <Feature title='Design'>
+                                    <IoIosColorPalette />
+                                </Feature>
+
+                                <Feature title='Music'>
+                                    <MdMusicNote />
+                                </Feature>
+
+                                <Feature title='Particles'>
+                                    <FaRegSnowflake />
+                                </Feature>
+
+                                <Feature title='Functionality'>
+                                    <IoMdSettings />
+                                </Feature>
+                            </>
+                        }
+                        {option === 3 &&
+                            <>
+                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Profile'>
+                                    <BsPersonFill />
+                                </Feature>
+
+                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Analytics'>
+                                    <MdAnalytics />
+                                </Feature>
+                            </>
+                        }
+                        {option === 4 &&
+                            <>
+                                <Feature title='Connections'>
+                                    <IoShareSocialSharp />
+                                </Feature>
+                            </>
+                        }
                     </div>
                 </div>
             </div>
