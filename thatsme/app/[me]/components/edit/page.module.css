@@ -10,8 +10,10 @@
 
 .theedit{
     position: relative;
-    background-color: #262c50;
+    background: linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac);
     width: 450px;
     height: 500px;
     border-radius: 0.5em;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
