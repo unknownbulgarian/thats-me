@@ -14,7 +14,9 @@ import { MdEdit } from "react-icons/md";
 
 
 
-export default async function page({ params }: { params: { me: string } }) {
+export default async function page({ params, searchParams }: any) {
+
+    console.log(searchParams)
 
 
     return (
