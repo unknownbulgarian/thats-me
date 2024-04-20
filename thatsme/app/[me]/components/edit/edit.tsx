@@ -23,7 +23,7 @@ export default function EditProfile() {
                         <Option onClick={() => { setOption(4) }} backColor={option === 4 ? 'rgb(165, 107, 240)' : ''} title='Connections' />
                     </div>
 
-                    <div className={styles.theoptions}>
+                    <div className={styles.thefeatures}>
                         {option === 1 && <></>}
                         {option === 2 && <></>}
                         {option === 3 && <></>}
