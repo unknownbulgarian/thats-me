@@ -1,8 +1,10 @@
 'use client'
 
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
+
+import EditProfile from '../edit/edit'
 
 import { useFetchContext } from '@/app/states/session'
 import { useApiUrl } from '@/app/states/api'
@@ -14,6 +16,8 @@ interface SessionProfileProps {
 }
 
 const SessionProfile: React.FC<SessionProfileProps> = ({ params }) => {
+
+    const [edit, setEdit] = useState<boolean>(false)
 
     const { sessionRef, setSession, sessionUsername } = useFetchContext()
     const { showSuccess } = useError()
@@ -53,7 +57,8 @@ const SessionProfile: React.FC<SessionProfileProps> = ({ params }) => {
 
     return (
         <>
-            {sessionRef.current && <MdEdit className={styles.editor} />}
+            {sessionRef.current && <MdEdit onClick={() => { setEdit(true) }} className={styles.editor} />}
+            {edit && <EditProfile />}
         </>
     )
 }
