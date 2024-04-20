@@ -2,18 +2,19 @@
 
 
 import React, { useEffect } from 'react'
+import styles from './page.module.css'
 
 import { useFetchContext } from '@/app/states/session'
 import { useApiUrl } from '@/app/states/api'
 import { useError } from '@/app/states/errorstate'
-import Page from '../../page'
+import { MdEdit } from "react-icons/md";
 
 
 
 export default function SessionProfile() {
 
-    const { setSession, sessionUsername } = useFetchContext()
-    const {showSuccess} = useError()
+    const { sessionRef, setSession, sessionUsername } = useFetchContext()
+    const { showSuccess } = useError()
     const apiUrl = useApiUrl()
 
     const checkSession = async () => {
@@ -49,7 +50,7 @@ export default function SessionProfile() {
 
     return (
         <>
-       
+            {sessionRef.current && <MdEdit className={styles.editor} />}
         </>
     )
 }

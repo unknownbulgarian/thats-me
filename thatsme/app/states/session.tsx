@@ -9,6 +9,7 @@ import { useApiUrl } from './api';
 interface FetchContextType {
     checkSession: () => Promise<any>;
     setSession: (value: boolean) => void;
+    sessionRef: MutableRefObject<boolean>;
     sessionUsername: MutableRefObject<string>;
 }
 
@@ -93,7 +94,7 @@ export const FetchProvider: React.FC<FetchProviderProps> = ({ children }) => {
         }
     };
 
-    const value: FetchContextType = { checkSession, setSession, sessionUsername };
+    const value: FetchContextType = { checkSession, setSession, sessionUsername, sessionRef };
 
     return (
         <FetchContext.Provider value={value}>

@@ -20,7 +20,6 @@ export default async function page({ params }: { params: { me: string } }) {
         <>
             <SessionProfile />
             <div className={styles.main}>
-                <MdEdit className={styles.editor} />
 
                 <div className={styles.profile}>
                     <img className={styles.profileimg} src='https://wallpapercave.com/wp/wp12706151.jpg'></img>
