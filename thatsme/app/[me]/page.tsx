@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from './page.module.css'
 
-import SessionProfile from './components/session';
+import SessionProfile from './components/session/session';
+
+import { useApiUrl } from '../states/api';
 
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
@@ -9,7 +11,11 @@ import { FaSteam } from "react-icons/fa6";
 import { FaSpotify } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
-export default function page({ params }: { params: { me: string } }) {
+
+
+export default async function page({ params }: { params: { me: string } }) {
+
+
     return (
         <>
             <SessionProfile />
