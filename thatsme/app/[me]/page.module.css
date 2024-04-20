@@ -7,22 +7,6 @@
     height: 100vh;
 }
 
-.editor {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 50%;
-    padding: 0.3em;
-    font-size: 1.5rem;
-    width: auto;
-    height: auto;
-    top: 15px;
-    right: 15px;
-    cursor: pointer;
-    animation: expander 1s infinite;
-}
 
 @keyframes expander {
     0% {transform: scale(1);}
