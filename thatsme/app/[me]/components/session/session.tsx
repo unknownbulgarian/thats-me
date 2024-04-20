@@ -6,6 +6,7 @@ import React, { useEffect } from 'react'
 import { useFetchContext } from '@/app/states/session'
 import { useApiUrl } from '@/app/states/api'
 import { useError } from '@/app/states/errorstate'
+import Page from '../../page'
 
 
 
@@ -48,6 +49,7 @@ export default function SessionProfile() {
 
     return (
         <>
+       
         </>
     )
 }
