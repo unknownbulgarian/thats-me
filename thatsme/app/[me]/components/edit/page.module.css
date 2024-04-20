@@ -10,10 +10,22 @@
 
 .theedit{
     position: relative;
-    background: linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac);
-    width: 450px;
-    height: 500px;
+    background: black;
+    width: 900px;
+    height: 600px;
     border-radius: 0.5em;
     overflow-y: auto;
     overflow-x: hidden;
+    border: 2px solid rgba(128, 128, 128, 0.226);
+}
+
+.title{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
