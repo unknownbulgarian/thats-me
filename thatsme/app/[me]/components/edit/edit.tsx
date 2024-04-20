@@ -13,7 +13,10 @@ export default function EditProfile() {
                 <div className={styles.theedit}>
                     <h1 className={styles.title}><span className='purple'>ThatsMe</span> Settings</h1>
                     <div className={styles.options}>
-                    <Option title='All'/>
+                        <Option title='All' />
+                        <Option title='General' />
+                        <Option title='Account' />
+                        <Option title='Connections' />
                     </div>
                 </div>
             </div>
