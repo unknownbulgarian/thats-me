@@ -13,6 +13,9 @@ interface UserConfigType {
     toggleFunction: () => void;
     isAnimations: boolean;
     toggleAnimations: () => void;
+
+    customBackground : boolean;
+    toggleCustomBackground: () => void;
 }
 
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -27,11 +30,14 @@ export const useConfig = (): UserConfigType => {
 
 export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
+    //main features
     const [isConnections, setConnections] = useState<boolean>(false)
     const [isMusic, setMusic] = useState<boolean>(false)
     const [isParticles, setParticles] = useState<boolean>(false)
     const [isFunction, setFunction] = useState<boolean>(false)
     const [isAnimations, setAnimations] = useState<boolean>(false)
+
+    const [customBackground, setCustomBackground] = useState<boolean>(false)
 
     const toggleConnections = () => {
         setConnections(prevValue => !prevValue)
@@ -53,6 +59,10 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         setAnimations(prevValue => !prevValue)
     }
 
+    const toggleCustomBackground = () => {
+        setCustomBackground(prevValue => !prevValue)
+    }
+
     const value = {
         isConnections,
         toggleConnections,
@@ -63,7 +73,10 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         isFunction,
         toggleFunction,
         isAnimations,
-        toggleAnimations
+        toggleAnimations,
+        customBackground,
+        toggleCustomBackground
+
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;
