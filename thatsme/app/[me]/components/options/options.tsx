@@ -22,7 +22,7 @@ export default function EditOptions() {
         <>
             {option === 1 && page === '' &&
                 <>
-                    <Feature mainClick={() => { setPage('design') }}
+                    <Feature mainClick={() => { setPage('design') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Design'>
                         <IoIosColorPalette />
                     </Feature>
@@ -49,7 +49,7 @@ export default function EditOptions() {
                         <FaRegSnowflake />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('function') }} title='Functionality'>
+                    <Feature mainClick={() => { setPage('functionality') }} title='Functionality'>
                         <IoMdSettings />
                     </Feature>
 
@@ -60,7 +60,7 @@ export default function EditOptions() {
                 </>}
             {option === 2 && page === '' &&
                 <>
-                    <Feature mainClick={() => { setPage('design') }}
+                    <Feature mainClick={() => { setPage('design') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Design'>
                         <IoIosColorPalette />
                     </Feature>
@@ -73,7 +73,7 @@ export default function EditOptions() {
                         <FaRegSnowflake />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('function') }} title='Functionality'>
+                    <Feature mainClick={() => { setPage('functionality') }} title='Functionality'>
                         <IoMdSettings />
                     </Feature>
 
