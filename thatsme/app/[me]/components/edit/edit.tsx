@@ -22,7 +22,7 @@ import { FiCodepen } from "react-icons/fi";
 
 export default function EditProfile() {
 
-    const { toggleBoolean } = useEditor()
+    const { toggleBoolean, page, setPage } = useEditor()
     const { showError } = useError()
 
     const [option, setOption] = useState<number>(1)
@@ -41,78 +41,84 @@ export default function EditProfile() {
                     </div>
 
                     <div className={styles.thefeatures}>
-                        {option === 1 &&
+                        {option === 1 && page === '' &&
                             <>
-                                <Feature title='Design'>
+                                <Feature mainClick={() => { setPage('design') }}
+                                    title='Design'>
                                     <IoIosColorPalette />
                                 </Feature>
 
-                                <Feature title='Connections'>
+                                <Feature title='Connections' mainClick={() => { setPage('connections') }}>
                                     <IoShareSocialSharp />
                                 </Feature>
 
-                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Profile'>
+                                <Feature mainClick={() => { setPage('profile') }} toggleClick={() => { showError("You can't disable this feature") }}
+                                    title='Profile'>
                                     <BsPersonFill />
                                 </Feature>
 
-                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Analytics'>
+                                <Feature mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
+                                    title='Analytics'>
                                     <MdAnalytics />
                                 </Feature>
 
-                                <Feature title='Music'>
+                                <Feature mainClick={() => { setPage('music') }} title='Music'>
                                     <MdMusicNote />
                                 </Feature>
 
-                                <Feature title='Particles'>
+                                <Feature mainClick={() => { setPage('particles') }} title='Particles'>
                                     <FaRegSnowflake />
                                 </Feature>
 
-                                <Feature title='Functionality'>
+                                <Feature mainClick={() => { setPage('function') }} title='Functionality'>
                                     <IoMdSettings />
                                 </Feature>
-                                
-                                <Feature title='Animations'>
+
+                                <Feature mainClick={() => { setPage('animations') }} title='Animations'>
                                     <FiCodepen />
                                 </Feature>
 
                             </>}
-                        {option === 2 &&
+                        {option === 2 && page === '' &&
                             <>
-                                <Feature title='Design'>
+                                <Feature mainClick={() => { setPage('design') }}
+                                    title='Design'>
                                     <IoIosColorPalette />
                                 </Feature>
 
-                                <Feature title='Music'>
+                                <Feature mainClick={() => { setPage('music') }} title='Music'>
                                     <MdMusicNote />
                                 </Feature>
 
-                                <Feature title='Particles'>
+                                <Feature mainClick={() => { setPage('particles') }} title='Particles'>
                                     <FaRegSnowflake />
                                 </Feature>
 
-                                <Feature title='Functionality'>
+                                <Feature mainClick={() => { setPage('function') }} title='Functionality'>
                                     <IoMdSettings />
                                 </Feature>
 
-                                <Feature title='Animations'>
+                                <Feature mainClick={() => { setPage('animations') }} title='Animations'>
                                     <FiCodepen />
                                 </Feature>
                             </>
                         }
-                        {option === 3 &&
+                        {option === 3 && page === '' &&
                             <>
-                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Profile'>
+                                <Feature mainClick={() => { setPage('profile') }} toggleClick={() => { showError("You can't disable this feature") }}
+                                    title='Profile'>
                                     <BsPersonFill />
                                 </Feature>
 
-                                <Feature toggleClick={() => { showError("You can't disable this feature") }} title='Analytics'>
+                                <Feature mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
+                                    title='Analytics'>
                                     <MdAnalytics />
                                 </Feature>
                             </>
                         }
-                        {option === 4 &&
+                        {option === 4 && page === '' &&
                             <>
-                                <Feature title='Connections'>
+                                <Feature title='Connections' mainClick={() => { setPage('connections') }}>
                                     <IoShareSocialSharp />
                                 </Feature>
                             </>
