@@ -1,7 +1,11 @@
-.design{
+.design {
     padding-top: 1em;
     width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
+.option1 {
+    display: flex;
+    flex-direction: column;
+}
