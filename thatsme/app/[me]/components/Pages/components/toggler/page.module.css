@@ -1,0 +1,33 @@
+.toggleoption {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.toggler {
+    width: 62px;
+    height: 23px;
+    background-color: rgba(87, 8, 190, 0.096);
+    border: 1px solid rgba(105, 15, 207, 0.486);
+    border-radius: 0.4em;
+    cursor: pointer;
+}
+
+.toggle,
+.toggleoff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 40px;
+    height: 23px;
+    border-radius: 0.4em;
+    font-size: 0.9rem;
+    background-color: rgb(13, 105, 13);
+}
+
+.toggleoff {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    background-color: red !important;
+}
