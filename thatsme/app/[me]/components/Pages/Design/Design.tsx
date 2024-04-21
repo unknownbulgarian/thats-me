@@ -15,48 +15,79 @@ import { FaSave } from "react-icons/fa";
 
 export default function DesignPage() {
 
-  const { customBackground, toggleCustomBackground } = useConfig()
-  const {showError, showSuccess} = useError()
+  const { 
+    customBackground, toggleCustomBackground,
+    backgroundColor, toggleBackgroundColor
+   } = useConfig()
+  const { showError, showSuccess } = useError()
 
 
   return (
     <div className={styles.design}>
-      <div className={styles.option1}>
-        <Toggler toggled={customBackground ? true : false} onClick={() => { toggleCustomBackground() }} title='Custom Background' />
-        {customBackground && 
-        <>
-          <InputIcon
-            backColor="#262c50"
-            borderRadius="0.5em"
-            width="280px"
-            height="25px"
-            color="rgb(123, 63, 202)"
-            title="URL (.jpg, .png ...)"
-            titleColor="white"
-            type="text"
-            classN="home-inputs"
-          >
-            <IoIosLink />
-          </InputIcon>
-          
-          <ButtonIcon
-          background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-          borderRadius="0.3em"
-          width="80px"
-          height="25px"
-          color="white"
-          title="Save"
-          titleColor="white"
-          iconFontSize="0.8rem"
-          titleFontSize='0.8rem'
-          marginTop='0.7em'
-          transform={false}
-          buttonType='submit'
-        >
-          <FaSave />
-        </ButtonIcon>
+      <div className={styles.option} >
+        <Toggler toggled={customBackground ? true : false} onClick={() => { toggleCustomBackground() }} title='Background Image' />
+        {customBackground &&
+          <>
+            <InputIcon
+              backColor="#262c50"
+              borderRadius="0.5em"
+              width="280px"
+              height="25px"
+              color="rgb(123, 63, 202)"
+              title="URL (.jpg, .png ...)"
+              titleColor="white"
+              type="text"
+              classN="home-inputs"
+            >
+              <IoIosLink />
+            </InputIcon>
+
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize='0.8rem'
+              marginTop='0.7em'
+              transform={false}
+              buttonType='submit'
+            >
+              <FaSave />
+            </ButtonIcon>
           </>}
-          
+
+
+      </div>
+
+
+      <div className={styles.option}>
+        <Toggler toggled={backgroundColor ? true : false} onClick={() => toggleBackgroundColor()} title='Background Color' />
+        {backgroundColor &&
+          <>
+            <input className={styles.rangeinput} type='color'></input>
+
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize='0.8rem'
+              marginTop='0.7em'
+              transform={false}
+              buttonType='submit'
+            >
+              <FaSave />
+            </ButtonIcon>
+          </>}
+
 
       </div>
     </div>
