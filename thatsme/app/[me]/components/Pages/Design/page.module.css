@@ -5,7 +5,14 @@
     margin-right: auto;
 }
 
-.option1 {
+.option {
     display: flex;
     flex-direction: column;
+    width: 290px;
+}
+
+.rangeinput{
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
 }
