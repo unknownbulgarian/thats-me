@@ -8,6 +8,7 @@ import { useEditor } from '@/app/states/editor'
 
 import Option from './components/option/option'
 import EditOptions from '../options/options'
+import FeaturesPages from '../features/features'
 
 
 import { IoMdClose } from "react-icons/io";
@@ -32,7 +33,7 @@ export default function EditProfile() {
                     </div>
 
                     <div className={styles.thefeatures}>
-
+                        <FeaturesPages />
                         <EditOptions />
                     </div>
                 </div>
