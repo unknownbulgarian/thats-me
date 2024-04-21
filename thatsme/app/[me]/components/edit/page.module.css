@@ -1,4 +1,4 @@
-.edit{
+.edit {
     position: absolute;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@
     z-index: 2;
 }
 
-.theedit{
+.theedit {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     border: 2px solid rgba(128, 128, 128, 0.226);
 }
 
-.closeedit{
+.closeedit {
     position: absolute;
     display: flex;
     align-items: center;
@@ -39,24 +39,25 @@
     transition: all 0.6s;
 }
 
-.closeedit:hover{
+.closeedit:hover {
     background-color: rgba(87, 8, 190, 0.171);
 }
 
 
-.title{
+.title {
     font-size: 2rem;
     text-align: center;
 }
 
-.options{
+.options {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5em;
 }
 
-.thefeatures{
+.thefeatures {
+    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -66,4 +67,32 @@
     padding-bottom: 2em;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.featurepages {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    height: 100%;
+    flex: 1;
+}
+
+.back {
+    position: relative;
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    color: white;
+    text-transform: capitalize;
+    height: 40px;
+}
+
+.pagetitle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 500;
 }
