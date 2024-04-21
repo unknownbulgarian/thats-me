@@ -22,10 +22,9 @@ import { FiCodepen } from "react-icons/fi";
 
 export default function EditProfile() {
 
-    const { toggleBoolean, page, setPage } = useEditor()
+    const { toggleBoolean, page, setPage, option, setOption } = useEditor()
     const { showError } = useError()
 
-    const [option, setOption] = useState<number>(1)
 
     return (
         <>

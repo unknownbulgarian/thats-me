@@ -5,6 +5,8 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface BooleanContextType {
   booleanState: boolean;
   toggleBoolean: () => void;
+  option: number;
+  setOption: (value: number) => void;
   page: string;
   setPage: (value: string) => void;
 }
@@ -21,6 +23,7 @@ export const useEditor = (): BooleanContextType => {
 
 export const EditorProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [booleanState, setBooleanState] = useState<boolean>(false);
+  const [option, setOption] = useState<number>(1)
   const [page, setPage] = useState<string>('');
 
   const toggleBoolean = () => {
@@ -30,6 +33,8 @@ export const EditorProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const value = {
     booleanState,
     toggleBoolean,
+    option,
+    setOption,
     page,
     setPage,
   };
