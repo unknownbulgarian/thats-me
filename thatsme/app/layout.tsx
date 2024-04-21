@@ -8,6 +8,7 @@ import { ErrorProvider } from "./states/errorstate";
 import { ApiUrlProvider } from "./states/api";
 import { FetchProvider } from "./states/session";
 import { EditorProvider } from "./states/editor";
+import { UserConfigProvider } from "./states/user_config";
 import ErrorComp from "./global-components/error/error";
 
 export const metadata: Metadata = {
@@ -25,12 +26,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <ApiUrlProvider>
           <ErrorProvider>
-            <EditorProvider>
-              <FetchProvider>
-                <ErrorComp />
-                {children}
-              </FetchProvider>
-            </EditorProvider>
+            <UserConfigProvider>
+              <EditorProvider>
+                <FetchProvider>
+                  <ErrorComp />
+                  {children}
+                </FetchProvider>
+              </EditorProvider>
+            </UserConfigProvider>
           </ErrorProvider>
         </ApiUrlProvider>
       </body>
