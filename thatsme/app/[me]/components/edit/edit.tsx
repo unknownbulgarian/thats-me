@@ -18,7 +18,7 @@ import { MdMusicNote } from "react-icons/md";
 import { FaRegSnowflake } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-
+import { FiCodepen } from "react-icons/fi";
 
 export default function EditProfile() {
 
@@ -70,6 +70,10 @@ export default function EditProfile() {
                                 <Feature title='Functionality'>
                                     <IoMdSettings />
                                 </Feature>
+                                
+                                <Feature title='Animations'>
+                                    <FiCodepen />
+                                </Feature>
 
                             </>}
                         {option === 2 &&
@@ -88,6 +92,10 @@ export default function EditProfile() {
 
                                 <Feature title='Functionality'>
                                     <IoMdSettings />
+                                </Feature>
+
+                                <Feature title='Animations'>
+                                    <FiCodepen />
                                 </Feature>
                             </>
                         }
