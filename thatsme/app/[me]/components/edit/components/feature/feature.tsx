@@ -7,24 +7,23 @@ interface FeatureProps {
     children?: ReactNode;
     title: string;
     toggledBackColor?: string;
-    optionsClick?: MouseEventHandler<HTMLDivElement>;
-    optionsClickIcon?: MouseEventHandler<SVGElement>;
+    mainClick?: MouseEventHandler<HTMLDivElement>;
     toggleClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-export default function Feature({ children, title, optionsClick, optionsClickIcon, toggleClick, toggledBackColor}: FeatureProps) {
+export default function Feature({ children, title, mainClick, toggleClick, toggledBackColor}: FeatureProps) {
 
     return (
         <div className={styles.feature}>
-            <div className={styles.main}>
+            <div onClick={mainClick} className={styles.main}>
                 <span className={styles.icon}>{children}</span>
                 <h2 className={styles.title}>{title}</h2>
             </div>
             <div className={styles.options}>
-                <div onClick={optionsClick} className={styles.option}>
+                <div onClick={mainClick} className={styles.option}>
                     <p>Options</p>
                 </div>
-                <div className={styles.optionicon}><IoMdSettings onClick={optionsClickIcon} /></div>
+                <div onClick={mainClick} className={styles.optionicon}><IoMdSettings /></div>
             </div>
             <div style={{backgroundColor: toggledBackColor}}  onClick={toggleClick} className={styles.toggle}>
                 <p className={styles.toggletext}>Enabled</p>
