@@ -1,10 +1,12 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, MutableRefObject, useRef } from 'react';
 
 interface BooleanContextType {
-  booleanState: boolean; 
-  toggleBoolean: () => void; 
+  booleanState: boolean;
+  toggleBoolean: () => void;
+  page: MutableRefObject<string>;
+  setPage: (value: string) => void;
 }
 
 const BooleanContext = createContext<BooleanContextType | undefined>(undefined);
@@ -19,14 +21,21 @@ export const useEditor = (): BooleanContextType => {
 
 export const EditorProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [booleanState, setBooleanState] = useState<boolean>(false);
+  const page = useRef<string>('');
 
   const toggleBoolean = () => {
-    setBooleanState((prev) => !prev); 
+    setBooleanState((prev) => !prev);
+  };
+
+  const setPage = (value: string) => {
+    page.current = value; 
   };
 
   const value = {
     booleanState,
     toggleBoolean,
+    page,
+    setPage,
   };
 
   return <BooleanContext.Provider value={value}>{children}</BooleanContext.Provider>;
