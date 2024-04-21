@@ -12,8 +12,19 @@ import { MdMusicNote } from "react-icons/md";
 import { FaRegSnowflake } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { FiCodepen } from "react-icons/fi";
+import { useConfig } from '@/app/states/user_config';
+
+
 
 export default function EditOptions() {
+
+    const {
+        isConnections, toggleConnections,
+        isMusic, toggleMusic,
+        isParticles, toggleParticles,
+        isFunction, toggleFunction,
+        isAnimations, toggleAnimations
+    } = useConfig()
 
     const { toggleBoolean, page, setPage, option, setOption } = useEditor()
     const { showError } = useError()
@@ -22,74 +33,74 @@ export default function EditOptions() {
         <>
             {option === 1 && page === '' &&
                 <>
-                    <Feature mainClick={() => { setPage('design') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { setPage('design') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Design'>
                         <IoIosColorPalette />
                     </Feature>
 
-                    <Feature title='Connections' mainClick={() => { setPage('connections') }}>
+                    <Feature toggled={isConnections ? true : false} title='Connections' toggleClick={() => { toggleConnections() }} mainClick={() => { setPage('connections') }}>
                         <IoShareSocialSharp />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('profile') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { setPage('profile') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Profile'>
                         <BsPersonFill />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Analytics'>
                         <MdAnalytics />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('music') }} title='Music'>
+                    <Feature toggled={isMusic ? true : false} toggleClick={() => {toggleMusic()}} mainClick={() => { setPage('music') }} title='Music'>
                         <MdMusicNote />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('particles') }} title='Particles'>
+                    <Feature toggled={isParticles ? true : false} toggleClick={() => {toggleParticles()}} mainClick={() => { setPage('particles') }} title='Particles'>
                         <FaRegSnowflake />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('functionality') }} title='Functionality'>
+                    <Feature toggled={isFunction ? true : false} toggleClick={() => {toggleFunction()}} mainClick={() => { setPage('functionality') }} title='Functionality'>
                         <IoMdSettings />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('animations') }} title='Animations'>
+                    <Feature toggled={isAnimations ? true : false} toggleClick={() => {toggleAnimations()}} mainClick={() => { setPage('animations') }} title='Animations'>
                         <FiCodepen />
                     </Feature>
 
                 </>}
             {option === 2 && page === '' &&
                 <>
-                    <Feature mainClick={() => { setPage('design') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { setPage('design') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Design'>
                         <IoIosColorPalette />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('music') }} title='Music'>
+                    <Feature  toggled={isMusic ? true : false} toggleClick={() => {toggleMusic()}}  mainClick={() => { setPage('music') }} title='Music'>
                         <MdMusicNote />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('particles') }} title='Particles'>
+                    <Feature toggled={isParticles ? true : false} toggleClick={() => {toggleParticles()}} mainClick={() => { setPage('particles') }} title='Particles'>
                         <FaRegSnowflake />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('functionality') }} title='Functionality'>
+                    <Feature toggled={isFunction ? true : false} toggleClick={() => {toggleFunction()}} mainClick={() => { setPage('functionality') }} title='Functionality'>
                         <IoMdSettings />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('animations') }} title='Animations'>
+                    <Feature toggled={isAnimations ? true : false} toggleClick={() => {toggleAnimations()}} mainClick={() => { setPage('animations') }} title='Animations'>
                         <FiCodepen />
                     </Feature>
                 </>
             }
             {option === 3 && page === '' &&
                 <>
-                    <Feature mainClick={() => { setPage('profile') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { setPage('profile') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Profile'>
                         <BsPersonFill />
                     </Feature>
 
-                    <Feature mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Analytics'>
                         <MdAnalytics />
                     </Feature>
@@ -97,7 +108,7 @@ export default function EditOptions() {
             }
             {option === 4 && page === '' &&
                 <>
-                    <Feature title='Connections' mainClick={() => { setPage('connections') }}>
+                    <Feature toggled={isConnections ? true : false} toggleClick={() => { toggleConnections() }} title='Connections' mainClick={() => { setPage('connections') }}>
                         <IoShareSocialSharp />
                     </Feature>
                 </>
