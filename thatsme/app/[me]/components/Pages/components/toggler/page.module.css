@@ -5,6 +5,7 @@
 }
 
 .toggler {
+    position: relative;
     width: 62px;
     height: 23px;
     background-color: rgba(87, 8, 190, 0.096);
@@ -15,19 +16,21 @@
 
 .toggle,
 .toggleoff {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
+    right: 0;
     width: 40px;
     height: 23px;
     border-radius: 0.4em;
     font-size: 0.9rem;
     background-color: rgb(13, 105, 13);
+    transition: all 0.2s; 
 }
 
 .toggleoff {
     margin-right: auto !important;
-    margin-left: 0 !important;
+    right: 23px;
     background-color: red !important;
 }
