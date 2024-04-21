@@ -6,12 +6,12 @@ import { IoMdSettings } from "react-icons/io";
 interface FeatureProps {
     children?: ReactNode;
     title: string;
-    toggledBackColor?: string;
+    toggled: boolean;
     mainClick?: MouseEventHandler<HTMLDivElement>;
     toggleClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-export default function Feature({ children, title, mainClick, toggleClick, toggledBackColor}: FeatureProps) {
+export default function Feature({ children, title, mainClick, toggleClick, toggled}: FeatureProps) {
 
     return (
         <div className={styles.feature}>
@@ -25,8 +25,8 @@ export default function Feature({ children, title, mainClick, toggleClick, toggl
                 </div>
                 <div onClick={mainClick} className={styles.optionicon}><IoMdSettings /></div>
             </div>
-            <div style={{backgroundColor: toggledBackColor}}  onClick={toggleClick} className={styles.toggle}>
-                <p className={styles.toggletext}>Enabled</p>
+            <div style={{backgroundColor: toggled ? 'rgb(56, 105, 56)' : '#fc4040'}}  onClick={toggleClick} className={styles.toggle}>
+                <p className={styles.toggletext}>{toggled ? 'Enabled' : 'Disabled'}</p>
             </div>
         </div>
     )
