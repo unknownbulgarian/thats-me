@@ -17,6 +17,7 @@ export default function DesignPage() {
 
   const { 
     customBackground, toggleCustomBackground,
+    usernameColor, toggleUsernameColor
    } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -59,12 +60,7 @@ export default function DesignPage() {
             </ButtonIcon>
           </>}
 
-
-      </div>
-
-
-      <div className={styles.option}>
-        <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
+          <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
         {
           <>
             <input className={styles.rangeinput} type='color'></input>
@@ -87,6 +83,33 @@ export default function DesignPage() {
             </ButtonIcon>
           </>}
 
+      </div>
+
+
+      <div className={styles.option}>
+       
+      <Toggler toggled={usernameColor ? true : false} onClick={() => toggleUsernameColor()} title='Username Custom Color' />
+        { usernameColor &&
+          <>
+            <input className={styles.rangeinput} type='color'></input>
+
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize='0.8rem'
+              marginTop='0.7em'
+              transform={false}
+              buttonType='submit'
+            >
+              <FaSave />
+            </ButtonIcon>
+          </>}
 
       </div>
     </div>
