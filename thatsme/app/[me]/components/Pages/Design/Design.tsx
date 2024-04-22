@@ -9,16 +9,17 @@ import { useError } from '@/app/states/errorstate'
 import InputIcon from '@/app/global-components/input-icon/InputIcon'
 import ButtonIcon from '@/app/global-components/button-icon/buttonicon'
 import Toggler from '../components/toggler/toggler'
+import BoxChecker from '../components/boxchecker/boxchecker'
 
 import { IoIosLink } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 
 export default function DesignPage() {
 
-  const { 
+  const {
     customBackground, toggleCustomBackground,
     usernameColor, toggleUsernameColor
-   } = useConfig()
+  } = useConfig()
   const { showError, showSuccess } = useError()
 
 
@@ -60,7 +61,7 @@ export default function DesignPage() {
             </ButtonIcon>
           </>}
 
-          <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
+        <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
         {
           <>
             <input className={styles.rangeinput} type='color'></input>
@@ -87,10 +88,11 @@ export default function DesignPage() {
 
 
       <div className={styles.option}>
-       
-      <Toggler toggled={usernameColor ? true : false} onClick={() => toggleUsernameColor()} title='Username Custom Color' />
-        { usernameColor &&
+
+        <Toggler toggled={usernameColor ? true : false} onClick={() => toggleUsernameColor()} title='Username Custom Color' />
+        {usernameColor &&
           <>
+            <BoxChecker chroma={true} toggled={true} title='Chroma' />
             <input className={styles.rangeinput} type='color'></input>
 
             <ButtonIcon
