@@ -15,7 +15,12 @@
     width: 19px;
     height: 19px;
     border-radius: 0.3em;
+    transition: all 0.4s;
     cursor: pointer;
+}
+
+.box:hover{
+    background-color: rgba(87, 8, 190, 0.171);
 }
 
 .icon, .off{
