@@ -15,7 +15,7 @@ export default function BoxChecker({ title, onClick, toggled, chroma }: BoxCheck
     return (
         <div className={styles.boxchecker}>
             <div onClick={onClick} className={styles.box}>
-                {toggled && <FaCheck className={styles.icon} />}
+               <FaCheck  className={`${toggled ? styles.icon : styles.off}`} />
             </div>
             <p  className={`${chroma ? styles.chroma : styles.title}`}>{title}</p>
         </div>
