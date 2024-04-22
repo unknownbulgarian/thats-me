@@ -8,7 +8,7 @@ import { ErrorProvider } from "./states/errorstate";
 import { ApiUrlProvider } from "./states/api";
 import { FetchProvider } from "./states/session";
 import { EditorProvider } from "./states/editor";
-import { UserConfigProvider } from "./states/user_config";
+import { UserConfigProvider } from "./states/config/Main&&Design";
 import ErrorComp from "./global-components/error/error";
 
 export const metadata: Metadata = {
