@@ -9,10 +9,11 @@ interface TogglerProps {
 
 export default function Toggler({ title, toggled, onClick }: TogglerProps) {
 
+
     return (
         <div className={styles.toggleoption}>
-            <div onClick={onClick}  className={styles.toggler}>
-                <div  className={`${toggled ? styles.toggle : styles.toggleoff}`}>
+            <div onClick={onClick} className={styles.toggler}>
+                <div className={`${toggled ? styles.toggle : styles.toggleoff}`}>
                     <p>{toggled ? 'ON' : 'OFF'}</p>
                 </div>
             </div>
