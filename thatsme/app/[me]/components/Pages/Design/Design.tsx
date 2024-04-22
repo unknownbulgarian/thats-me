@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import styles from './page.module.css'
 
-import { useConfig } from '@/app/states/user_config'
+import { useConfig } from '@/app/states/config/Main&&Design'
 import { useError } from '@/app/states/errorstate'
 
 import InputIcon from '@/app/global-components/input-icon/InputIcon'
