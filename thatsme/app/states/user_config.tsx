@@ -16,8 +16,6 @@ interface UserConfigType {
 
     customBackground : boolean;
     toggleCustomBackground: () => void;
-    backgroundColor: boolean;
-    toggleBackgroundColor: () => void;
 }
 
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -40,7 +38,6 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     const [isAnimations, setAnimations] = useState<boolean>(false)
 
     const [customBackground, setCustomBackground] = useState<boolean>(false)
-    const [backgroundColor, setBackgroundColor] = useState<boolean>(false)
 
     const toggleConnections = () => {
         setConnections(prevValue => !prevValue)
@@ -66,9 +63,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         setCustomBackground(prevValue => !prevValue)
     }
 
-    const toggleBackgroundColor = () => {
-        setBackgroundColor(prevValue => !prevValue)
-    }
+
 
     const value = {
         isConnections,
@@ -83,8 +78,6 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         toggleAnimations,
         customBackground,
         toggleCustomBackground,
-        backgroundColor,
-        toggleBackgroundColor
 
     };
 
