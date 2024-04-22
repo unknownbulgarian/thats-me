@@ -18,8 +18,10 @@ export default function DesignPage() {
 
   const {
     customBackground, toggleCustomBackground,
+    customUsernameColor, toggleUsernameCustomColor,
+    backgroundChroma, toggleBackgroundChroma,
+    usernameChroma, toggleUsernameChroma,
     usernameColor, toggleUsernameColor,
-    usernameChroma, toggleUsernameChroma
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -65,8 +67,10 @@ export default function DesignPage() {
         <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
         {
           <>
-            <input className={styles.rangeinput} type='color'></input>
+            <BoxChecker chroma={true} toggled={backgroundChroma ? true : false} onClick={() => { toggleBackgroundChroma() }} title='Chroma' />
+            <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Static Color' />
 
+            <input className={styles.rangeinput} type='color'></input>
             <ButtonIcon
               background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
               borderRadius="0.3em"
@@ -83,6 +87,8 @@ export default function DesignPage() {
             >
               <FaSave />
             </ButtonIcon>
+
+
           </>}
 
       </div>
@@ -90,28 +96,32 @@ export default function DesignPage() {
 
       <div className={styles.option}>
 
-        <Toggler toggled={usernameColor ? true : false} onClick={() => toggleUsernameColor()} title='Username Custom Color' />
-        {usernameColor &&
+        <Toggler toggled={customUsernameColor ? true : false} onClick={() => toggleUsernameCustomColor()} title='Username Custom Color' />
+        {customUsernameColor &&
           <>
-            <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => {toggleUsernameChroma()}} title='Chroma' />
-            <input className={styles.rangeinput} type='color'></input>
+            <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => { toggleUsernameChroma() }} title='Chroma' />
+            <BoxChecker chroma={false} toggled={usernameColor ? true : false} onClick={() => { toggleUsernameColor() }} title='Color' />
+            {usernameColor && <input className={styles.rangeinput} type='color'></input>}
 
-            <ButtonIcon
-              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-              borderRadius="0.3em"
-              width="80px"
-              height="25px"
-              color="white"
-              title="Save"
-              titleColor="white"
-              iconFontSize="0.8rem"
-              titleFontSize='0.8rem'
-              marginTop='0.7em'
-              transform={false}
-              buttonType='submit'
-            >
-              <FaSave />
-            </ButtonIcon>
+            {(usernameColor || usernameChroma) && (
+              <ButtonIcon
+                background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+                borderRadius="0.3em"
+                width="80px"
+                height="25px"
+                color="white"
+                title="Save"
+                titleColor="white"
+                iconFontSize="0.8rem"
+                titleFontSize="0.8rem"
+                marginTop="0.7em"
+                transform={false}
+                buttonType="submit"
+              >
+                <FaSave />
+              </ButtonIcon>
+            )}
+
           </>}
 
       </div>

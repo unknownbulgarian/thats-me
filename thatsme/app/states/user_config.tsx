@@ -18,8 +18,12 @@ interface UserConfigType {
     //Design page
     customBackground: boolean;
     toggleCustomBackground: () => void;
+    customUsernameColor: boolean;
+    toggleUsernameCustomColor: () => void;
     usernameColor: boolean;
     toggleUsernameColor: () => void;
+    backgroundChroma: boolean;
+    toggleBackgroundChroma: () => void;
     usernameChroma: boolean;
     toggleUsernameChroma: () => void;
 }
@@ -47,10 +51,14 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     //Main Features
     const [customBackground, setCustomBackground] = useState<boolean>(false)
-    const [usernameColor, setUsernameColor] = useState<boolean>(false)
+    const [customUsernameColor, setUsernameCustomColor] = useState<boolean>(false)
 
     //Small Details
+    const [backgroundChroma, setBackgroundChroma] = useState<boolean>(false)
+    
+
     const [usernameChroma, setUsernameChroma] = useState<boolean>(false) 
+    const [usernameColor, setUsernameColor] = useState<boolean>(false)
 
     const toggleConnections = () => {
         setConnections(prevValue => !prevValue)
@@ -76,9 +84,18 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         setCustomBackground(prevValue => !prevValue)
     }
 
+    const toggleUsernameCustomColor = () => {
+        setUsernameCustomColor(prevValue => !prevValue)
+    }
+
     const toggleUsernameColor = () => {
         setUsernameColor(prevValue => !prevValue)
     }
+    
+    const toggleBackgroundChroma = () => {
+        setBackgroundChroma(prevValue => !prevValue)
+    }
+
 
     const toggleUsernameChroma = () => {
         setUsernameChroma(prevValue => !prevValue)
@@ -99,8 +116,12 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         toggleAnimations,
         customBackground,
         toggleCustomBackground,
+        customUsernameColor,
+        toggleUsernameCustomColor,
         usernameColor,
         toggleUsernameColor,
+        backgroundChroma,
+        toggleBackgroundChroma,
         usernameChroma,
         toggleUsernameChroma
 
