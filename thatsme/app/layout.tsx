@@ -9,6 +9,7 @@ import { ApiUrlProvider } from "./states/api";
 import { FetchProvider } from "./states/session";
 import { EditorProvider } from "./states/editor";
 import { UserConfigProvider } from "./states/config/Main&&Design";
+import { UserConnectionsProvider } from "./states/config/Connections_CF";
 import ErrorComp from "./global-components/error/error";
 
 export const metadata: Metadata = {
@@ -27,12 +28,14 @@ export default function RootLayout({
         <ApiUrlProvider>
           <ErrorProvider>
             <UserConfigProvider>
-              <EditorProvider>
-                <FetchProvider>
-                  <ErrorComp />
-                  {children}
-                </FetchProvider>
-              </EditorProvider>
+              <UserConnectionsProvider>
+                <EditorProvider>
+                  <FetchProvider>
+                    <ErrorComp />
+                    {children}
+                  </FetchProvider>
+                </EditorProvider>
+              </UserConnectionsProvider>
             </UserConfigProvider>
           </ErrorProvider>
         </ApiUrlProvider>
