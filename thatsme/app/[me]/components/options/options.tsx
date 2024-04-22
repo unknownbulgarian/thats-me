@@ -12,7 +12,7 @@ import { MdMusicNote } from "react-icons/md";
 import { FaRegSnowflake } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { FiCodepen } from "react-icons/fi";
-import { useConfig } from '@/app/states/user_config';
+import { useConfig } from '@/app/states/config/Main&&Design';
 
 
 
