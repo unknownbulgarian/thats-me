@@ -17,7 +17,6 @@ export default function DesignPage() {
 
   const { 
     customBackground, toggleCustomBackground,
-    backgroundColor, toggleBackgroundColor
    } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -65,8 +64,8 @@ export default function DesignPage() {
 
 
       <div className={styles.option}>
-        <Toggler toggled={backgroundColor ? true : false} onClick={() => toggleBackgroundColor()} title='Background Color' />
-        {backgroundColor &&
+        <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
+        {
           <>
             <input className={styles.rangeinput} type='color'></input>
 
