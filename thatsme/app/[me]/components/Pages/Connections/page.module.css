@@ -1,0 +1,23 @@
+.connections{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 0.8em;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.connection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+}
+
+.theconnection{
+    width: 170px;
+}
