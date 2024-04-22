@@ -1,0 +1,46 @@
+.boxchecker{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-bottom: 0.6em;
+    gap: 0.5em;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(87, 8, 190, 0.096);
+    border: 1px solid rgba(105, 15, 207, 0.486);
+    padding: 0.2em;
+    cursor: pointer;
+}
+
+.icon{
+    font-size: 0.8rem;
+    color: green;
+}
+
+.title{
+    color: rgb(199, 120, 238);
+}
+
+.chroma{
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+
+@keyframes rainbow_animation {
+    0%,100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}
