@@ -18,7 +18,8 @@ export default function DesignPage() {
 
   const {
     customBackground, toggleCustomBackground,
-    usernameColor, toggleUsernameColor
+    usernameColor, toggleUsernameColor,
+    usernameChroma, toggleUsernameChroma
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -92,7 +93,7 @@ export default function DesignPage() {
         <Toggler toggled={usernameColor ? true : false} onClick={() => toggleUsernameColor()} title='Username Custom Color' />
         {usernameColor &&
           <>
-            <BoxChecker chroma={true} toggled={true} title='Chroma' />
+            <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => {toggleUsernameChroma()}} title='Chroma' />
             <input className={styles.rangeinput} type='color'></input>
 
             <ButtonIcon
