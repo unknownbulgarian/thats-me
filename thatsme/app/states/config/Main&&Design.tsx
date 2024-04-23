@@ -22,6 +22,12 @@ interface UserConfigType {
     toggleUsernameCustomColor: () => void;
     usernameColor: boolean;
     toggleUsernameColor: () => void;
+    customBioColor: boolean;
+    toggleCustomBioColor: () => void;
+    bioChroma: boolean;
+    toggleBioChroma: () => void;
+    bioColor: boolean;
+    toggleBioColor: () => void;
     backgroundChroma: boolean;
     toggleBackgroundChroma: () => void;
     usernameChroma: boolean;
@@ -52,13 +58,18 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     //Main Features
     const [customBackground, setCustomBackground] = useState<boolean>(false)
     const [customUsernameColor, setUsernameCustomColor] = useState<boolean>(false)
+    const [customBioColor, setBioCustomColor] = useState<boolean>(false)
 
     //Small Details
     const [backgroundChroma, setBackgroundChroma] = useState<boolean>(false)
-    
 
-    const [usernameChroma, setUsernameChroma] = useState<boolean>(false) 
+
+    const [usernameChroma, setUsernameChroma] = useState<boolean>(false)
     const [usernameColor, setUsernameColor] = useState<boolean>(false)
+
+    const [bioChroma, setBioChroma] = useState<boolean>(false)
+    const [bioColor, setBioColor] = useState<boolean>(false)
+
 
     const toggleConnections = () => {
         setConnections(prevValue => !prevValue)
@@ -91,7 +102,19 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     const toggleUsernameColor = () => {
         setUsernameColor(prevValue => !prevValue)
     }
-    
+
+    const toggleCustomBioColor = () => {
+        setBioCustomColor(prevValue => !prevValue)
+    }
+
+    const toggleBioChroma = () => {
+        setBioChroma(prevValue => !prevValue)
+    }
+
+    const toggleBioColor = () => {
+        setBioColor(prevValue => !prevValue)
+    }
+
     const toggleBackgroundChroma = () => {
         setBackgroundChroma(prevValue => !prevValue)
     }
@@ -123,7 +146,13 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         backgroundChroma,
         toggleBackgroundChroma,
         usernameChroma,
-        toggleUsernameChroma
+        toggleUsernameChroma,
+        customBioColor,
+        toggleCustomBioColor,
+        bioChroma,
+        toggleBioChroma,
+        bioColor,
+        toggleBioColor
 
     };
 
