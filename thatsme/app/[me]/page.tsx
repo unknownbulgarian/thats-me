@@ -12,6 +12,8 @@ import { FaSteam } from "react-icons/fa6";
 import { FaSpotify } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
+import Particles from './components/Pages/Particles/config/particles';
+
 
 
 export default async function page({ params, searchParams }: any) {
@@ -19,6 +21,7 @@ export default async function page({ params, searchParams }: any) {
 
     return (
         <>
+            <Particles />
             <SessionProfile params={params} />
             <InfoProfile params={params} />
             <div className={styles.main}>
