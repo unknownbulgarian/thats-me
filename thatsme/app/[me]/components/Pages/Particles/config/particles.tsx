@@ -12,7 +12,17 @@ import { loadSlim } from 'tsparticles-slim';
 
 export default function ParticlesCF() {
 
-    const { particles } = useParticlesConfig()
+    const { 
+        particles,
+
+        //general
+        particlesNumber,
+        particlesOpacity,
+
+        hover,
+
+
+     } = useParticlesConfig()
 
     const particlesInit = useCallback(async (engine: any) => {
         await loadSlim(engine);
@@ -31,7 +41,7 @@ export default function ParticlesCF() {
              options={
                  { background: {
                     color: {
-                      value: "#0d47a1",
+                      value: "",
                     },
                   },
                   fpsLimit: 120,
@@ -42,7 +52,7 @@ export default function ParticlesCF() {
                         mode: "push",
                       },
                       onHover: {
-                        enable: true,
+                        enable: hover,
                         mode: "repulse",
                       },
                     },
@@ -81,10 +91,10 @@ export default function ParticlesCF() {
                       density: {
                         enable: true,
                       },
-                      value: 80,
+                      value: particlesNumber,
                     },
                     opacity: {
-                      value: 0.5,
+                      value: particlesOpacity,
                     },
                     shape: {
                       type: "circle",
