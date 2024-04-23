@@ -9,7 +9,7 @@ import { useConnectionsConfig } from '@/app/states/config/Connections_CF'
 
 import { FaSave } from "react-icons/fa";
 
-export default function Connections() {
+export default function ConnectionsPage() {
 
     const {
         instagram, toggleInstagram,
