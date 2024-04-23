@@ -1,0 +1,18 @@
+.particlespage{
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5em;
+    flex-wrap: wrap;
+    column-gap: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+
+
+.title{
+    color: rgb(226, 219, 219);
+    font-weight: 500;
+    font-size: 1rem;
+}
