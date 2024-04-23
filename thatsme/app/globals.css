@@ -50,3 +50,53 @@ p,h1{
   scrollbar-width: thin;
   scrollbar-color: #888 transparent;
 }
+
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%; 
+  height: 5px; 
+  background: rgba(105, 15, 207, 0.226); 
+  border: none;
+  outline: none; 
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  width: 16px;
+  height: 16px; 
+  background: rgb(105, 15, 207); 
+  border-radius: 50%; 
+  cursor: pointer; 
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 16px; 
+  height: 16px;
+  background: rgba(105, 15, 207, 0.226); 
+  border-radius: 50%; 
+  cursor: pointer; 
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: rgba(105, 15, 207, 0.226); 
+}
+
+input[type=range]::-moz-range-track {
+  height: 2px;
+  background: rgba(105, 15, 207, 0.226); 
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
