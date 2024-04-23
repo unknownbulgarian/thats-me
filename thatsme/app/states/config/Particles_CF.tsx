@@ -13,6 +13,27 @@ interface UserConfigType {
     particlesOpacity: number;
     setParticlesOpacity: Dispatch<SetStateAction<number>>;
 
+    links: boolean;
+    setLinks: Dispatch<SetStateAction<boolean>>;
+
+    //movement
+    move: boolean;
+    setMove: Dispatch<SetStateAction<boolean>>;
+
+    randomSpeed: boolean;
+    setRandomSpeed: Dispatch<SetStateAction<boolean>>;
+    
+    speed: number;
+    setSpeed: Dispatch<SetStateAction<number>>;
+
+    direction: any,
+    setDirection: Dispatch<SetStateAction<string>>; 
+
+    outMode: any,
+    setOutMode: Dispatch<SetStateAction<string>>;
+
+
+    //Interactivity
     hover: boolean;
     setHover: Dispatch<SetStateAction<boolean>>
     
@@ -42,7 +63,16 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
     //general
     const [particlesNumber, setParticlesNumber] = useState<number>(80)
+    const [particlesSize, setParticlesSize] = useState<number>()
     const [particlesOpacity, setParticlesOpacity] = useState<number>(0.5)
+    const [links, setLinks] = useState<boolean>(true)
+
+    //movement
+    const [move, setMove] = useState<boolean>(true)
+    const [randomSpeed, setRandomSpeed] = useState<boolean>(false)
+    const [speed, setSpeed] = useState<number>(6)
+    const [direction, setDirection] = useState<string>('none')
+    const [outMode, setOutMode] = useState<string>('bounce')
 
 
     const [hover, setHover] = useState<boolean>(false)
@@ -63,8 +93,30 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
         particlesOpacity,
         setParticlesOpacity,
 
+        links,
+        setLinks,
+
+        //movement
+        move,
+        setMove,
+
+        randomSpeed,
+        setRandomSpeed,
+
+        speed,
+        setSpeed,
+
+        direction,
+        setDirection,
+
+        outMode,
+        setOutMode,
+
+
+        //Interactivity
         hover,
         setHover,
+        
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;

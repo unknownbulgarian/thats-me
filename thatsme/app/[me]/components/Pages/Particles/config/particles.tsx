@@ -12,102 +12,112 @@ import { loadSlim } from 'tsparticles-slim';
 
 export default function ParticlesCF() {
 
-    const { 
-        particles,
+  const {
+    particles,
 
-        //general
-        particlesNumber,
-        particlesOpacity,
+    //general
+    particlesNumber,
+    particlesOpacity,
+    links,
 
-        hover,
+    //movement
+    move,
+    randomSpeed,
+    speed,
+    direction,
+    outMode,
 
-
-     } = useParticlesConfig()
-
-    const particlesInit = useCallback(async (engine: any) => {
-        await loadSlim(engine);
-    }, []);
-
-    const particlesLoaded = useCallback(async (container: any) => {
-        await console.log(container);
-    }, []);
+    //Interactivity
+    hover,
 
 
-    return (
-        <>
-            {particles &&
-                <div className={styles.particles}>
-             <Particles id='tsparticles' init={particlesInit} loaded={particlesLoaded} 
-             options={
-                 { background: {
-                    color: {
-                      value: "",
-                    },
+  } = useParticlesConfig()
+
+  const particlesInit = useCallback(async (engine: any) => {
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container: any) => {
+    await console.log(container);
+  }, []);
+
+
+  return (
+    <>
+      {particles &&
+        <div className={styles.particles}>
+          <Particles id='tsparticles' init={particlesInit} loaded={particlesLoaded}
+            options={
+              {
+                background: {
+                  color: {
+                    value: "",
                   },
-                  fpsLimit: 120,
-                  interactivity: {
-                    events: {
-                      onClick: {
-                        enable: true,
-                        mode: "push",
-                      },
-                      onHover: {
-                        enable: hover,
-                        mode: "repulse",
-                      },
-                    },
-                    modes: {
-                      push: {
-                        quantity: 4,
-                      },
-                      repulse: {
-                        distance: 200,
-                        duration: 0.4,
-                      },
-                    },
-                  },
-                  particles: {
-                    color: {
-                      value: "#ffffff",
-                    },
-                    links: {
-                      color: "#ffffff",
-                      distance: 150,
+                },
+                fpsLimit: 120,
+                interactivity: {
+                  events: {
+                    onClick: {
                       enable: true,
-                      opacity: 0.5,
-                      width: 1,
+                      mode: "push",
                     },
-                    move: {
-                      direction: "none",
-                      enable: true,
-                      outModes: {
-                        default: "bounce",
-                      },
-                      random: false,
-                      speed: 6,
-                      straight: false,
-                    },
-                    number: {
-                      density: {
-                        enable: true,
-                      },
-                      value: particlesNumber,
-                    },
-                    opacity: {
-                      value: particlesOpacity,
-                    },
-                    shape: {
-                      type: "circle",
-                    },
-                    size: {
-                      value: { min: 1, max: 5 },
+                    onHover: {
+                      enable: hover,
+                      mode: "repulse",
                     },
                   },
-                  detectRetina: true,
-               }
-             } />
-                </div>
-            }
-        </>
-    )
+                  modes: {
+                    push: {
+                      quantity: 4,
+                    },
+                    repulse: {
+                      distance: 200,
+                      duration: 0.4,
+                    },
+                  },
+                },
+                particles: {
+                  color: {
+                    value: "#ffffff",
+                  },
+                  links: {
+                    color: "#ffffff",
+                    distance: 150,
+                    enable: links,
+                    opacity: 0.5,
+                    width: 1,
+                  },
+                  move: {
+                    direction: direction,
+                    enable: move,
+                    outModes: {
+                      default: outMode,
+                    },
+                    random: randomSpeed,
+                    speed: speed,
+                    straight: false,
+                  },
+                  number: {
+                    density: {
+                      enable: true,
+                    },
+                    value: particlesNumber,
+                  },
+                  opacity: {
+                    value: particlesOpacity,
+                  },
+                  shape: {
+                    type: "circle",
+                  },
+                  size: {
+                    value: { min: 1, max: 5 },
+                  },
+                },
+                detectRetina: true,
+              }
+            } />
+        </div>
+      }
+    </>
+  )
 }
