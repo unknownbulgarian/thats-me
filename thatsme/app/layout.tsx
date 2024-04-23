@@ -10,6 +10,7 @@ import { FetchProvider } from "./states/session";
 import { EditorProvider } from "./states/editor";
 import { UserConfigProvider } from "./states/config/Main&&Design";
 import { UserConnectionsProvider } from "./states/config/Connections_CF";
+import { UserParticlesProvider } from "./states/config/Particles_CF";
 import ErrorComp from "./global-components/error/error";
 
 export const metadata: Metadata = {
@@ -29,12 +30,14 @@ export default function RootLayout({
           <ErrorProvider>
             <UserConfigProvider>
               <UserConnectionsProvider>
-                <EditorProvider>
-                  <FetchProvider>
-                    <ErrorComp />
-                    {children}
-                  </FetchProvider>
-                </EditorProvider>
+                <UserParticlesProvider>
+                  <EditorProvider>
+                    <FetchProvider>
+                      <ErrorComp />
+                      {children}
+                    </FetchProvider>
+                  </EditorProvider>
+                </UserParticlesProvider>
               </UserConnectionsProvider>
             </UserConfigProvider>
           </ErrorProvider>
