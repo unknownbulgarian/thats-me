@@ -8,7 +8,6 @@ import { useParticlesConfig } from '@/app/states/config/Particles_CF'
 
 export default function Particles() {
 
-
     const { particles } = useParticlesConfig()
 
 
