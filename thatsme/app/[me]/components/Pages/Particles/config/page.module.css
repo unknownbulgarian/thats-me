@@ -4,3 +4,10 @@
     height: 100%;
     z-index: -1;
 }
+
+.particle{
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
