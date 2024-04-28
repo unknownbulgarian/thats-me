@@ -97,8 +97,8 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     const [outMode, setOutMode] = useState<string>('bounce')
 
     //colors
-    const [particlesColor, setParticlesColor] = useState<string>('rgb(255, 255, 255)')
-    const [linksColor, setLinksColor] = useState<string>('rgb(255, 255, 255)')
+    const [particlesColor, setParticlesColor] = useState<string>('#ffffff')
+    const [linksColor, setLinksColor] = useState<string>('#ffffff')
 
 
     const [hover, setHover] = useState<boolean>(false)
