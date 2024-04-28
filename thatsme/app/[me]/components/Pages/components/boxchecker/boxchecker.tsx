@@ -8,12 +8,13 @@ interface BoxCheckerProps {
     toggled: boolean;
     chroma?: boolean;
     onClick?: MouseEventHandler<HTMLDivElement>
+    marginTop?: string;
 }
 
 
-export default function BoxChecker({ title, onClick, toggled, chroma }: BoxCheckerProps) {
+export default function BoxChecker({ title, onClick, toggled, chroma, marginTop }: BoxCheckerProps) {
     return (
-        <div className={styles.boxchecker}>
+        <div className={styles.boxchecker} style={{marginTop: marginTop}}>
             <div onClick={onClick} className={styles.box}>
                <FaCheck  className={`${toggled ? styles.icon : styles.off}`} />
             </div>
