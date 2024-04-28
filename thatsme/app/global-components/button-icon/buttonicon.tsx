@@ -23,10 +23,11 @@ interface ButtonIconProps {
     buttonType: any;
     marginTop?: string;
     onClick?: MouseEventHandler<HTMLDivElement>
+    marginBottom?: string;
 }
 
 export default function ButtonIcon({ backColor, width, height, borderRadius, color, children,
-    iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, gap, iconFontSize, backgroundImage, transform, background, buttonType, marginTop, onClick }: ButtonIconProps) {
+    iconBackColor, iconBorderRadius, title, titleColor, titleFontSize, gap, iconFontSize, backgroundImage, transform, background, buttonType, marginTop, onClick, marginBottom }: ButtonIconProps) {
     return (
         <div className={styles.buttonicon} onClick={onClick} style={{
             backgroundColor: backColor,
@@ -36,7 +37,8 @@ export default function ButtonIcon({ backColor, width, height, borderRadius, col
             gap: gap,
             backgroundImage: backgroundImage,
             background: background,
-            marginTop: marginTop
+            marginTop: marginTop,
+            marginBottom: marginBottom
         }}>
             <button type={buttonType} className={styles.thebutton}>hey</button>
             <span className={styles.icon} style={{
