@@ -155,7 +155,7 @@ export default function ParticlesPage() {
 
                 <h2 className={styles.title}>Colors</h2>
                 <RGInput inputWidth='100%' height='35px' type='color' marginBottom='1.4em' maxLength={3} min={0} max={150} value={particlesColor} onInput={(e) => { setParticlesColor(e.currentTarget.value) }} title='Particles Color' />
-                <RGInput inputWidth='100%' height='35px' type='color' marginBottom='1.4em' maxLength={3} min={0} max={150} value={linksColor} onInput={(e) => { setLinksColor(e.currentTarget.value) }} title='Particles Color' />
+                <RGInput inputWidth='100%' height='35px' type='color' marginBottom='1.4em' maxLength={3} min={0} max={150} value={linksColor} onInput={(e) => { setLinksColor(e.currentTarget.value) }} title='Links Color' />
             </div>
 
         </div>
