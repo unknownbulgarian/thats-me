@@ -17,6 +17,10 @@ export default function ParticlesCF() {
 
     //general
     particlesNumber,
+    particlesSize,
+    randomSize,
+    minSize,
+    maxSize,
     particlesOpacity,
     links,
 
@@ -110,7 +114,7 @@ export default function ParticlesCF() {
                     type: "circle",
                   },
                   size: {
-                    value: { min: 1, max: 5 },
+                    value: randomSize ? { min: minSize, max: maxSize } : particlesSize,
                   },
                 },
                 detectRetina: true,

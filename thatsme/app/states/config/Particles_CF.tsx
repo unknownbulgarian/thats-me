@@ -8,7 +8,19 @@ interface UserConfigType {
 
     //general settings
     particlesNumber: number;
-    setParticlesNumber: Dispatch<SetStateAction<number>>
+    setParticlesNumber: Dispatch<SetStateAction<number>>;
+
+    particlesSize: number;
+    setParticlesSize: Dispatch<SetStateAction<number>>;
+
+    randomSize: boolean;
+    setRandomSize: Dispatch<SetStateAction<boolean>>;
+
+    minSize: number;
+    setMinSize: Dispatch<SetStateAction<number>>;
+
+    maxSize: number;
+    setMaxSize:  Dispatch<SetStateAction<number>>;
 
     particlesOpacity: number;
     setParticlesOpacity: Dispatch<SetStateAction<number>>;
@@ -22,12 +34,12 @@ interface UserConfigType {
 
     randomSpeed: boolean;
     setRandomSpeed: Dispatch<SetStateAction<boolean>>;
-    
+
     speed: number;
     setSpeed: Dispatch<SetStateAction<number>>;
 
     direction: any,
-    setDirection: Dispatch<SetStateAction<string>>; 
+    setDirection: Dispatch<SetStateAction<string>>;
 
     outMode: any,
     setOutMode: Dispatch<SetStateAction<string>>;
@@ -36,7 +48,7 @@ interface UserConfigType {
     //Interactivity
     hover: boolean;
     setHover: Dispatch<SetStateAction<boolean>>
-    
+
 
 }
 
@@ -63,7 +75,10 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
     //general
     const [particlesNumber, setParticlesNumber] = useState<number>(80)
-    const [particlesSize, setParticlesSize] = useState<number>()
+    const [particlesSize, setParticlesSize] = useState<number>(4)
+    const [randomSize, setRandomSize] = useState<boolean>(false)
+    const [minSize, setMinSize] = useState<number>(1)
+    const [maxSize, setMaxSize] = useState<number>(5)
     const [particlesOpacity, setParticlesOpacity] = useState<number>(0.5)
     const [links, setLinks] = useState<boolean>(true)
 
@@ -89,6 +104,17 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
         //general settings
         particlesNumber,
         setParticlesNumber,
+
+        particlesSize,
+        setParticlesSize,
+
+        randomSize,
+        setRandomSize,
+
+        minSize,
+        setMinSize,
+        maxSize,
+        setMaxSize,
 
         particlesOpacity,
         setParticlesOpacity,
@@ -116,7 +142,7 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
         //Interactivity
         hover,
         setHover,
-        
+
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;

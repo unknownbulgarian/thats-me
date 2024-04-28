@@ -29,14 +29,25 @@ export default function ParticlesPage() {
     ]
 
     const outModes: Array<TitleObject> = [
-        {title: 'out'},
-        {title: 'bounce'}
+        { title: 'out' },
+        { title: 'bounce' }
     ]
 
     const {
         //general
         particlesNumber,
         setParticlesNumber,
+
+        particlesSize,
+        setParticlesSize,
+
+        randomSize,
+        setRandomSize,
+
+        minSize,
+        setMinSize,
+        maxSize,
+        setMaxSize,
 
         particlesOpacity,
         setParticlesOpacity,
@@ -73,7 +84,14 @@ export default function ParticlesPage() {
 
                 <h2 className={styles.title}>General</h2>
                 <RGInput marginBottom='1.4em' maxLength={3} min={0} max={430} value={particlesNumber} onInput={(e) => { setParticlesNumber(Number(e.currentTarget.value)) }} title='Particles Number' />
-                <RGInput marginBottom='1.4em' maxLength={3} min={0} max={430} value={particlesNumber} onInput={(e) => { setParticlesNumber(Number(e.currentTarget.value)) }} title='Size' />
+                <RGInput marginBottom='1.4em' maxLength={3} min={0} max={130} value={particlesSize} onInput={(e) => { setParticlesSize(Number(e.currentTarget.value)) }} title='Size' />
+                <BoxChecker title='Random Size' toggled={randomSize ? true : false} onClick={() => { setRandomSize(p => !p) }} />
+                {randomSize &&
+                    <>
+                    <RGInput marginBottom='1.4em' maxLength={3} min={1} max={100} value={minSize} onInput={(e) => { setMinSize(Number(e.currentTarget.value)) }} title='Min-Size' />
+                    <RGInput marginBottom='1.4em' maxLength={3} min={1} max={100} value={maxSize} onInput={(e) => { setMaxSize(Number(e.currentTarget.value)) }} title='Max-Size' />
+                    </>
+                }
                 <RGInput marginBottom='1.4em' maxLength={2} min={0} max={100} value={particlesOpacity} onInput={(e) => { setParticlesOpacity(Number(e.currentTarget.value)) }} title='Opacity' />
                 <BoxChecker title='Links' toggled={links ? true : false} onClick={() => { setLinks(p => !p) }} />
                 <h2 className={styles.title}>Interactivity</h2>
