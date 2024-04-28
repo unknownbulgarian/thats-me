@@ -53,8 +53,17 @@ interface UserConfigType {
 
 
     //Interactivity
+    click: boolean;
+    setClick: Dispatch<SetStateAction<boolean>>;
+
+    clickMode: string;
+    setClickMode: Dispatch<SetStateAction<string>>;
+
     hover: boolean;
-    setHover: Dispatch<SetStateAction<boolean>>
+    setHover: Dispatch<SetStateAction<boolean>>;
+
+    hoverMode: string;
+    setHoverMode: Dispatch<SetStateAction<string>>;
 
 
 }
@@ -100,8 +109,12 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     const [particlesColor, setParticlesColor] = useState<string>('#ffffff')
     const [linksColor, setLinksColor] = useState<string>('#ffffff')
 
+    const [click, setClick] = useState<boolean>(true)
+    const [clickMode, setClickMode] = useState<string>('push')
 
-    const [hover, setHover] = useState<boolean>(false)
+    const [hover, setHover] = useState<boolean>(true)
+    const [hoverMode, setHoverMode] = useState<string>('repulse')
+
 
 
 
@@ -158,8 +171,17 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
 
         //Interactivity
+        click,
+        setClick,
+
+        clickMode,
+        setClickMode,
+
         hover,
         setHover,
+
+        hoverMode,
+        setHoverMode,
 
     };
 

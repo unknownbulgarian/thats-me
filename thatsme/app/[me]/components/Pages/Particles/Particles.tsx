@@ -15,10 +15,13 @@ interface TitleObject {
 
 export default function ParticlesPage() {
 
-    const {showError} = useError() 
+    const { showError } = useError()
 
     const [directionExpand, setDirectionExpand] = useState<boolean>(false)
     const [outExpand, setOutExpand] = useState<boolean>(false)
+
+    const [clickModeExpand, setClickModeExpand] = useState<boolean>(false)
+    const [hoverModeExpand, setHoverModeExpand] = useState<boolean>(false)
 
     const directions: Array<TitleObject> = [
         { title: 'none' },
@@ -35,6 +38,19 @@ export default function ParticlesPage() {
     const outModes: Array<TitleObject> = [
         { title: 'out' },
         { title: 'bounce' }
+    ]
+
+    const clickModes: Array<TitleObject> = [
+        {title: 'push'},
+        {title: 'remove'},
+        {title: 'bubble'},
+        {title: 'repulse'},
+    ]
+
+    const hoverModes: Array<TitleObject> = [
+        {title: 'grab'},
+        {title: 'bubble'},
+        {title: 'repulse'},
     ]
 
     const {
@@ -84,7 +100,13 @@ export default function ParticlesPage() {
         setLinksColor,
 
         //Interactivity
-        hover, setHover
+        click, setClick,
+
+        clickMode, setClickMode,
+
+        hover, setHover,
+
+        hoverMode, setHoverMode,
 
     } = useParticlesConfig()
 
@@ -106,8 +128,18 @@ export default function ParticlesPage() {
                 <RGInput type='range' marginBottom='1.4em' maxLength={2} min={0} max={100} value={particlesOpacity} onInput={(e) => { setParticlesOpacity(Number(e.currentTarget.value)) }} title='Opacity' />
                 <BoxChecker title='Links' toggled={links ? true : false} onClick={() => { setLinks(p => !p) }} />
                 <h2 className={styles.title}>Interactivity</h2>
-                <BoxChecker title='Hover Event' toggled={hover ? true : false} onClick={() => { setHover(p => !p) }} />
-                <BoxChecker title='Click Event' toggled={hover ? true : false} onClick={() => { setHover(p => !p) }} />
+                <BoxChecker marginTop='0' title='Hover Event' toggled={hover ? true : false} onClick={() => { setHover(p => !p) }} />
+                {hover &&
+                    <Select marginBottom='0.6em' setExpand={setHoverModeExpand} setOption={setHoverMode} titles={hoverModes}
+                        value={hoverMode} expand={hoverModeExpand ? true : false} onClick={() => { setHoverModeExpand(p => !p) }}
+                        height='90px' title='Hover Mode' />
+                }
+                <BoxChecker marginTop='0' title='Click Event' toggled={click ? true : false} onClick={() => { setClick(p => !p) }} />
+                {click &&
+                    <Select   setExpand={setClickModeExpand} setOption={setClickMode} titles={clickModes}
+                        value={clickMode} expand={clickModeExpand ? true : false} onClick={() => { setClickModeExpand(p => !p) }}
+                        height='90px' title='Click Mode' />
+                }
             </div>
 
             <div className={styles.options}>

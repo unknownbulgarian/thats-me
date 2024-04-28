@@ -37,6 +37,10 @@ export default function ParticlesCF() {
 
     //Interactivity
     hover,
+    click,
+
+    clickMode,
+    hoverMode,
 
 
   } = useParticlesConfig()
@@ -66,12 +70,12 @@ export default function ParticlesCF() {
                 interactivity: {
                   events: {
                     onClick: {
-                      enable: true,
-                      mode: "push",
+                      enable: click,
+                      mode: clickMode,
                     },
                     onHover: {
                       enable: hover,
-                      mode: "repulse",
+                      mode: hoverMode,
                     },
                   },
                   modes: {
