@@ -18,6 +18,10 @@ export default function ParticlesCF() {
     //general
     shape,
     randomShape,
+    isImageShape,
+    imageShape,
+    imageW,
+    imageH,
     particlesNumber,
     particlesSize,
     randomSize,
@@ -123,7 +127,12 @@ export default function ParticlesCF() {
                     value: particlesOpacity,
                   },
                   shape: {
-                    type: randomShape ? ["circle", "edge", "triangle", "polygon", "polygon"] : shape,
+                    type: isImageShape ? 'image' : randomShape ? ["circle", "edge", "triangle", "polygon", "polygon"] : shape,
+                  image: {
+                    src: imageShape,
+                    width: imageW,
+                    height: imageH,
+                  }
                   },
                   size: {
                     value: randomSize ? { min: minSize, max: maxSize } : particlesSize,

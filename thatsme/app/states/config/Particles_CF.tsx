@@ -16,6 +16,16 @@ interface UserConfigType {
     isImageShape: boolean;
     setIsImageShape: Dispatch<SetStateAction<boolean>>;
 
+    imageShape: string;
+    setImageShape:  Dispatch<SetStateAction<string>>;
+
+    imageW: number;
+    setImageW: Dispatch<SetStateAction<number>>;
+
+    imageH: number;
+    setImageH: Dispatch<SetStateAction<number>>;
+
+
     particlesNumber: number;
     setParticlesNumber: Dispatch<SetStateAction<number>>;
 
@@ -108,6 +118,9 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     const [shape, setShape] = useState<string>('circle')
     const [randomShape, setRandomShape] = useState<boolean>(false)
     const [isImageShape, setIsImageShape] = useState<boolean>(false)
+    const [imageShape, setImageShape] = useState<string>('https://wallpapercave.com/wp/wp7932952.jpg')
+    const [imageW, setImageW] = useState<number>(100)
+    const [imageH, setImageH] = useState<number>(100)
     const [particlesNumber, setParticlesNumber] = useState<number>(80)
     const [particlesSize, setParticlesSize] = useState<number>(4)
     const [randomSize, setRandomSize] = useState<boolean>(false)
@@ -150,6 +163,15 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
         isImageShape,
         setIsImageShape,
+
+        imageShape,
+        setImageShape,
+
+        imageW,
+        setImageW,
+
+        imageH,
+        setImageH,
 
         particles,
         toggleParticles,

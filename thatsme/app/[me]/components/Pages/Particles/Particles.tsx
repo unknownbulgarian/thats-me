@@ -80,6 +80,15 @@ export default function ParticlesPage() {
         isImageShape,
         setIsImageShape,
 
+        imageShape,
+        setImageShape,
+
+        imageW,
+        setImageW,
+
+        imageH,
+        setImageH,
+
         particlesNumber,
         setParticlesNumber,
 
@@ -165,27 +174,13 @@ export default function ParticlesPage() {
                             type="text"
                             classN="home-inputs"
                             marginBottom='0.8em'
-
+                            value={imageShape}
+                            onInput={(e) => { setImageShape(e.currentTarget.value) }}
                         >
                             <FaImage />
                         </InputIcon>
-                        <ButtonIcon
-                             background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-                             borderRadius="0.3em"
-                             width="80px"
-                             height="25px"
-                             color="white"
-                             title="Save"
-                             titleColor="white"
-                             iconFontSize="0.8rem"
-                             titleFontSize='0.8rem'
-                             marginTop='0.7em'
-                             transform={false}
-                             buttonType='submit'
-                             marginBottom='0.4em'
-                        >
-                            <FaSave />
-                        </ButtonIcon>
+                        <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} value={imageW} onInput={(e) => { setImageW(Number(e.currentTarget.value)) }} title='Image Width' />
+                        <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} value={imageH} onInput={(e) => { setImageH(Number(e.currentTarget.value)) }} title='Image Height' />
                     </>
                 }
                 <RGInput type='range' marginBottom='1.4em' maxLength={3} min={0} max={430} value={particlesNumber} onInput={(e) => { setParticlesNumber(Number(e.currentTarget.value)) }} title='Particles Number' />
