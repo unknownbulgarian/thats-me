@@ -44,6 +44,13 @@ interface UserConfigType {
     outMode: any,
     setOutMode: Dispatch<SetStateAction<string>>;
 
+    //colors
+    particlesColor: string;
+    setParticlesColor: Dispatch<SetStateAction<string>>;
+
+    linksColor: string;
+    setLinksColor: Dispatch<SetStateAction<string>>;
+
 
     //Interactivity
     hover: boolean;
@@ -88,6 +95,10 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     const [speed, setSpeed] = useState<number>(6)
     const [direction, setDirection] = useState<string>('none')
     const [outMode, setOutMode] = useState<string>('bounce')
+
+    //colors
+    const [particlesColor, setParticlesColor] = useState<string>('rgb(255, 255, 255)')
+    const [linksColor, setLinksColor] = useState<string>('rgb(255, 255, 255)')
 
 
     const [hover, setHover] = useState<boolean>(false)
@@ -137,6 +148,13 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
         outMode,
         setOutMode,
+
+        //colors
+        particlesColor,
+        setParticlesColor,
+        
+        linksColor,
+        setLinksColor,
 
 
         //Interactivity

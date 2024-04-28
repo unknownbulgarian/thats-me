@@ -31,6 +31,10 @@ export default function ParticlesCF() {
     direction,
     outMode,
 
+    //colors
+    particlesColor,
+    linksColor,
+
     //Interactivity
     hover,
 
@@ -82,10 +86,10 @@ export default function ParticlesCF() {
                 },
                 particles: {
                   color: {
-                    value: "#ffffff",
+                    value: particlesColor,
                   },
                   links: {
-                    color: "#ffffff",
+                    color: linksColor,
                     distance: 150,
                     enable: links,
                     opacity: 0.5,
