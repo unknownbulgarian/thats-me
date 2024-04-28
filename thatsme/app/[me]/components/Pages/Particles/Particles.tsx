@@ -147,7 +147,7 @@ export default function ParticlesPage() {
                 <BoxChecker title='Move' toggled={move ? true : false} onClick={() => { setMove(p => !p) }} />
                 <BoxChecker title='Random Speed' toggled={randomSpeed ? true : false} onClick={() => { setRandomSpeed(p => !p) }} />
                 <RGInput type='range' marginBottom='1.4em' maxLength={3} min={0} max={150} value={speed} onInput={(e) => { setSpeed(Number(e.currentTarget.value)) }} title='Speed' />
-                <Select setExpand={setDirectionExpand} setOption={setDirection} titles={directions} value={direction} expand={directionExpand ? true : false} onClick={() => { setDirectionExpand(p => !p) }}
+                <Select marginBottom='0.6em' setExpand={setDirectionExpand} setOption={setDirection} titles={directions} value={direction} expand={directionExpand ? true : false} onClick={() => { setDirectionExpand(p => !p) }}
                     height='190px' title='Direction' />
 
                 <Select setExpand={setOutExpand} setOption={setOutMode} titles={outModes} value={outMode} expand={outExpand ? true : false} onClick={() => { setOutExpand(p => !p) }}
