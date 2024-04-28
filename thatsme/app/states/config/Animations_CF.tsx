@@ -1,9 +1,10 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 
 interface UserConfigType {
-
+   profilePhoto: boolean;
+   setProfilePhoto: Dispatch<SetStateAction<boolean>>
 }
  
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -18,9 +19,12 @@ export const useAnimationsConfig = (): UserConfigType => {
 
 export const AnimationsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
+    const [profilePhoto, setProfilePhoto] = useState<boolean>(false)
+
 
     const value = {
-
+        profilePhoto,
+        setProfilePhoto,
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;
