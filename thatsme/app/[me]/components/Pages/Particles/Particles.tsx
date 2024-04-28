@@ -195,7 +195,7 @@ export default function ParticlesPage() {
                         <RGInput type='range' marginBottom='1.4em' maxLength={3} min={1} max={100} value={maxSize} onInput={(e) => { setMaxSize(Number(e.currentTarget.value)) }} title='Max-Size' />
                     </>
                 }
-                <RGInput type='range' marginBottom='1.4em' maxLength={2} min={0} max={100} value={particlesOpacity} onInput={(e) => { setParticlesOpacity(Number(e.currentTarget.value)) }} title='Opacity' />
+                <RGInput type='range' marginBottom='1.4em' maxLength={2} min={0} max={100} value={particlesOpacity} onInput={(e) => { setParticlesOpacity(Number(e.currentTarget.value)) }} title='Particles Opacity' />
                 <BoxChecker title='Links' toggled={links ? true : false} onClick={() => { setLinks(p => !p) }} />
                 {links && <>
                     <RGInput type='range' marginBottom='1.4em' maxLength={3} min={0} max={400}
