@@ -6,6 +6,7 @@ import { useError } from '@/app/states/errorstate'
 import DesignPage from '../Pages/Design/Design'
 import ConnectionsPage from '../Pages/Connections/Connections'
 import ParticlesPage from '../Pages/Particles/Particles'
+import AnimationsPage from '../Pages/Animations/Animations'
 
 export default function FeaturesPages() {
 
@@ -18,6 +19,7 @@ export default function FeaturesPages() {
             {page === 'design' && <DesignPage />}
             {page === 'connections' && <ConnectionsPage />}
             {page === 'particles' && <ParticlesPage />}
+            {page === 'animations' && <AnimationsPage />}
         </>
     )
 }
