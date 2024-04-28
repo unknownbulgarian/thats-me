@@ -129,6 +129,9 @@ export default function ParticlesPage() {
         direction,
         setDirection,
 
+        straightLine,
+        setStraightLine,
+
         outMode,
         setOutMode,
 
@@ -223,6 +226,9 @@ export default function ParticlesPage() {
                 <RGInput type='range' marginBottom='1.4em' maxLength={3} min={0} max={150} value={speed} onInput={(e) => { setSpeed(Number(e.currentTarget.value)) }} title='Speed' />
                 <Select marginBottom='0.6em' setExpand={setDirectionExpand} setOption={setDirection} titles={directions} value={direction} expand={directionExpand ? true : false} onClick={() => { setDirectionExpand(p => !p) }}
                     height='190px' title='Direction' />
+
+                <BoxChecker   marginTop='0' title='Straight Line' toggled={straightLine ? true : false} onClick={() => { setStraightLine(p => !p) }} />
+
 
                 <Select setExpand={setOutExpand} setOption={setOutMode} titles={outModes} value={outMode} expand={outExpand ? true : false} onClick={() => { setOutExpand(p => !p) }}
                     height='50px' title='outMode' />
