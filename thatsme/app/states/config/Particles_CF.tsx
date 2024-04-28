@@ -7,6 +7,15 @@ interface UserConfigType {
     toggleParticles: () => void;
 
     //general settings
+    shape: string;
+    setShape: Dispatch<SetStateAction<string>>;
+
+    randomShape: boolean;
+    setRandomShape: Dispatch<SetStateAction<boolean>>;
+
+    isImageShape: boolean;
+    setIsImageShape: Dispatch<SetStateAction<boolean>>;
+
     particlesNumber: number;
     setParticlesNumber: Dispatch<SetStateAction<number>>;
 
@@ -20,7 +29,7 @@ interface UserConfigType {
     setMinSize: Dispatch<SetStateAction<number>>;
 
     maxSize: number;
-    setMaxSize:  Dispatch<SetStateAction<number>>;
+    setMaxSize: Dispatch<SetStateAction<number>>;
 
     particlesOpacity: number;
     setParticlesOpacity: Dispatch<SetStateAction<number>>;
@@ -50,6 +59,12 @@ interface UserConfigType {
 
     linksColor: string;
     setLinksColor: Dispatch<SetStateAction<string>>;
+
+    linksWidth: number;
+    setLinksWidth: Dispatch<SetStateAction<number>>;
+
+    linksOpacity: number;
+    setLinksOpacity: Dispatch<SetStateAction<number>>;
 
 
     //Interactivity
@@ -90,6 +105,9 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     //details config starts from here
 
     //general
+    const [shape, setShape] = useState<string>('circle')
+    const [randomShape, setRandomShape] = useState<boolean>(false)
+    const [isImageShape, setIsImageShape] = useState<boolean>(false)
     const [particlesNumber, setParticlesNumber] = useState<number>(80)
     const [particlesSize, setParticlesSize] = useState<number>(4)
     const [randomSize, setRandomSize] = useState<boolean>(false)
@@ -97,6 +115,8 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     const [maxSize, setMaxSize] = useState<number>(5)
     const [particlesOpacity, setParticlesOpacity] = useState<number>(0.5)
     const [links, setLinks] = useState<boolean>(true)
+    const [linksWidth, setLinksWidth] = useState<number>(1)
+    const [linksOpacity, setLinksOpacity] = useState<number>(0.5)
 
     //movement
     const [move, setMove] = useState<boolean>(true)
@@ -122,6 +142,15 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
 
     const value = {
+        shape,
+        setShape,
+
+        randomShape,
+        setRandomShape,
+
+        isImageShape,
+        setIsImageShape,
+
         particles,
         toggleParticles,
 
@@ -146,6 +175,12 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
         links,
         setLinks,
 
+        linksWidth,
+        setLinksWidth,
+
+        linksOpacity,
+        setLinksOpacity,
+
         //movement
         move,
         setMove,
@@ -165,10 +200,9 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
         //colors
         particlesColor,
         setParticlesColor,
-        
+
         linksColor,
         setLinksColor,
-
 
         //Interactivity
         click,

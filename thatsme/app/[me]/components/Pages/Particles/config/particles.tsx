@@ -16,6 +16,8 @@ export default function ParticlesCF() {
     particles,
 
     //general
+    shape,
+    randomShape,
     particlesNumber,
     particlesSize,
     randomSize,
@@ -23,6 +25,8 @@ export default function ParticlesCF() {
     maxSize,
     particlesOpacity,
     links,
+    linksWidth,
+    linksOpacity,
 
     //movement
     move,
@@ -96,8 +100,8 @@ export default function ParticlesCF() {
                     color: linksColor,
                     distance: 150,
                     enable: links,
-                    opacity: 0.5,
-                    width: 1,
+                    opacity: linksOpacity,
+                    width: linksWidth,
                   },
                   move: {
                     direction: direction,
@@ -119,7 +123,7 @@ export default function ParticlesCF() {
                     value: particlesOpacity,
                   },
                   shape: {
-                    type: "circle",
+                    type: randomShape ? ["circle", "edge", "triangle", "polygon", "polygon"] : shape,
                   },
                   size: {
                     value: randomSize ? { min: minSize, max: maxSize } : particlesSize,
