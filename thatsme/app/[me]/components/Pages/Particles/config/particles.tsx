@@ -37,6 +37,7 @@ export default function ParticlesCF() {
     randomSpeed,
     speed,
     direction,
+    straightLine,
     outMode,
 
     //colors
@@ -115,7 +116,7 @@ export default function ParticlesCF() {
                     },
                     random: randomSpeed,
                     speed: speed,
-                    straight: false,
+                    straight: straightLine,
                   },
                   number: {
                     density: {
