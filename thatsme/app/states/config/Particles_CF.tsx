@@ -57,8 +57,11 @@ interface UserConfigType {
     speed: number;
     setSpeed: Dispatch<SetStateAction<number>>;
 
-    direction: any,
+    direction: any;
     setDirection: Dispatch<SetStateAction<string>>;
+
+    straightLine: boolean;
+    setStraightLine: Dispatch<SetStateAction<boolean>>;
 
     outMode: any,
     setOutMode: Dispatch<SetStateAction<string>>;
@@ -136,6 +139,7 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
     const [randomSpeed, setRandomSpeed] = useState<boolean>(false)
     const [speed, setSpeed] = useState<number>(6)
     const [direction, setDirection] = useState<string>('none')
+    const [straightLine, setStraightLine] = useState<boolean>(false)
     const [outMode, setOutMode] = useState<string>('bounce')
 
     //colors
@@ -215,6 +219,10 @@ export const UserParticlesProvider: React.FC<{ children: ReactNode }> = ({ child
 
         direction,
         setDirection,
+
+        straightLine,
+        setStraightLine,
+        
 
         outMode,
         setOutMode,
