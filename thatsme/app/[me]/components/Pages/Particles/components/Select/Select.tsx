@@ -15,10 +15,11 @@ interface SelectProps {
     setExpand: Dispatch<SetStateAction<boolean>>;  
     setOption: Dispatch<SetStateAction<string>>;  
     value?: string;
+    marginBottom?: string;
 }
 
 
-export default function Select({ titles, title, expand, onClick, height, value, noClick, setOption, setExpand }: SelectProps) {
+export default function Select({ titles, title, expand, onClick, height, value, noClick, setOption, setExpand, marginBottom }: SelectProps) {
 
 
 
@@ -28,7 +29,8 @@ export default function Select({ titles, title, expand, onClick, height, value, 
             <div onClick={!expand ? onClick : noClick} className={styles.select}
                 style={{
                     height: expand ? height : '25px',
-                    overflow: expand ? 'auto' : 'hidden'
+                    overflow: expand ? 'auto' : 'hidden',
+                    marginBottom: marginBottom,
                 }}
             >
                 {!expand && <p className={styles.value}>{value}</p>}
