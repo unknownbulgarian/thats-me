@@ -3,8 +3,8 @@
 import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 
 interface UserConfigType {
-   profilePhoto: boolean;
-   setProfilePhoto: Dispatch<SetStateAction<boolean>>
+   animation: string;
+   setAnimation: Dispatch<SetStateAction<string>>
 }
  
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -19,12 +19,12 @@ export const useAnimationsConfig = (): UserConfigType => {
 
 export const AnimationsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-    const [profilePhoto, setProfilePhoto] = useState<boolean>(false)
+     const [animation, setAnimation] = useState<string>('slide-right')
 
 
     const value = {
-        profilePhoto,
-        setProfilePhoto,
+      animation,
+      setAnimation
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;
