@@ -47,12 +47,12 @@ export default function EditOptions() {
                         <BsPersonFill />
                     </Feature>
 
-                    <Feature toggled={true} mainClick={() => { setPage('analytics') }} toggleClick={() => { showError("You can't disable this feature") }}
+                    <Feature toggled={true} mainClick={() => { showError("Coming soon") }} toggleClick={() => { showError("You can't disable this feature") }}
                         title='Analytics'>
                         <MdAnalytics />
                     </Feature>
 
-                    <Feature toggled={isMusic ? true : false} toggleClick={() => {toggleMusic()}} mainClick={() => { setPage('music') }} title='Music'>
+                    <Feature toggled={isMusic ? true : false} toggleClick={() => {showError("Coming soon")}} mainClick={() => {showError("Coming soon") }} title='Music'>
                         <MdMusicNote />
                     </Feature>
 
@@ -60,7 +60,7 @@ export default function EditOptions() {
                         <FaRegSnowflake />
                     </Feature>
 
-                    <Feature toggled={isFunction ? true : false} toggleClick={() => {toggleFunction()}} mainClick={() => { setPage('functionality') }} title='Functionality'>
+                    <Feature toggled={isFunction ? true : false} toggleClick={() => {showError("Coming soon")}} mainClick={() => { showError("Coming soon") }} title='Functionality'>
                         <IoMdSettings />
                     </Feature>
 
