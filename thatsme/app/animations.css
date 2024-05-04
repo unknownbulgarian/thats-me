@@ -1,0 +1,67 @@
+.slide-right {
+    position: relative;
+    animation: slideright 2s forwards;
+}
+
+.slide-left {
+    position: relative;
+    animation: slideleft 2s forwards;
+}
+
+.slide-top {
+    position: relative;
+    animation: slidetop 2s forwards;
+}
+
+.slide-bottom {
+    position: relative;
+    animation: slidebottom 2s forwards;
+}
+
+@keyframes slideright {
+    0% {
+        opacity: 0;
+        left: 70px;
+    }
+
+    100% {
+        opacity: 1;
+        left: 0px;
+    }
+}
+
+@keyframes slideleft {
+    0% {
+        opacity: 0;
+        right: 70px;
+    }
+
+    100% {
+        opacity: 1;
+        right: 0px;
+    }
+}
+
+@keyframes slidetop {
+    0% {
+        opacity: 0;
+        bottom: 70px;
+    }
+
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+
+@keyframes slidebottom {
+    0% {
+        opacity: 0;
+        top: 70px;
+    }
+
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
