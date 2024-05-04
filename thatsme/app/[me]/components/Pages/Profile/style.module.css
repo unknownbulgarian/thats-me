@@ -1,0 +1,9 @@
+.profile{
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5em;
+    gap: 1em;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
