@@ -3,6 +3,7 @@ import styles from './page.module.css'
 
 import SessionProfile from './components/session/session';
 import InfoProfile from './components/info/info';
+import AnimationHandler from './components/AnimationHandler/AnimationHandler';
 
 import { useApiUrl } from '../states/api';
 
@@ -25,20 +26,25 @@ export default async function page({ params, searchParams }: any) {
             <SessionProfile params={params} />
             <InfoProfile params={params} />
             <div className={styles.main}>
+                <AnimationHandler>
+                    <div className={styles.profile}>
+                        <img className={styles.profileimg} src={searchParams.img_link}></img>
+                        <h1 className={styles.username}>{searchParams.username}</h1>
+                        <p className={styles.bio}>{searchParams.bio}</p>
+                    </div>
+                </AnimationHandler>
 
-                <div className={styles.profile}>
-                    <img className={styles.profileimg} src={searchParams.img_link}></img>
-                    <h1 className={styles.username}>{searchParams.username}</h1>
-                    <p className={styles.bio}>{searchParams.bio}</p>
-                </div>
 
 
                 <div className={styles.links}>
-                    <FaInstagram className={styles.linkicon} />
-                    <FaSteam className={styles.linkicon} />
-                    <FaSpotify className={styles.linkicon} />
-                    <FaFacebookF className={styles.linkicon} />
+                    <AnimationHandler isSocials={true} gap='1em'>
+                        <FaInstagram className={styles.linkicon} />
+                        <FaSteam className={styles.linkicon} />
+                        <FaSpotify className={styles.linkicon} />
+                        <FaFacebookF className={styles.linkicon} />
+                    </AnimationHandler>
                 </div>
+
             </div>
         </>
     )
