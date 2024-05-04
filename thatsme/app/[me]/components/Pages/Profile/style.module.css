@@ -1,9 +1,33 @@
 .profile{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding-top: 1.5em;
     gap: 1em;
     width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.bio{
+    resize: none;
+    width: 254px;
+    height: 100px;
+    background-color: #262c50;
+    border: none;
+    border-radius: 0.3em;
+    color: white;
+    outline: transparent;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.bio::placeholder{
+    color: rgb(123, 63, 202);
 }
