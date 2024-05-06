@@ -82,9 +82,9 @@ export default function ProfilePage() {
             </div>
 
             <div className={styles.option}>
-              <textarea placeholder='Bio' className={styles.bio}>
+                <textarea className={styles.bio}>
 
-              </textarea>
+                </textarea>
                 <ButtonIcon
                     background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                     borderRadius="0.3em"
