@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 import { useApiUrl } from '../api';
 
 interface UserConfigType {
@@ -19,6 +19,12 @@ interface UserConfigType {
     //Design page
     customBackground: boolean;
     toggleCustomBackground: () => void;
+    theCustomBackground: string;
+    setTheCustomBackground: Dispatch<SetStateAction<string>>;
+    backgroundColor: string;
+    setBackgroundColor: Dispatch<SetStateAction<string>>;
+
+
     customUsernameColor: boolean;
     toggleUsernameCustomColor: () => void;
     usernameColor: boolean;
@@ -60,9 +66,11 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     const [isAnimations, setAnimations] = useState<boolean>(false)
 
     //Design Page
+    const [backgroundColor, setBackgroundColor] = useState<string>('rgb(0,0,0)')
 
     //Main Features
     const [customBackground, setCustomBackground] = useState<boolean>(false)
+    const [theCustomBackground, setTheCustomBackground] = useState<string>('https://wallpapercave.com/wp/wp7932952.jpg')
     const [customUsernameColor, setUsernameCustomColor] = useState<boolean>(false)
     const [customBioColor, setBioCustomColor] = useState<boolean>(false)
 
@@ -181,6 +189,13 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
         customBackground,
         toggleCustomBackground,
+
+        theCustomBackground,
+        setTheCustomBackground,
+
+        backgroundColor,
+        setBackgroundColor,
+
         customUsernameColor,
         toggleUsernameCustomColor,
         usernameColor,
