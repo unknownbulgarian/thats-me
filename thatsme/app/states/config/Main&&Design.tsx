@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { useApiUrl } from '../api';
 
 interface UserConfigType {
     //Main features
@@ -32,6 +33,9 @@ interface UserConfigType {
     toggleBackgroundChroma: () => void;
     usernameChroma: boolean;
     toggleUsernameChroma: () => void;
+
+    //main functions
+    getFeatures: (user: string) => Promise<any>;
 }
 
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -45,6 +49,8 @@ export const useConfig = (): UserConfigType => {
 };
 
 export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+
+    const apiUr = useApiUrl()
 
     //main features
     const [isConnections, setConnections] = useState<boolean>(false)
@@ -69,6 +75,37 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const [bioChroma, setBioChroma] = useState<boolean>(false)
     const [bioColor, setBioColor] = useState<boolean>(false)
+
+
+    const getFeatures = async (user: string) => {
+        try {
+            const response = await fetch(apiUr + '/features', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} - ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            const features = data.features
+
+            setMusic(features.music)
+            setParticles(features.particles)
+            setFunction(features.functionality)
+            setAnimations(features.animations)
+            setConnections(features.connections)
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching features:', error);
+            throw error;
+        }
+    };
 
 
     const toggleConnections = () => {
@@ -129,14 +166,19 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     const value = {
         isConnections,
         toggleConnections,
+
         isMusic,
         toggleMusic,
+
         isParticles,
         toggleParticles,
+
         isFunction,
         toggleFunction,
+
         isAnimations,
         toggleAnimations,
+
         customBackground,
         toggleCustomBackground,
         customUsernameColor,
@@ -152,7 +194,10 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         bioChroma,
         toggleBioChroma,
         bioColor,
-        toggleBioColor
+        toggleBioColor,
+        
+        //main functions
+        getFeatures
 
     };
 
