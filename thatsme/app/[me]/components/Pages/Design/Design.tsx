@@ -24,7 +24,9 @@ export default function DesignPage() {
     usernameColor, toggleUsernameColor,
     customBioColor, toggleCustomBioColor,
     bioChroma, toggleBioChroma,
-    bioColor, toggleBioColor
+    bioColor, toggleBioColor,
+    backgroundColor,setBackgroundColor,
+    theCustomBackground,setTheCustomBackground,
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -45,6 +47,8 @@ export default function DesignPage() {
               titleColor="white"
               type="text"
               classN="home-inputs"
+              value={theCustomBackground}
+              onInput={(e) => {setTheCustomBackground(e.currentTarget.value)}}
             >
               <IoIosLink />
             </InputIcon>
@@ -73,7 +77,7 @@ export default function DesignPage() {
             <BoxChecker chroma={true} toggled={backgroundChroma ? true : false} onClick={() => { toggleBackgroundChroma() }} title='Chroma' />
             <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Static Color' />
 
-            <input className={styles.rangeinput} type='color'></input>
+            <input value={backgroundColor} onInput={(e) => {setBackgroundColor(e.currentTarget.value)}} className={styles.rangeinput} type='color'></input>
             <ButtonIcon
               background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
               borderRadius="0.3em"
