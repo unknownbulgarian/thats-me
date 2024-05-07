@@ -4,6 +4,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
 import Particles from "react-tsparticles";
+import { useConfig } from '@/app/states/config/Main&&Design';
 import type { Engine, Container } from "@tsparticles/engine";
 import { loadFull } from "tsparticles";
 
@@ -11,6 +12,8 @@ import { useParticlesConfig } from '@/app/states/config/Particles_CF'
 import { loadSlim } from 'tsparticles-slim';
 
 export default function ParticlesCF() {
+
+  const {isParticles} = useConfig()
 
   const {
     particles,
@@ -65,7 +68,7 @@ export default function ParticlesCF() {
 
   return (
     <>
-      {particles &&
+      {isParticles &&
         <div className={styles.particles}>
           <Particles id='tsparticles' init={particlesInit} loaded={particlesLoaded}
             options={
