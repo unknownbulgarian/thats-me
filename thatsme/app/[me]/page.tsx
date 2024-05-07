@@ -14,6 +14,7 @@ import { FaSpotify } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 
 import ParticlesCF from './components/Pages/Particles/config/particles';
+import Config from './components/config/Config';
 
 
 
@@ -23,6 +24,7 @@ export default async function page({ params, searchParams }: any) {
     return (
         <>
             <ParticlesCF />
+            <Config params={params} />
             <SessionProfile params={params} />
             <InfoProfile params={params} />
             <div className={styles.main}>
