@@ -15,6 +15,7 @@ import { MdEdit } from "react-icons/md";
 
 import ParticlesCF from './components/Pages/Particles/config/particles';
 import Config from './components/config/Config';
+import Background from './components/config/Design/Background/Background';
 
 
 
@@ -23,6 +24,7 @@ export default async function page({ params, searchParams }: any) {
 
     return (
         <>
+            <Background />
             <ParticlesCF />
             <Config params={params} />
             <SessionProfile params={params} />
