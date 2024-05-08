@@ -31,7 +31,7 @@ export default function ConnectionsPage() {
                     <Toggler title='Instagram' toggled={instagram ? true : false} onClick={() => { toggleInstagram() }} />
                     {instagram &&
                         <>
-                            <ConnectionBox placeholder='username...' title='https://www.instagram.com/'  />
+                            <ConnectionBox value={instagramUrl} onInput={(e) => {setInstagramUrl(e.currentTarget.value)}} placeholder='username...' title='https://www.instagram.com/'  />
                             <ButtonIcon
                                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                                 borderRadius="0.3em"
@@ -56,7 +56,7 @@ export default function ConnectionsPage() {
                     <Toggler title='Steam' toggled={steam ? true : false} onClick={() => { toggleSteam() }} />
                     {steam &&
                         <>
-                            <ConnectionBox placeholder='profiles/7456...' title='https://steamcommunity.com/' />
+                            <ConnectionBox value={steamUrl} onInput={(e) => {setSteamUrl(e.currentTarget.value)}} placeholder='profiles/7456...' title='https://steamcommunity.com/' />
                             <ButtonIcon
                                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                                 borderRadius="0.3em"
@@ -82,7 +82,7 @@ export default function ConnectionsPage() {
                     <Toggler title='Spotify' toggled={spotify ? true : false} onClick={() => { toggleSpotify() }} />
                     {spotify &&
                         <>
-                            <ConnectionBox placeholder='user/31ld2z...' title='https://open.spotify.com/' />
+                            <ConnectionBox value={spotifyUrl} onInput={(e) => {setSpotifyUrl(e.currentTarget.value)}} placeholder='user/31ld2z...' title='https://open.spotify.com/' />
                             <ButtonIcon
                                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                                 borderRadius="0.3em"
@@ -106,7 +106,7 @@ export default function ConnectionsPage() {
                     <Toggler title='Facebook' toggled={facebook ? true : false} onClick={() => { toggleFacebook() }} />
                     {facebook &&
                         <>
-                            <ConnectionBox placeholder='people/username/pf...' title='https://facebook.com/' />
+                            <ConnectionBox value={facebookUrl} onInput={(e) => {setFacebookUrl(e.currentTarget.value)}} placeholder='people/username/pf...' title='https://facebook.com/' />
                             <ButtonIcon
                                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                                 borderRadius="0.3em"
