@@ -33,9 +33,31 @@ export default function DesignPage() {
   } = useConfig()
   const { showError, showSuccess } = useError()
 
-  
-  const saveBackgroundColor = () => {
-      
+
+  const saveBackgroundColor = async () => {
+    try {
+      const response = await fetch(apiUrl + '/changeBackgroundColor', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ chroma: backgroundChroma, staticColor: backgroundColor, token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
   }
 
 
@@ -98,6 +120,7 @@ export default function DesignPage() {
               marginTop='0.7em'
               transform={false}
               buttonType='submit'
+              onClick={() => { saveBackgroundColor() }}
             >
               <FaSave />
             </ButtonIcon>
