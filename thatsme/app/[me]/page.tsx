@@ -19,7 +19,7 @@ export default async function page({ params, searchParams }: any) {
 
     return (
         <>
-            <LoaderConfig />
+            <LoaderConfig params={params} />
             <Background />
             <ParticlesCF />
             <Config params={params} />
