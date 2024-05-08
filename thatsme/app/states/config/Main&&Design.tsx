@@ -1,8 +1,15 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
 import { useApiUrl } from '../api';
 import { useError } from '../errorstate';
+
+
+interface userInfo {
+    theUsername: string
+    theBio: string
+    theImg: string
+}
 
 interface UserConfigType {
     //Main features
@@ -45,6 +52,18 @@ interface UserConfigType {
 
     //main functions
     getFeatures: (user: string) => Promise<any>;
+
+    //Profile
+    photoUrl: string;
+    setPhotoUrl: Dispatch<SetStateAction<string>>;
+
+    username: string;
+    setUsername: Dispatch<SetStateAction<string>>;
+
+    bio: string;
+    setBio: Dispatch<SetStateAction<string>>;
+
+    getUserInfo: () => void;
 }
 
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -61,6 +80,13 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const apiUrl = useApiUrl()
     const { showSuccess, showError } = useError()
+
+    //Profile
+    const [photoUrl, setPhotoUrl] = useState<string>('')
+    const [username, setUsername] = useState<string>('')
+    const [bio, setBio] = useState<string>('')
+
+
 
     //main features
     const [isConnections, setConnections] = useState<boolean>(false)
@@ -238,6 +264,40 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     }
 
 
+    const getUserInfo = async () => {
+        try {
+            const response = await fetch(apiUrl + '/getUserInfoP', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            });
+
+            const data = await response.json();
+
+            if (!data.error) {
+                const info: userInfo = data.userInfo
+
+                setUsername(info.theUsername)
+                setBio(info.theBio)
+                setPhotoUrl(info.theImg)
+            } else {
+                showError('Something went wrong')
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching features:', error);
+            throw error;
+        }
+    }
+
+    useEffect(() => {
+        getUserInfo()
+    }, [])
+
+
 
     const value = {
         isConnections,
@@ -282,7 +342,19 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         toggleBioColor,
 
         //main functions
-        getFeatures
+        getFeatures,
+
+        //Profile
+        username,
+        setUsername,
+
+        bio,
+        setBio,
+
+        photoUrl,
+        setPhotoUrl,
+
+        getUserInfo,
 
     };
 
