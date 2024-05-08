@@ -19,6 +19,7 @@ interface UserConfigType {
 
     //Design page
     customBackground: boolean;
+    setCustomBackground: Dispatch<SetStateAction<boolean>>;
     toggleCustomBackground: () => void;
     theCustomBackground: string;
     setTheCustomBackground: Dispatch<SetStateAction<string>>;
@@ -255,6 +256,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         toggleAnimations,
 
         customBackground,
+        setCustomBackground,
         toggleCustomBackground,
 
         theCustomBackground,
