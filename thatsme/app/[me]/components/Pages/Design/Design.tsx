@@ -21,6 +21,7 @@ export default function DesignPage() {
 
   const {
     customBackground, toggleCustomBackground,
+    setCustomBackground,
     customUsernameColor, toggleUsernameCustomColor,
     backgroundChroma, toggleBackgroundChroma,
     usernameChroma, toggleUsernameChroma,
@@ -47,7 +48,59 @@ export default function DesignPage() {
       const data = await response.json();
 
       if (!data.error) {
+        showSuccess('Saved successfully')
+      } else {
+        showError('Something went wrong')
+      }
 
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+  const saveBackgroundImage = async () => {
+    try {
+      const response = await fetch(apiUrl + '/addCustomBackground', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ theCustomBackground, token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+         showSuccess('Saved successfully')
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+  const toggleBackgroundImage = async () => {
+    try {
+      const response = await fetch(apiUrl + '/toggleCustomBackground', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+          setCustomBackground(data.value)
       } else {
         showError('Something went wrong')
       }
@@ -64,7 +117,7 @@ export default function DesignPage() {
   return (
     <div className={styles.design}>
       <div className={styles.option} >
-        <Toggler toggled={customBackground ? true : false} onClick={() => { toggleCustomBackground() }} title='Background Image' />
+        <Toggler toggled={customBackground ? true : false} onClick={() => { toggleBackgroundImage() }} title='Background Image' />
         {customBackground &&
           <>
             <InputIcon
@@ -95,6 +148,7 @@ export default function DesignPage() {
               marginTop='0.7em'
               transform={false}
               buttonType='submit'
+              onClick={() => {saveBackgroundImage()}}
             >
               <FaSave />
             </ButtonIcon>
