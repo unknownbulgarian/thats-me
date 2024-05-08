@@ -57,7 +57,7 @@ export const useConfig = (): UserConfigType => {
 
 export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-    const apiUr = useApiUrl()
+    const apiUrl = useApiUrl()
     const { showSuccess, showError } = useError()
 
     //main features
@@ -89,7 +89,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const getFeatures = async (user: string) => {
         try {
-            const response = await fetch(apiUr + '/features', {
+            const response = await fetch(apiUrl + '/features', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const toggleConnections = async () => {
         try {
-            const response = await fetch(apiUr + '/toggleConnections', {
+            const response = await fetch(apiUrl + '/toggleConnections', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const toggleParticles = async () => {
         try {
-            const response = await fetch(apiUr + '/toggleParticles', {
+            const response = await fetch(apiUrl + '/toggleParticles', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const toggleAnimations = async () => {
         try {
-            const response = await fetch(apiUr + '/toggleAnimations', {
+            const response = await fetch(apiUrl + '/toggleAnimations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
