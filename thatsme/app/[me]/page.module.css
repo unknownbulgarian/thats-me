@@ -32,18 +32,3 @@
 .bio {
     margin: 0em;
 }
-
-.links {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-    bottom: 20px;
-}
-
-.linkicon {
-    color: white;
-    font-size: 2.3rem;
-    cursor: pointer;
-}
