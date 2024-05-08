@@ -12,17 +12,96 @@ interface ConfigProps {
 }
 
 interface settings {
-    animationSettings: {}
-    connectionSettings: {}
-    designSettings: {
-        backgroundColor: {
-            chroma: boolean,
-            color: string
-        }
-    }
-    particlesSettings: {}
-    profileSettings: {}
+    animationSettings: animations
+    connectionSettings: connections
+    designSettings: design
+    particlesSettings: particles
+    profileSettings: profile
 }
+
+interface animations {
+    animation: string;
+}
+
+interface connections {
+    facebook: {
+        enabled: boolean,
+        url: string,
+    }
+    instagram: {
+        enabled: boolean,
+        url: string
+    }
+    spotify: {
+        enabled: boolean,
+        url: string
+    }
+    steam: {
+        enabled: boolean,
+        url: string
+    }
+}
+
+interface design {
+    backgroundColor: {
+        chroma: boolean,
+        color: string
+    }
+    backgroundImage: {
+        enabled: boolean,
+        url: string
+    }
+}
+
+interface particles {
+    colors: {
+        particlesColor: string
+        linksColor: string
+    }
+    general: {
+        imageShape: boolean
+        imageShapeUrl: string
+        links: boolean
+        linksOpacity: number
+        linksWidth: number
+        maxSize: number
+        minSize: number
+        particlesNumber: number
+        particlesOpacity: number
+        particlesShape: string
+        particlesSize: number
+        randomShape: boolean
+        randomSize: boolean
+    }
+    interactivity: {
+        clickEvent: boolean
+        clickMode: string
+        hoverEvent: boolean
+        hoverMode: string
+    }
+    movement: {
+        direction: string
+        move: boolean
+        outMode: string
+        randomSpeed: boolean
+        speed: number
+        straightLine: boolean
+    }
+}
+
+interface profile {
+    bio: {
+        bio: string
+    }
+
+    profilePhoto: {
+        url: string
+    }
+    username: {
+        name: string
+    }
+}
+
 
 
 const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
