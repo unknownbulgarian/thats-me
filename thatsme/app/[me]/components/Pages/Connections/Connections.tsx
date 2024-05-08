@@ -15,7 +15,12 @@ export default function ConnectionsPage() {
         instagram, toggleInstagram,
         steam, toggleSteam,
         spotify, toggleSpotify,
-        facebook, toggleFacebook
+        facebook, toggleFacebook,
+
+        instagramUrl,setInstagramUrl,
+        steamUrl, setSteamUrl,
+        spotifyUrl, setSpotifyUrl,
+        facebookUrl,setFacebookUrl,
     } = useConnectionsConfig()
 
 
@@ -26,7 +31,7 @@ export default function ConnectionsPage() {
                     <Toggler title='Instagram' toggled={instagram ? true : false} onClick={() => { toggleInstagram() }} />
                     {instagram &&
                         <>
-                            <ConnectionBox placeholder='username...' title='https://www.instagram.com/' />
+                            <ConnectionBox placeholder='username...' title='https://www.instagram.com/'  />
                             <ButtonIcon
                                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                                 borderRadius="0.3em"
