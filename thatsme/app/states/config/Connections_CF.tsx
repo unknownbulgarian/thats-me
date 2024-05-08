@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 
 interface UserConfigType {
     instagram: boolean;
@@ -11,6 +11,20 @@ interface UserConfigType {
     toggleSpotify: () => void;
     facebook: boolean;
     toggleFacebook: () => void;
+
+    //urls
+    instagramUrl: string;
+    setInstagramUrl: Dispatch<SetStateAction<string>>;
+
+    steamUrl: string;
+    setSteamUrl: Dispatch<SetStateAction<string>>;
+
+    spotifyUrl: string;
+    setSpotifyUrl: Dispatch<SetStateAction<string>>;
+
+    facebookUrl: string;
+    setFacebookUrl: Dispatch<SetStateAction<string>>;
+
 }
  
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -29,6 +43,11 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
     const [steam, setSteam] = useState<boolean>(false)
     const [spotify, setSpotify] = useState<boolean>(false)
     const [facebook, setFacebook] = useState<boolean>(false)
+
+    const [instagramUrl, setInstagramUrl] = useState<string>('')
+    const [steamUrl, setSteamUrl] = useState<string>('')
+    const [spotifyUrl, setSpotifyUrl] = useState<string>('')
+    const [facebookUrl, setFacebookUrl] = useState<string>('')
 
     const toggleInstagram = () => {
         setInstagram(prevValue => !prevValue)
@@ -55,7 +74,20 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
         spotify,
         toggleSpotify,
         facebook,
-        toggleFacebook
+        toggleFacebook,
+
+        //urls
+        instagramUrl,
+        setInstagramUrl,
+
+        steamUrl,
+        setSteamUrl,
+
+        spotifyUrl,
+        setSpotifyUrl,
+        
+        facebookUrl,
+        setFacebookUrl
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;
