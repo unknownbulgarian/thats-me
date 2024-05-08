@@ -12,6 +12,11 @@ interface UserConfigType {
     facebook: boolean;
     toggleFacebook: () => void;
 
+    setInstagram:  Dispatch<SetStateAction<boolean>>;
+    setSteam: Dispatch<SetStateAction<boolean>>;
+    setSpotify: Dispatch<SetStateAction<boolean>>;
+    setFacebook: Dispatch<SetStateAction<boolean>>;
+
     //urls
     instagramUrl: string;
     setInstagramUrl: Dispatch<SetStateAction<string>>;
@@ -75,6 +80,11 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
         toggleSpotify,
         facebook,
         toggleFacebook,
+
+        setInstagram,
+        setSteam,
+        setSpotify,
+        setFacebook,
 
         //urls
         instagramUrl,
