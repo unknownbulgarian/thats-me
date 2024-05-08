@@ -3,6 +3,7 @@ import styles from './page.module.css'
 
 import { useParticlesConfig } from '@/app/states/config/Particles_CF'
 import { useError } from '@/app/states/errorstate'
+import { useApiUrl } from '@/app/states/api'
 
 import InputIcon from '@/app/global-components/input-icon/InputIcon'
 import ButtonIcon from '@/app/global-components/button-icon/buttonicon'
@@ -20,7 +21,8 @@ interface TitleObject {
 
 export default function ParticlesPage() {
 
-    const { showError } = useError()
+    const { showError, showSuccess } = useError()
+    const apiUrl = useApiUrl()
 
     const [shapeExpand, setShapeExpand] = useState<boolean>(false)
 
@@ -154,12 +156,76 @@ export default function ParticlesPage() {
 
     } = useParticlesConfig()
 
+    const saveParticles = async () => {
+
+        const particles = {
+            shape,
+            randomShape,
+            isImageShape,
+            imageShape,
+            imageW,
+            imageH,
+            particlesNumber,
+            particlesSize,
+            randomSize,
+            minSize,
+            maxSize,
+            particlesOpacity,
+            links,
+            linksWidth,
+            linksOpacity,
+
+            //movement
+            move,
+            randomSpeed,
+            speed,
+            direction,
+            straightLine,
+            outMode,
+
+            //colors
+            particlesColor,
+            linksColor,
+
+            //Interactivity
+            hover,
+            click,
+
+            clickMode,
+            hoverMode,
+        }
+
+        try {
+            const response = await fetch(apiUrl + '/saveParticles', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ particles, token: localStorage.getItem('token') })
+            });
+
+            const data = await response.json();
+
+            if (!data.error) {
+                showSuccess('Saved successfully')
+            } else {
+                showError('Something went wrong')
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching features:', error);
+            throw error;
+        }
+
+    }
+
     return (
         <div className={styles.particlespage}>
 
             <div className={styles.options}>
 
-                
+
 
                 <h2 className={styles.title}>General</h2>
                 <Select marginBottom='0.6em' setExpand={setShapeExpand} setOption={setShape} titles={shapes} value={shape} expand={shapeExpand ? true : false} onClick={() => { setShapeExpand(p => !p) }}
@@ -229,7 +295,7 @@ export default function ParticlesPage() {
                 <Select marginBottom='0.6em' setExpand={setDirectionExpand} setOption={setDirection} titles={directions} value={direction} expand={directionExpand ? true : false} onClick={() => { setDirectionExpand(p => !p) }}
                     height='190px' title='Direction' />
 
-                <BoxChecker   marginTop='0' title='Straight Line' toggled={straightLine ? true : false} onClick={() => { setStraightLine(p => !p) }} />
+                <BoxChecker marginTop='0' title='Straight Line' toggled={straightLine ? true : false} onClick={() => { setStraightLine(p => !p) }} />
 
 
                 <Select setExpand={setOutExpand} setOption={setOutMode} titles={outModes} value={outMode} expand={outExpand ? true : false} onClick={() => { setOutExpand(p => !p) }}
@@ -252,7 +318,7 @@ export default function ParticlesPage() {
                     marginTop='0.7em'
                     transform={false}
                     buttonType='submit'
-                    onClick={() => { }}
+                    onClick={() => { saveParticles() }}
                 >
                     <FaSave />
                 </ButtonIcon>

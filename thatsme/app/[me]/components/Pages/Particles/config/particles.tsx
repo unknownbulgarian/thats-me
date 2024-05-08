@@ -51,8 +51,13 @@ export default function ParticlesCF() {
     hover,
     click,
 
+    
+    
+
     clickMode,
     hoverMode,
+
+  
 
 
   } = useParticlesConfig()
