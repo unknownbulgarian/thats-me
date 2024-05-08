@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import SessionProfile from './components/session/session';
 import InfoProfile from './components/info/info';
 import AnimationHandler from './components/AnimationHandler/AnimationHandler';
+import LoaderConfig from './components/Loader/Loader';
 
 import ParticlesCF from './components/Pages/Particles/config/particles';
 import Config from './components/config/Config';
@@ -18,6 +19,7 @@ export default async function page({ params, searchParams }: any) {
 
     return (
         <>
+            <LoaderConfig />
             <Background />
             <ParticlesCF />
             <Config params={params} />
