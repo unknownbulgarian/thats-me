@@ -6,6 +6,9 @@ import { useApiUrl } from '@/app/states/api'
 
 //features
 import { useConfig } from '@/app/states/config/Main&&Design'
+import { useConnectionsConfig } from '@/app/states/config/Connections_CF'
+import { useAnimationsConfig } from '@/app/states/config/Animations_CF'
+import { useParticlesConfig } from '@/app/states/config/Particles_CF'
 
 interface ConfigProps {
     params: { me: string };
@@ -13,7 +16,7 @@ interface ConfigProps {
 
 interface settings {
     animationSettings: animations
-    connectionSettings: connections
+    connectionsSettings: connections
     designSettings: design
     particlesSettings: particles
     profileSettings: profile
@@ -107,10 +110,51 @@ interface profile {
 const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
 
     const apiUrl = useApiUrl()
+
     const {
         setBackgroundColor, setBackgroundChroma,
+        setTheCustomBackground, setCustomBackground
 
     } = useConfig()
+
+    const {
+        setFacebook, setSteam, setSpotify, setInstagram,
+        setFacebookUrl, setSteamUrl, setSpotifyUrl, setInstagramUrl
+    } = useConnectionsConfig()
+
+    const {
+        setAnimation
+    } = useAnimationsConfig()
+
+    const {
+        setShape,
+        setRandomShape,
+        setIsImageShape,
+        setImageShape,
+        setImageW,
+        setImageH,
+        setParticlesNumber,
+        setParticlesSize,
+        setRandomSize,
+        setMinSize,
+        setMaxSize,
+        setParticlesOpacity,
+        setLinks,
+        setLinksWidth,
+        setLinksOpacity,
+        setMove,
+        setRandomSpeed,
+        setSpeed,
+        setDirection,
+        setStraightLine,
+        setOutMode,
+        setParticlesColor,
+        setLinksColor,
+        setClick,
+        setClickMode,
+        setHover,
+        setHoverMode,
+    } = useParticlesConfig()
 
 
     const loadSettings = async () => {
@@ -130,9 +174,68 @@ const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
                 const settings: settings = data.settings
 
                 const design = settings.designSettings
+                const connections = settings.connectionsSettings
+                const animations = settings.animationSettings
+                const particles = settings.particlesSettings
+                const profile = settings.profileSettings
 
+                //Design
                 setBackgroundChroma(design.backgroundColor.chroma)
                 setBackgroundColor(design.backgroundColor.color)
+                setCustomBackground(design.backgroundImage.enabled)
+                setTheCustomBackground(design.backgroundImage.url)
+
+                //Connections
+                setInstagram(connections.instagram.enabled)
+                setSteam(connections.steam.enabled)
+                setSpotify(connections.spotify.enabled)
+                setFacebook(connections.facebook.enabled)
+
+                setInstagramUrl(connections.instagram.url)
+                setSteamUrl(connections.steam.url)
+                setSpotifyUrl(connections.spotify.url)
+                setFacebookUrl(connections.facebook.url)
+
+                //Animations
+                setAnimation(animations.animation)
+
+                //Particles colors
+                setLinksColor(particles.colors.linksColor)
+                setParticlesColor(particles.colors.particlesColor)
+
+                //Particles general
+                setIsImageShape(particles.general.imageShape)
+                setImageShape(particles.general.imageShapeUrl)
+                setLinks(particles.general.links)
+                setLinksOpacity(particles.general.linksOpacity)
+                setLinksWidth(particles.general.linksWidth)
+                setMaxSize(particles.general.maxSize)
+                setMinSize(particles.general.minSize)
+                setParticlesNumber(particles.general.particlesNumber)
+                setParticlesOpacity(particles.general.particlesOpacity)
+                setShape(particles.general.particlesShape)
+                setParticlesSize(particles.general.particlesSize)
+                setRandomShape(particles.general.randomShape)
+                setRandomSize(particles.general.randomSize)
+
+                //Particles interactivity
+                setClick(particles.interactivity.clickEvent)
+                setClickMode(particles.interactivity.clickMode)
+                setHover(particles.interactivity.hoverEvent)
+                setHoverMode(particles.interactivity.hoverMode)
+
+                //Particles movement
+                setDirection(particles.movement.direction)
+                setMove(particles.movement.move)
+                setOutMode(particles.movement.outMode)
+                setRandomSpeed(particles.movement.randomSpeed)
+                setSpeed(particles.movement.speed)
+                setStraightLine(particles.movement.straightLine)
+
+
+
+
+
 
             } else {
                 console.log(data.error)
