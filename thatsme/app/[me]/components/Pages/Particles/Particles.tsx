@@ -159,6 +159,8 @@ export default function ParticlesPage() {
 
             <div className={styles.options}>
 
+                
+
                 <h2 className={styles.title}>General</h2>
                 <Select marginBottom='0.6em' setExpand={setShapeExpand} setOption={setShape} titles={shapes} value={shape} expand={shapeExpand ? true : false} onClick={() => { setShapeExpand(p => !p) }}
                     height='105px' title='Particles Shape' />
@@ -236,6 +238,24 @@ export default function ParticlesPage() {
                 <h2 className={styles.title}>Colors</h2>
                 <RGInput inputWidth='100%' height='35px' type='color' marginBottom='1.4em' maxLength={3} min={0} max={150} value={particlesColor} onInput={(e) => { setParticlesColor(e.currentTarget.value) }} title='Particles Color' />
                 <RGInput inputWidth='100%' height='35px' type='color' marginBottom='1.4em' maxLength={3} min={0} max={150} value={linksColor} onInput={(e) => { setLinksColor(e.currentTarget.value) }} title='Links Color' />
+
+                <ButtonIcon
+                    background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+                    borderRadius="0.3em"
+                    width="80px"
+                    height="25px"
+                    color="white"
+                    title="Save"
+                    titleColor="white"
+                    iconFontSize="0.8rem"
+                    titleFontSize='0.8rem'
+                    marginTop='0.7em'
+                    transform={false}
+                    buttonType='submit'
+                    onClick={() => { }}
+                >
+                    <FaSave />
+                </ButtonIcon>
             </div>
 
         </div>
