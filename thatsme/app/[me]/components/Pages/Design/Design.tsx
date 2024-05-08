@@ -53,22 +53,7 @@ export default function DesignPage() {
               <IoIosLink />
             </InputIcon>
 
-            <ButtonIcon
-              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-              borderRadius="0.3em"
-              width="80px"
-              height="25px"
-              color="white"
-              title="Save"
-              titleColor="white"
-              iconFontSize="0.8rem"
-              titleFontSize='0.8rem'
-              marginTop='0.7em'
-              transform={false}
-              buttonType='submit'
-            >
-              <FaSave />
-            </ButtonIcon>
+          
           </>}
 
         <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
@@ -78,24 +63,6 @@ export default function DesignPage() {
             <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Static Color' />
 
             <input value={backgroundColor} onInput={(e) => {setBackgroundColor(e.currentTarget.value)}} className={styles.rangeinput} type='color'></input>
-            <ButtonIcon
-              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-              borderRadius="0.3em"
-              width="80px"
-              height="25px"
-              color="white"
-              title="Save"
-              titleColor="white"
-              iconFontSize="0.8rem"
-              titleFontSize='0.8rem'
-              marginTop='0.7em'
-              transform={false}
-              buttonType='submit'
-            >
-              <FaSave />
-            </ButtonIcon>
-
-
           </>}
 
       </div>
