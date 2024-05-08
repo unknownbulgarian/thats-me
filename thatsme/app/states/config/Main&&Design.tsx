@@ -37,6 +37,7 @@ interface UserConfigType {
     bioColor: boolean;
     toggleBioColor: () => void;
     backgroundChroma: boolean;
+    setBackgroundChroma: Dispatch<SetStateAction<boolean>>;
     toggleBackgroundChroma: () => void;
     usernameChroma: boolean;
     toggleUsernameChroma: () => void;
@@ -267,6 +268,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         usernameColor,
         toggleUsernameColor,
         backgroundChroma,
+        setBackgroundChroma,
         toggleBackgroundChroma,
         usernameChroma,
         toggleUsernameChroma,
