@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
 import { useApiUrl } from '../api';
+import { useError } from '../errorstate';
 
 interface UserConfigType {
     //Main features
@@ -57,6 +58,7 @@ export const useConfig = (): UserConfigType => {
 export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     const apiUr = useApiUrl()
+    const { showSuccess, showError } = useError()
 
     //main features
     const [isConnections, setConnections] = useState<boolean>(false)
@@ -116,24 +118,88 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     };
 
 
-    const toggleConnections = () => {
-        setConnections(prevValue => !prevValue)
+    const toggleConnections = async () => {
+        try {
+            const response = await fetch(apiUr + '/toggleConnections', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            });
+
+            const data = await response.json();
+
+            if (!data.error) {
+                setConnections(data.connections)
+            } else {
+                showError('Something went wrong')
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching features:', error);
+            throw error;
+        }
     }
 
     const toggleMusic = () => {
         setMusic(prevValue => !prevValue)
     }
 
-    const toggleParticles = () => {
-        setParticles(prevValue => !prevValue)
+    const toggleParticles = async () => {
+        try {
+            const response = await fetch(apiUr + '/toggleParticles', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            });
+
+            const data = await response.json();
+
+            if (!data.error) {
+                setParticles(data.particles)
+            } else {
+                showError('Something went wrong')
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching features:', error);
+            throw error;
+        }
+
     }
 
     const toggleFunction = () => {
         setFunction(prevValue => !prevValue)
     }
 
-    const toggleAnimations = () => {
-        setAnimations(prevValue => !prevValue)
+    const toggleAnimations = async () => {
+        try {
+            const response = await fetch(apiUr + '/toggleAnimations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            });
+
+            const data = await response.json();
+
+            if (!data.error) {
+                setAnimations(data.animations)
+            } else {
+                showError('Something went wrong')
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching features:', error);
+            throw error;
+        }
     }
 
     const toggleCustomBackground = () => {
@@ -210,7 +276,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         toggleBioChroma,
         bioColor,
         toggleBioColor,
-        
+
         //main functions
         getFeatures
 
