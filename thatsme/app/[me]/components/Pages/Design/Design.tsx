@@ -25,8 +25,8 @@ export default function DesignPage() {
     customBioColor, toggleCustomBioColor,
     bioChroma, toggleBioChroma,
     bioColor, toggleBioColor,
-    backgroundColor,setBackgroundColor,
-    theCustomBackground,setTheCustomBackground,
+    backgroundColor, setBackgroundColor,
+    theCustomBackground, setTheCustomBackground,
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -48,12 +48,26 @@ export default function DesignPage() {
               type="text"
               classN="home-inputs"
               value={theCustomBackground}
-              onInput={(e) => {setTheCustomBackground(e.currentTarget.value)}}
+              onInput={(e) => { setTheCustomBackground(e.currentTarget.value) }}
             >
               <IoIosLink />
             </InputIcon>
-
-          
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize='0.8rem'
+              marginTop='0.7em'
+              transform={false}
+              buttonType='submit'
+            >
+              <FaSave />
+            </ButtonIcon>
           </>}
 
         <Toggler toggled={true} onClick={() => showError("You can't disable this feature")} title='Background Color' />
@@ -62,7 +76,23 @@ export default function DesignPage() {
             <BoxChecker chroma={true} toggled={backgroundChroma ? true : false} onClick={() => { toggleBackgroundChroma() }} title='Chroma' />
             <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Static Color' />
 
-            <input value={backgroundColor} onInput={(e) => {setBackgroundColor(e.currentTarget.value)}} className={styles.rangeinput} type='color'></input>
+            <input value={backgroundColor} onInput={(e) => { setBackgroundColor(e.currentTarget.value) }} className={styles.rangeinput} type='color'></input>
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize='0.8rem'
+              marginTop='0.7em'
+              transform={false}
+              buttonType='submit'
+            >
+              <FaSave />
+            </ButtonIcon>
           </>}
 
       </div>
@@ -70,7 +100,7 @@ export default function DesignPage() {
 
       <div className={styles.option}>
 
-        <Toggler toggled={customUsernameColor ? true : false} onClick={() => toggleUsernameCustomColor()} title='Username Custom Color' />
+        <Toggler toggled={false} onClick={() => showError("Coming soon")} title='Username Custom Color' />
         {customUsernameColor &&
           <>
             <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => { toggleUsernameChroma() }} title='Chroma' />
@@ -98,7 +128,7 @@ export default function DesignPage() {
 
           </>}
 
-          <Toggler toggled={customBioColor ? true : false} onClick={() => toggleCustomBioColor()} title='Bio Custom Color' />
+        <Toggler toggled={false} onClick={() => showError("Coming soon")} title='Bio Custom Color' />
         {customBioColor &&
           <>
             <BoxChecker chroma={true} toggled={bioChroma ? true : false} onClick={() => { toggleBioChroma() }} title='Chroma' />
