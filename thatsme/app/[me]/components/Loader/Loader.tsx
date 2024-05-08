@@ -11,13 +11,26 @@ interface ConfigProps {
     params: { me: string };
 }
 
+interface settings {
+    animationSettings: {}
+    connectionSettings: {}
+    designSettings: {
+        backgroundColor: {
+            chroma: boolean,
+            color: string
+        }
+    }
+    particlesSettings: {}
+    profileSettings: {}
+}
+
 
 const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
 
     const apiUrl = useApiUrl()
     const {
         setBackgroundColor, setBackgroundChroma,
-        
+
     } = useConfig()
 
 
@@ -35,7 +48,7 @@ const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
 
             if (!data.error) {
                 console.log(data.settings)
-                const settings = data.settings
+                const settings: settings = data.settings
 
                 const design = settings.designSettings
 
