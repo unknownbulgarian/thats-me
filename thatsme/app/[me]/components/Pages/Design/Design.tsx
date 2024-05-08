@@ -5,6 +5,7 @@ import styles from './page.module.css'
 
 import { useConfig } from '@/app/states/config/Main&&Design'
 import { useError } from '@/app/states/errorstate'
+import { useApiUrl } from '@/app/states/api'
 
 import InputIcon from '@/app/global-components/input-icon/InputIcon'
 import ButtonIcon from '@/app/global-components/button-icon/buttonicon'
@@ -15,6 +16,8 @@ import { IoIosLink } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 
 export default function DesignPage() {
+
+  const apiUrl = useApiUrl()
 
   const {
     customBackground, toggleCustomBackground,
@@ -29,6 +32,11 @@ export default function DesignPage() {
     theCustomBackground, setTheCustomBackground,
   } = useConfig()
   const { showError, showSuccess } = useError()
+
+  
+  const saveBackgroundColor = () => {
+      
+  }
 
 
   return (
