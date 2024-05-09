@@ -27,6 +27,7 @@ export default function ConnectionsPage() {
         spotifyUrl, setSpotifyUrl,
         facebookUrl, setFacebookUrl,
 
+
         setInstagram, setSteam, setSpotify, setFacebook,
     } = useConnectionsConfig()
 
