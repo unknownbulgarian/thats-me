@@ -33,6 +33,8 @@ export default function DesignPage() {
     backgroundColor, setBackgroundColor,
     theCustomBackground, setTheCustomBackground,
     socialsDesign, setSocialsDesign,
+    backgroundBlur, setBackgroundBlur,
+    blurValue, setBlurValue
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -138,8 +140,10 @@ export default function DesignPage() {
               <IoIosLink />
             </InputIcon>
 
-            <BoxChecker marginTop='0.5em' toggled={true} onClick={() => { }} title='Blur' />
-            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Blur value' />
+            <BoxChecker marginTop='0.5em' toggled={backgroundBlur ? true : false} onClick={() => { setBackgroundBlur(p => !p) }} title='Blur' />
+            {backgroundBlur &&
+              <RGInput type='range' marginBottom='1.4em' value={blurValue} maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { setBlurValue(Number(e.currentTarget.value))}} title='Blur value' />}
+
 
             <ButtonIcon
               background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
