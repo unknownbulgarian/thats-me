@@ -220,6 +220,7 @@ const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
 
                 setSocialsDesign(design.socials.enabled)
                 setSocialsBackground(design.socials.backgroundColor)
+                setTheSocialsBackgroundColor(design.socials.theBackgroundColor)
                 setSocialsBackgroundH(design.socials.backgroundHeight)
                 setSocialsBackgroundW(design.socials.backgroundWidth)
                 setSocialColor(design.socials.color)
