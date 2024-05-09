@@ -52,8 +52,30 @@ interface design {
     }
     backgroundImage: {
         enabled: boolean,
+        blur: boolean,
+        blurValue: number,
         url: string
     }
+    socials: {
+        backgroundColor: boolean,
+        borderRadius: number,
+        backgroundWidth: number,
+        backgroundHeight: number,
+        padding: number,
+        theBackgroundColor: string,
+        color: string
+    }
+    main: {
+        username: {
+            chroma: boolean,
+            theColor: string,
+        }
+        bio: {
+            chroma: boolean,
+            theColor: string,
+        }
+    }
+
 }
 
 interface particles {
