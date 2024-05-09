@@ -12,6 +12,8 @@ import Background from './components/config/Design/Background/Background';
 
 import Socials from './components/Socials/Socials';
 
+import Username from './components/config/Design/Username/Username';
+
 
 
 export default async function page({ params, searchParams }: any) {
@@ -29,7 +31,7 @@ export default async function page({ params, searchParams }: any) {
                 <AnimationHandler>
                     <div className={styles.profile}>
                         <img className={styles.profileimg} src={searchParams.img_link}></img>
-                        <h1 className={styles.username}>{searchParams.username}</h1>
+                        <Username params={params} />
                         <p className={styles.bio}>{searchParams.bio}</p>
                     </div>
                 </AnimationHandler>
