@@ -51,6 +51,7 @@ export default function DesignPage() {
     blurValue, setBlurValue,
     theUsernameColor, setTheUsernameColor,
     theBioColor, setTheBioColor,
+    setUsernameCustomColor, setBioCustomColor
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -88,7 +89,7 @@ export default function DesignPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ theCustomBackground, token: localStorage.getItem('token') })
+        body: JSON.stringify({ theCustomBackground, blur: backgroundBlur, blurValue, token: localStorage.getItem('token') })
       });
 
       const data = await response.json();
@@ -106,6 +107,94 @@ export default function DesignPage() {
     }
 
   }
+
+  const saveCustomUsername = async () => {
+    try {
+      const response = await fetch(apiUrl + '/saveCustomUsername', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ chroma: usernameChroma, color: theUsernameColor, token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+        showSuccess('Saved successfully')
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+  const saveCustomBio = async () => {
+    try {
+      const response = await fetch(apiUrl + '/saveCustomBio', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ chroma: bioChroma, color: theBioColor, token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+        showSuccess('Saved successfully')
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+  const saveCustomSocials = async () => {
+    try {
+      const response = await fetch(apiUrl + '/saveCustomSocials', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          isBackground: socialsBackground,
+          backgroundColor: theSocialsBackgroundColor,
+          width: socialsBackgroundW,
+          height: socialsBackgroundH,
+          borderR: socialsBorderR,
+          padding: socialsPadding,
+          color: socialsColor,
+          token: localStorage.getItem('token')
+        })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+        showSuccess('Saved successfully')
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
 
   const toggleBackgroundImage = async () => {
     try {
@@ -132,6 +221,87 @@ export default function DesignPage() {
     }
 
   }
+
+  const toggleCustomUsername = async () => {
+    try {
+      const response = await fetch(apiUrl + '/toggleCustomUsername', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+        setUsernameCustomColor(data.value)
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+  const toggleCustomBio = async () => {
+    try {
+      const response = await fetch(apiUrl + '/toggleCustomBio', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+        setBioCustomColor(data.value)
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+  const toggleCustomSocials = async () => {
+    try {
+      const response = await fetch(apiUrl + '/toggleCustomSocials', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: localStorage.getItem('token') })
+      });
+
+      const data = await response.json();
+
+      if (!data.error) {
+        setSocialsDesign(data.value)
+      } else {
+        showError('Something went wrong')
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Error fetching features:', error);
+      throw error;
+    }
+
+  }
+
+
+
 
 
   return (
@@ -211,7 +381,7 @@ export default function DesignPage() {
 
       <div className={styles.option}>
 
-        <Toggler toggled={customUsernameColor ? true : false} onClick={() => toggleUsernameCustomColor()} title='Username Custom Color' />
+        <Toggler toggled={customUsernameColor ? true : false} onClick={() => toggleCustomUsername()} title='Username Custom Color' />
         {customUsernameColor &&
           <>
             <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => { toggleUsernameChroma() }} title='Chroma' />
@@ -231,13 +401,14 @@ export default function DesignPage() {
               marginTop="0.8em"
               transform={false}
               buttonType="submit"
+              onClick={() => { saveCustomUsername() }}
             >
               <FaSave />
             </ButtonIcon>
 
           </>}
 
-        <Toggler toggled={customBioColor ? true : false} onClick={() => toggleCustomBioColor()} title='Bio Custom Color' />
+        <Toggler toggled={customBioColor ? true : false} onClick={() => toggleCustomBio()} title='Bio Custom Color' />
         {customBioColor &&
           <>
             <BoxChecker chroma={true} toggled={bioChroma ? true : false} onClick={() => { toggleBioChroma() }} title='Chroma' />
@@ -257,13 +428,14 @@ export default function DesignPage() {
               marginTop="0.8em"
               transform={false}
               buttonType="submit"
+              onClick={() => { saveCustomBio() }}
             >
               <FaSave />
             </ButtonIcon>
 
           </>}
 
-        <Toggler toggled={socialsDesign ? true : false} onClick={() => setSocialsDesign(p => !p)} title='Socials Design' />
+        <Toggler toggled={socialsDesign ? true : false} onClick={() => toggleCustomSocials()} title='Socials Design' />
 
         {socialsDesign &&
           <>
@@ -277,7 +449,7 @@ export default function DesignPage() {
                 <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' value={socialsBackgroundH} onInput={(e) => { setSocialsBackgroundH(Number(e.currentTarget.value)) }} title='Background Height' />
                 <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' value={socialsPadding} onInput={(e) => { setSocialsPadding(Number(e.currentTarget.value)) }} title='Padding' />
               </>
-              }
+            }
 
             <RGInput type='color' height='40px' marginBottom='1.4em' maxLength={4} min={1} max={300} value={socialsColor} inputWidth='150px' onInput={(e) => { setSocialColor(e.currentTarget.value) }} title='Main Color' />
 
@@ -294,6 +466,7 @@ export default function DesignPage() {
               marginTop="0.5em"
               transform={false}
               buttonType="submit"
+              onClick={() => { saveCustomSocials() }}
             >
               <FaSave />
             </ButtonIcon>
