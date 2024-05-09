@@ -64,27 +64,7 @@ interface UserConfigType {
     setBio: Dispatch<SetStateAction<string>>;
 
     //socials
-    socialsDesign: boolean;
-    setSocialsDesign: Dispatch<SetStateAction<boolean>>;
-
-    socialsBackground: boolean;
-    setSocialsBackground:  Dispatch<SetStateAction<boolean>>;
-
-    socialsBackgroundW: number;
-    setSocialsBackgroundW:  Dispatch<SetStateAction<number>>;
-
-    socialsBackgroundH: number;
-    setSocialsBackgroundH:  Dispatch<SetStateAction<number>>;
-
-    socialsPadding: number;
-    setSocialsPadding:  Dispatch<SetStateAction<number>>;
-
-    theSocialsBackgroundColor: string;
-    setTheSocialsBackgroundColor:  Dispatch<SetStateAction<string>>;
-
-    socialsColor: string;
-    setSocialColor:  Dispatch<SetStateAction<string>>;
-
+  
     backgroundBlur: boolean;
     setBackgroundBlur: Dispatch<SetStateAction<boolean>>;
 
@@ -157,14 +137,8 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     const [bioColor, setBioColor] = useState<boolean>(false)
     const [theBioColor, setTheBioColor] = useState<string>('#FFFFFF')
 
-    //socials design
-    const [socialsDesign, setSocialsDesign] = useState<boolean>(false)
-    const [socialsBackground, setSocialsBackground] = useState<boolean>(false)
-    const [socialsBackgroundW, setSocialsBackgroundW] = useState<number>(10)
-    const [socialsBackgroundH, setSocialsBackgroundH] = useState<number>(10)
-    const [socialsPadding, setSocialsPadding] = useState<number>(0.3)
-    const [theSocialsBackgroundColor, setTheSocialsBackgroundColor] = useState<string>('#FF0000')
-    const [socialsColor, setSocialColor] = useState<string>('#FFFFFF')
+ 
+
 
 
     const getFeatures = async (user: string) => {
@@ -408,26 +382,6 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
         getUserInfo,
 
-        socialsDesign,
-        setSocialsDesign,
-
-        socialsBackground,
-        setSocialsBackground,
-
-        socialsBackgroundH,
-        setSocialsBackgroundH,
-
-        socialsBackgroundW,
-        setSocialsBackgroundW,
-
-        socialsPadding,
-        setSocialsPadding,
-
-        socialsColor,
-        setSocialColor,
-
-        theSocialsBackgroundColor,
-        setTheSocialsBackgroundColor,
 
         backgroundBlur,
         setBackgroundBlur,
