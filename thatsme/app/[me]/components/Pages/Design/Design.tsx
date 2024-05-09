@@ -11,6 +11,7 @@ import InputIcon from '@/app/global-components/input-icon/InputIcon'
 import ButtonIcon from '@/app/global-components/button-icon/buttonicon'
 import Toggler from '../components/toggler/toggler'
 import BoxChecker from '../components/boxchecker/boxchecker'
+import RGInput from '../Particles/components/RGInput/RGInput'
 
 import { IoIosLink } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
@@ -135,6 +136,10 @@ export default function DesignPage() {
             >
               <IoIosLink />
             </InputIcon>
+
+            <BoxChecker marginTop='0.5em' toggled={true} onClick={() => { }} title='Blur' />
+            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px'  onInput={(e) => {  }} title='Blur value' />
+
             <ButtonIcon
               background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
               borderRadius="0.3em"
@@ -145,7 +150,7 @@ export default function DesignPage() {
               titleColor="white"
               iconFontSize="0.8rem"
               titleFontSize='0.8rem'
-              marginTop='0.7em'
+              marginTop='0.2em'
               transform={false}
               buttonType='submit'
               onClick={() => {saveBackgroundImage()}}
