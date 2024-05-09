@@ -63,7 +63,38 @@ interface UserConfigType {
     bio: string;
     setBio: Dispatch<SetStateAction<string>>;
 
+    //socials
+    socialsDesign: boolean;
+    setSocialsDesign: Dispatch<SetStateAction<boolean>>;
+
+    socialsBackground: boolean;
+    setSocialsBackground:  Dispatch<SetStateAction<boolean>>;
+
+    socialsBackgroundW: number;
+    setSocialsBackgroundW:  Dispatch<SetStateAction<number>>;
+
+    socialsBackgroundH: number;
+    setSocialsBackgroundH:  Dispatch<SetStateAction<number>>;
+
+    socialsPadding: number;
+    setSocialsPadding:  Dispatch<SetStateAction<number>>;
+
+    theSocialsBackgroundColor: string;
+    setTheSocialsBackgroundColor:  Dispatch<SetStateAction<string>>;
+
+    socialsColor: string;
+    setSocialColor:  Dispatch<SetStateAction<string>>;
+
+    backgroundBlur: boolean;
+    setBackgroundBlur: Dispatch<SetStateAction<boolean>>;
+
+    blurValue: number;
+    setBlurValue: Dispatch<SetStateAction<number>>;
+    
+
     getUserInfo: () => void;
+
+
 }
 
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -101,6 +132,10 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
     //Main Features
     const [customBackground, setCustomBackground] = useState<boolean>(false)
     const [theCustomBackground, setTheCustomBackground] = useState<string>('https://wallpapercave.com/wp/wp7932952.jpg')
+
+    const [backgroundBlur, setBackgroundBlur] = useState<boolean>(false)
+    const [blurValue, setBlurValue] = useState<number>(10)
+
     const [customUsernameColor, setUsernameCustomColor] = useState<boolean>(false)
     const [customBioColor, setBioCustomColor] = useState<boolean>(false)
 
@@ -113,6 +148,15 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const [bioChroma, setBioChroma] = useState<boolean>(false)
     const [bioColor, setBioColor] = useState<boolean>(false)
+
+    //socials design
+    const [socialsDesign, setSocialsDesign] = useState<boolean>(false)
+    const [socialsBackground, setSocialsBackground] = useState<boolean>(false)
+    const [socialsBackgroundW, setSocialsBackgroundW] = useState<number>(10)
+    const [socialsBackgroundH, setSocialsBackgroundH] = useState<number>(10)
+    const [socialsPadding, setSocialsPadding] = useState<number>(0.3)
+    const [theSocialsBackgroundColor, setTheSocialsBackgroundColor] = useState<string>('#FF0000')
+    const [socialsColor, setSocialColor] = useState<string>('#FFFFFF')
 
 
     const getFeatures = async (user: string) => {
@@ -355,6 +399,33 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
         setPhotoUrl,
 
         getUserInfo,
+
+        socialsDesign,
+        setSocialsDesign,
+
+        socialsBackground,
+        setSocialsBackground,
+
+        socialsBackgroundH,
+        setSocialsBackgroundH,
+
+        socialsBackgroundW,
+        setSocialsBackgroundW,
+
+        socialsPadding,
+        setSocialsPadding,
+
+        socialsColor,
+        setSocialColor,
+
+        theSocialsBackgroundColor,
+        setTheSocialsBackgroundColor,
+
+        backgroundBlur,
+        setBackgroundBlur,
+
+        blurValue,
+        setBlurValue,
 
     };
 
