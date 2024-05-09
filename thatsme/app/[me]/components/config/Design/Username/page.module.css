@@ -1,11 +1,13 @@
 .username {
     font-weight: 500;
-    margin: 0.4em;
+    margin-top: 0.4em;
+    margin-bottom: 0.1em;
 }
 
 .username2 {
     font-weight: 500;
-    margin: 0.4em;
+    margin-top: 0.4em;
+    margin-bottom: 0.1em;
     background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
     -webkit-background-clip: text;
     background-clip: text;
