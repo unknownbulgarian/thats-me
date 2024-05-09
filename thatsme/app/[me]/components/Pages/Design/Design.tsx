@@ -75,7 +75,7 @@ export default function DesignPage() {
       const data = await response.json();
 
       if (!data.error) {
-         showSuccess('Saved successfully')
+        showSuccess('Saved successfully')
       } else {
         showError('Something went wrong')
       }
@@ -101,7 +101,7 @@ export default function DesignPage() {
       const data = await response.json();
 
       if (!data.error) {
-          setCustomBackground(data.value)
+        setCustomBackground(data.value)
       } else {
         showError('Something went wrong')
       }
@@ -124,7 +124,7 @@ export default function DesignPage() {
             <InputIcon
               backColor="#262c50"
               borderRadius="0.5em"
-              width="280px"
+              width="225px"
               height="25px"
               color="rgb(123, 63, 202)"
               title="URL (.jpg, .png ...)"
@@ -138,7 +138,7 @@ export default function DesignPage() {
             </InputIcon>
 
             <BoxChecker marginTop='0.5em' toggled={true} onClick={() => { }} title='Blur' />
-            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px'  onInput={(e) => {  }} title='Blur value' />
+            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Blur value' />
 
             <ButtonIcon
               background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
@@ -153,7 +153,7 @@ export default function DesignPage() {
               marginTop='0.2em'
               transform={false}
               buttonType='submit'
-              onClick={() => {saveBackgroundImage()}}
+              onClick={() => { saveBackgroundImage() }}
             >
               <FaSave />
             </ButtonIcon>
@@ -190,7 +190,7 @@ export default function DesignPage() {
 
       <div className={styles.option}>
 
-        <Toggler toggled={false} onClick={() => showError("Coming soon")} title='Username Custom Color' />
+        <Toggler toggled={customUsernameColor ? true : false} onClick={() => toggleUsernameCustomColor()} title='Username Custom Color' />
         {customUsernameColor &&
           <>
             <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => { toggleUsernameChroma() }} title='Chroma' />
@@ -208,7 +208,7 @@ export default function DesignPage() {
                 titleColor="white"
                 iconFontSize="0.8rem"
                 titleFontSize="0.8rem"
-                marginTop="0.7em"
+                marginTop="0.5em"
                 transform={false}
                 buttonType="submit"
               >
@@ -218,7 +218,7 @@ export default function DesignPage() {
 
           </>}
 
-        <Toggler toggled={false} onClick={() => showError("Coming soon")} title='Bio Custom Color' />
+        <Toggler toggled={customBioColor ? true : false} onClick={() => toggleCustomBioColor()} title='Bio Custom Color' />
         {customBioColor &&
           <>
             <BoxChecker chroma={true} toggled={bioChroma ? true : false} onClick={() => { toggleBioChroma() }} title='Chroma' />
@@ -236,7 +236,7 @@ export default function DesignPage() {
                 titleColor="white"
                 iconFontSize="0.8rem"
                 titleFontSize="0.8rem"
-                marginTop="0.7em"
+                marginTop="0.5em"
                 transform={false}
                 buttonType="submit"
               >
@@ -245,6 +245,8 @@ export default function DesignPage() {
             )}
 
           </>}
+
+        <Toggler toggled={false} onClick={() => showError("Coming soon")} title='Socials Design' />
 
       </div>
     </div>
