@@ -76,6 +76,12 @@ interface UserConfigType {
 
     theBioColor: string;
     setTheBioColor: Dispatch<SetStateAction<string>>;
+
+    setUsernameCustomColor: Dispatch<SetStateAction<boolean>>;
+    setBioCustomColor: Dispatch<SetStateAction<boolean>>;
+
+    setUsernameChroma: Dispatch<SetStateAction<boolean>>;
+    setBioChroma: Dispatch<SetStateAction<boolean>>;
     
 
     getUserInfo: () => void;
@@ -394,6 +400,12 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
         theBioColor,
         setTheBioColor,
+
+        setUsernameCustomColor,
+        setBioCustomColor,
+
+        setUsernameChroma,
+        setBioChroma,
 
     };
 

@@ -57,6 +57,7 @@ interface design {
         url: string
     }
     socials: {
+        enabled: boolean,
         backgroundColor: boolean,
         borderRadius: number,
         backgroundWidth: number,
@@ -67,10 +68,12 @@ interface design {
     }
     main: {
         username: {
+            enabled: boolean,
             chroma: boolean,
             theColor: string,
         }
         bio: {
+            enabled: boolean,
             chroma: boolean,
             theColor: string,
         }
@@ -135,13 +138,21 @@ const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
 
     const {
         setBackgroundColor, setBackgroundChroma,
-        setTheCustomBackground, setCustomBackground
+        setTheCustomBackground, setCustomBackground,
+        setTheUsernameColor, setUsernameCustomColor,
+        setTheBioColor, setBioCustomColor,
+        setBioChroma, setUsernameChroma,
+        setBackgroundBlur,setBlurValue
 
     } = useConfig()
 
     const {
         setFacebook, setSteam, setSpotify, setInstagram,
-        setFacebookUrl, setSteamUrl, setSpotifyUrl, setInstagramUrl
+        setFacebookUrl, setSteamUrl, setSpotifyUrl, setInstagramUrl,
+        setSocialsBackground,   setSocialsBorderR,
+        setSocialsBackgroundW, setSocialsBackgroundH,
+        setTheSocialsBackgroundColor, setSocialColor,
+        setSocialsDesign, setSocialsPadding, 
     } = useConnectionsConfig()
 
     const {
@@ -207,6 +218,25 @@ const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
                 setCustomBackground(design.backgroundImage.enabled)
                 setTheCustomBackground(design.backgroundImage.url)
 
+                setSocialsDesign(design.socials.enabled)
+                setSocialsBackground(design.socials.backgroundColor)
+                setSocialsBackgroundH(design.socials.backgroundHeight)
+                setSocialsBackgroundW(design.socials.backgroundWidth)
+                setSocialColor(design.socials.color)
+                setSocialsPadding(design.socials.padding)
+                setSocialsBorderR(design.socials.borderRadius)
+
+                setUsernameCustomColor(design.main.username.enabled)
+                setTheUsernameColor(design.main.username.theColor)
+                setUsernameChroma(design.main.username.chroma)
+
+                setBioCustomColor(design.main.bio.enabled)
+                setTheBioColor(design.main.bio.theColor)
+                setBioChroma(design.main.bio.chroma)
+
+                setBackgroundBlur(design.backgroundImage.blur)
+                setBlurValue(design.backgroundImage.blurValue)
+
                 //Connections
                 setInstagram(connections.instagram.enabled)
                 setSteam(connections.steam.enabled)
@@ -217,6 +247,7 @@ const LoaderConfig: React.FC<ConfigProps> = ({ params }) => {
                 setSteamUrl(connections.steam.url)
                 setSpotifyUrl(connections.spotify.url)
                 setFacebookUrl(connections.facebook.url)
+
 
                 //Animations
                 setAnimation(animations.animation)
