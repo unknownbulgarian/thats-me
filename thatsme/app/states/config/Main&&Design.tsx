@@ -90,6 +90,12 @@ interface UserConfigType {
 
     blurValue: number;
     setBlurValue: Dispatch<SetStateAction<number>>;
+
+    theUsernameColor: string;
+    setTheUsernameColor: Dispatch<SetStateAction<string>>;
+
+    theBioColor: string;
+    setTheBioColor: Dispatch<SetStateAction<string>>;
     
 
     getUserInfo: () => void;
@@ -145,9 +151,11 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
     const [usernameChroma, setUsernameChroma] = useState<boolean>(false)
     const [usernameColor, setUsernameColor] = useState<boolean>(false)
+    const [theUsernameColor, setTheUsernameColor] = useState<string>('#FFFFFF')
 
     const [bioChroma, setBioChroma] = useState<boolean>(false)
     const [bioColor, setBioColor] = useState<boolean>(false)
+    const [theBioColor, setTheBioColor] = useState<string>('#FFFFFF')
 
     //socials design
     const [socialsDesign, setSocialsDesign] = useState<boolean>(false)
@@ -426,6 +434,12 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
 
         blurValue,
         setBlurValue,
+
+        theUsernameColor,
+        setTheUsernameColor,
+
+        theBioColor,
+        setTheBioColor,
 
     };
 
