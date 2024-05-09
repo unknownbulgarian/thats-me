@@ -7,7 +7,7 @@ import { useConfig } from '@/app/states/config/Main&&Design'
 
 export default function Background() {
 
-  const {  theCustomBackground,customBackground, backgroundColor, backgroundChroma } = useConfig()
+  const {  theCustomBackground,customBackground, backgroundColor, backgroundChroma, blurValue, backgroundBlur } = useConfig()
 
 
   return (
@@ -16,7 +16,7 @@ export default function Background() {
         ?
         <div style={{ backgroundColor: backgroundColor }} className={`${backgroundChroma ? styles.chroma : styles.back}`}></div>
         :
-        <div style={{backgroundImage: `url(${theCustomBackground})`}} className={styles.image}></div>
+        <div style={{backgroundImage: `url(${theCustomBackground})`, filter: backgroundBlur ? `blur(${blurValue}px)` : ''}} className={styles.image}></div>
       }
     </>
   )
