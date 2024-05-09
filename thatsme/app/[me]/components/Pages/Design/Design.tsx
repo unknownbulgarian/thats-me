@@ -35,7 +35,8 @@ export default function DesignPage() {
     socialsDesign, setSocialsDesign,
     backgroundBlur, setBackgroundBlur,
     blurValue, setBlurValue,
-    theUsernameColor, setTheUsernameColor
+    theUsernameColor, setTheUsernameColor,
+    theBioColor, setTheBioColor,
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -227,7 +228,7 @@ export default function DesignPage() {
           <>
             <BoxChecker chroma={true} toggled={bioChroma ? true : false} onClick={() => { toggleBioChroma() }} title='Chroma' />
             <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Color' />
-            <input className={styles.rangeinput} type='color'></input>
+            <input className={styles.rangeinput} value={theBioColor} onInput={(e) => {setTheBioColor(e.currentTarget.value)}} type='color'></input>
 
               <ButtonIcon
                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
@@ -245,7 +246,7 @@ export default function DesignPage() {
               >
                 <FaSave />
               </ButtonIcon>
-              
+
           </>}
 
         <Toggler toggled={socialsDesign ? true : false} onClick={() => setSocialsDesign(p => !p)} title='Socials Design' />
