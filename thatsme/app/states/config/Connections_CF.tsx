@@ -30,6 +30,28 @@ interface UserConfigType {
     facebookUrl: string;
     setFacebookUrl: Dispatch<SetStateAction<string>>;
 
+    socialsDesign: boolean;
+    setSocialsDesign: Dispatch<SetStateAction<boolean>>;
+
+    socialsBackground: boolean;
+    setSocialsBackground:  Dispatch<SetStateAction<boolean>>;
+
+    socialsBackgroundW: number;
+    setSocialsBackgroundW:  Dispatch<SetStateAction<number>>;
+
+    socialsBackgroundH: number;
+    setSocialsBackgroundH:  Dispatch<SetStateAction<number>>;
+
+    socialsPadding: number;
+    setSocialsPadding:  Dispatch<SetStateAction<number>>;
+
+    theSocialsBackgroundColor: string;
+    setTheSocialsBackgroundColor:  Dispatch<SetStateAction<string>>;
+
+    socialsColor: string;
+    setSocialColor:  Dispatch<SetStateAction<string>>;
+
+
 }
  
 const UserConfigContext = createContext<UserConfigType | undefined>(undefined);
@@ -53,6 +75,14 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
     const [steamUrl, setSteamUrl] = useState<string>('')
     const [spotifyUrl, setSpotifyUrl] = useState<string>('')
     const [facebookUrl, setFacebookUrl] = useState<string>('')
+
+    const [socialsDesign, setSocialsDesign] = useState<boolean>(false)
+    const [socialsBackground, setSocialsBackground] = useState<boolean>(false)
+    const [socialsBackgroundW, setSocialsBackgroundW] = useState<number>(10)
+    const [socialsBackgroundH, setSocialsBackgroundH] = useState<number>(10)
+    const [socialsPadding, setSocialsPadding] = useState<number>(0.3)
+    const [theSocialsBackgroundColor, setTheSocialsBackgroundColor] = useState<string>('#FF0000')
+    const [socialsColor, setSocialColor] = useState<string>('#FFFFFF')
 
     const toggleInstagram = () => {
         setInstagram(prevValue => !prevValue)
@@ -97,7 +127,28 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
         setSpotifyUrl,
         
         facebookUrl,
-        setFacebookUrl
+        setFacebookUrl,
+
+        socialsDesign,
+        setSocialsDesign,
+
+        socialsBackground,
+        setSocialsBackground,
+
+        socialsBackgroundH,
+        setSocialsBackgroundH,
+
+        socialsBackgroundW,
+        setSocialsBackgroundW,
+
+        socialsPadding,
+        setSocialsPadding,
+
+        socialsColor,
+        setSocialColor,
+
+        theSocialsBackgroundColor,
+        setTheSocialsBackgroundColor,
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;
