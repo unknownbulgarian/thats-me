@@ -20,8 +20,11 @@ export default function Socials() {
 
     const {
         instagram, steam, spotify, facebook,
-        instagramUrl, steamUrl, spotifyUrl, facebookUrl
-
+        instagramUrl, steamUrl, spotifyUrl, facebookUrl,
+        socialsBackground,    socialsBorderR,
+        socialsBackgroundW, socialsBackgroundH,
+        theSocialsBackgroundColor, socialsColor,
+        socialsDesign, socialsPadding, socialsChroma, 
     } = useConnectionsConfig()
 
     const inURL = 'https://www.instagram.com/'
@@ -38,10 +41,44 @@ export default function Socials() {
             {isConnections &&
                 <div className={styles.links}>
                     <AnimationHandler isSocials={true} gap='1em'>
-                        {instagram && <FaInstagram className={styles.linkicon} onClick={() => { openConnection(inURL, instagramUrl) }} />}
-                        {steam && <FaSteam className={styles.linkicon} onClick={() => { openConnection(stURL, steamUrl) }} />}
-                        {spotify && <FaSpotify className={styles.linkicon} onClick={() => { openConnection(spURL, spotifyUrl) }} />}
-                        {facebook && <FaFacebookF className={styles.linkicon} onClick={() => { openConnection(fcURL, facebookUrl) }} />}
+                        {instagram && <FaInstagram
+                            style={{
+                                backgroundColor: socialsDesign ? socialsBackground ? theSocialsBackgroundColor : '' : '',
+                                width: socialsDesign ? socialsBackground ? socialsBackgroundW : '' : '',
+                                height: socialsDesign ? socialsBackground ? socialsBackgroundH : '' : '',
+                                color: socialsDesign ? socialsColor : '',
+                                padding: socialsDesign ? socialsPadding : '',
+                                borderRadius: socialsDesign ? socialsBackground ? socialsBorderR : '' : '',
+                            }}
+                            className={`${socialsChroma ? styles.linkicon2 : styles.linkicon}`} onClick={() => { openConnection(inURL, instagramUrl) }} />}
+
+                        {steam && <FaSteam style={{
+                            backgroundColor: socialsDesign ? socialsBackground ? theSocialsBackgroundColor : '' : '',
+                            width: socialsDesign ? socialsBackground ? socialsBackgroundW : '' : '',
+                            height: socialsDesign ? socialsBackground ? socialsBackgroundH : '' : '',
+                            color: socialsDesign ? socialsColor : '',
+                            padding: socialsDesign ? socialsPadding : '',
+                            borderRadius: socialsDesign ? socialsBackground ? socialsBorderR : '' : '',
+                        }} className={`${socialsChroma ? styles.linkicon2 : styles.linkicon}`}onClick={() => { openConnection(stURL, steamUrl) }} />}
+
+                        {spotify && <FaSpotify style={{
+                            backgroundColor: socialsDesign ? socialsBackground ? theSocialsBackgroundColor : '' : '',
+                            width: socialsDesign ? socialsBackground ? socialsBackgroundW : '' : '',
+                            height: socialsDesign ? socialsBackground ? socialsBackgroundH : '' : '',
+                            color: socialsDesign ? socialsColor : '',
+                            padding: socialsDesign ? socialsPadding : '',
+                            borderRadius: socialsDesign ? socialsBackground ? socialsBorderR : '' : '',
+                        }} className={`${socialsChroma ? styles.linkicon2 : styles.linkicon}`} onClick={() => { openConnection(spURL, spotifyUrl) }} />}
+
+                        {facebook && <FaFacebookF style={{
+                            backgroundColor: socialsDesign ? socialsBackground ? theSocialsBackgroundColor : '' : '',
+                            width: socialsDesign ? socialsBackground ? socialsBackgroundW : '' : '',
+                            height: socialsDesign ? socialsBackground ? socialsBackgroundH : '' : '',
+                            color: socialsDesign ? socialsColor : '',
+                            padding: socialsDesign ? socialsPadding : '',
+                            borderRadius: socialsDesign ? socialsBackground ? socialsBorderR : '' : '',
+                        }} className={`${socialsChroma ? styles.linkicon2 : styles.linkicon}`} onClick={() => { openConnection(fcURL, facebookUrl) }} />}
+
                     </AnimationHandler>
                 </div>
             }

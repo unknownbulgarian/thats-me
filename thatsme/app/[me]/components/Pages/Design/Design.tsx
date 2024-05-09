@@ -16,9 +16,24 @@ import RGInput from '../Particles/components/RGInput/RGInput'
 import { IoIosLink } from "react-icons/io";
 import { FaSave } from "react-icons/fa";
 
+import { useConnectionsConfig } from '@/app/states/config/Connections_CF'
+
 export default function DesignPage() {
 
   const apiUrl = useApiUrl()
+
+  const {
+    socialsDesign, setSocialsDesign,
+    socialsBackground, setSocialsBackground,
+    setTheSocialsBackgroundColor, theSocialsBackgroundColor,
+    setSocialsBackgroundW, setSocialsBackgroundH,
+    socialsBackgroundW, socialsBackgroundH,
+    socialsColor, setSocialColor,
+    setSocialsPadding, socialsPadding,
+    socialsBorderR, setSocialsBorderR,
+    socialsChroma, setSocialsChroma,
+
+  } = useConnectionsConfig()
 
   const {
     customBackground, toggleCustomBackground,
@@ -32,7 +47,6 @@ export default function DesignPage() {
     bioColor, toggleBioColor,
     backgroundColor, setBackgroundColor,
     theCustomBackground, setTheCustomBackground,
-    socialsDesign, setSocialsDesign,
     backgroundBlur, setBackgroundBlur,
     blurValue, setBlurValue,
     theUsernameColor, setTheUsernameColor,
@@ -144,7 +158,7 @@ export default function DesignPage() {
 
             <BoxChecker marginTop='0.5em' toggled={backgroundBlur ? true : false} onClick={() => { setBackgroundBlur(p => !p) }} title='Blur' />
             {backgroundBlur &&
-              <RGInput type='range' marginBottom='1.4em' value={blurValue} maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { setBlurValue(Number(e.currentTarget.value))}} title='Blur value' />}
+              <RGInput type='range' marginBottom='1.4em' value={blurValue} maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { setBlurValue(Number(e.currentTarget.value)) }} title='Blur value' />}
 
 
             <ButtonIcon
@@ -202,24 +216,24 @@ export default function DesignPage() {
           <>
             <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => { toggleUsernameChroma() }} title='Chroma' />
             <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Color' />
-            <input className={styles.rangeinput} value={theUsernameColor} onInput={(e) => {setTheUsernameColor(e.currentTarget.value)}} type='color'></input>
+            <input className={styles.rangeinput} value={theUsernameColor} onInput={(e) => { setTheUsernameColor(e.currentTarget.value) }} type='color'></input>
 
-              <ButtonIcon
-                background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-                borderRadius="0.3em"
-                width="80px"
-                height="25px"
-                color="white"
-                title="Save"
-                titleColor="white"
-                iconFontSize="0.8rem"
-                titleFontSize="0.8rem"
-                marginTop="0.8em"
-                transform={false}
-                buttonType="submit"
-              >
-                <FaSave />
-              </ButtonIcon>
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize="0.8rem"
+              marginTop="0.8em"
+              transform={false}
+              buttonType="submit"
+            >
+              <FaSave />
+            </ButtonIcon>
 
           </>}
 
@@ -228,24 +242,24 @@ export default function DesignPage() {
           <>
             <BoxChecker chroma={true} toggled={bioChroma ? true : false} onClick={() => { toggleBioChroma() }} title='Chroma' />
             <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Color' />
-            <input className={styles.rangeinput} value={theBioColor} onInput={(e) => {setTheBioColor(e.currentTarget.value)}} type='color'></input>
+            <input className={styles.rangeinput} value={theBioColor} onInput={(e) => { setTheBioColor(e.currentTarget.value) }} type='color'></input>
 
-              <ButtonIcon
-                background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
-                borderRadius="0.3em"
-                width="80px"
-                height="25px"
-                color="white"
-                title="Save"
-                titleColor="white"
-                iconFontSize="0.8rem"
-                titleFontSize="0.8rem"
-                marginTop="0.8em"
-                transform={false}
-                buttonType="submit"
-              >
-                <FaSave />
-              </ButtonIcon>
+            <ButtonIcon
+              background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
+              borderRadius="0.3em"
+              width="80px"
+              height="25px"
+              color="white"
+              title="Save"
+              titleColor="white"
+              iconFontSize="0.8rem"
+              titleFontSize="0.8rem"
+              marginTop="0.8em"
+              transform={false}
+              buttonType="submit"
+            >
+              <FaSave />
+            </ButtonIcon>
 
           </>}
 
@@ -254,12 +268,18 @@ export default function DesignPage() {
         {socialsDesign &&
           <>
 
-            <BoxChecker chroma={false} toggled={bioColor ? true : false} onClick={() => { toggleBioColor() }} title='Background Color' />
-            <RGInput type='color' height='40px' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Color' />
-            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Background Width' />
-            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Background Height' />
-            <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Padding' />
-            <RGInput type='color' height='40px' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' onInput={(e) => { }} title='Main Color' />
+            <BoxChecker chroma={false} toggled={socialsBackground ? true : false} onClick={() => { setSocialsBackground(p => !p) }} title='Background Color' />
+            {socialsBackground &&
+              <>
+                <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} value={socialsBorderR} inputWidth='150px' onInput={(e) => { setSocialsBorderR(Number(e.currentTarget.value)) }} title='Border Radius' />
+                <RGInput type='color' height='40px' marginBottom='1.4em' maxLength={4} min={1} max={300} value={theSocialsBackgroundColor} inputWidth='150px' onInput={(e) => { setTheSocialsBackgroundColor(e.currentTarget.value) }} title='Color' />
+                <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} value={socialsBackgroundW} inputWidth='150px' onInput={(e) => { setSocialsBackgroundW(Number(e.currentTarget.value)) }} title='Background Width' />
+                <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' value={socialsBackgroundH} onInput={(e) => { setSocialsBackgroundH(Number(e.currentTarget.value)) }} title='Background Height' />
+                <RGInput type='range' marginBottom='1.4em' maxLength={4} min={1} max={300} inputWidth='150px' value={socialsPadding} onInput={(e) => { setSocialsPadding(Number(e.currentTarget.value)) }} title='Padding' />
+              </>
+              }
+
+            <RGInput type='color' height='40px' marginBottom='1.4em' maxLength={4} min={1} max={300} value={socialsColor} inputWidth='150px' onInput={(e) => { setSocialColor(e.currentTarget.value) }} title='Main Color' />
 
             <ButtonIcon
               background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"

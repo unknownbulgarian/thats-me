@@ -51,6 +51,11 @@ interface UserConfigType {
     socialsColor: string;
     setSocialColor:  Dispatch<SetStateAction<string>>;
 
+    socialsChroma: boolean;
+    setSocialsChroma: Dispatch<SetStateAction<boolean>>;
+
+    socialsBorderR: number;
+    setSocialsBorderR: Dispatch<SetStateAction<number>>;
 
 }
  
@@ -83,6 +88,9 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
     const [socialsPadding, setSocialsPadding] = useState<number>(0.3)
     const [theSocialsBackgroundColor, setTheSocialsBackgroundColor] = useState<string>('#FF0000')
     const [socialsColor, setSocialColor] = useState<string>('#FFFFFF')
+    const [socialsChroma, setSocialsChroma] = useState<boolean>(false)
+
+    const [socialsBorderR, setSocialsBorderR] = useState<number>(10)
 
     const toggleInstagram = () => {
         setInstagram(prevValue => !prevValue)
@@ -149,6 +157,12 @@ export const UserConnectionsProvider: React.FC<{ children: ReactNode }> = ({ chi
 
         theSocialsBackgroundColor,
         setTheSocialsBackgroundColor,
+
+        socialsChroma,
+        setSocialsChroma,
+
+        socialsBorderR,
+        setSocialsBorderR,
     };
 
     return <UserConfigContext.Provider value={value}>{children}</UserConfigContext.Provider>;
