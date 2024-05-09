@@ -34,7 +34,8 @@ export default function DesignPage() {
     theCustomBackground, setTheCustomBackground,
     socialsDesign, setSocialsDesign,
     backgroundBlur, setBackgroundBlur,
-    blurValue, setBlurValue
+    blurValue, setBlurValue,
+    theUsernameColor, setTheUsernameColor
   } = useConfig()
   const { showError, showSuccess } = useError()
 
@@ -199,10 +200,9 @@ export default function DesignPage() {
         {customUsernameColor &&
           <>
             <BoxChecker chroma={true} toggled={usernameChroma ? true : false} onClick={() => { toggleUsernameChroma() }} title='Chroma' />
-            <BoxChecker chroma={false} toggled={usernameColor ? true : false} onClick={() => { toggleUsernameColor() }} title='Color' />
-            {usernameColor && <input className={styles.rangeinput} type='color'></input>}
+            <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Color' />
+            <input className={styles.rangeinput} value={theUsernameColor} onInput={(e) => {setTheUsernameColor(e.currentTarget.value)}} type='color'></input>
 
-            {(usernameColor || usernameChroma) && (
               <ButtonIcon
                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                 borderRadius="0.3em"
@@ -213,13 +213,12 @@ export default function DesignPage() {
                 titleColor="white"
                 iconFontSize="0.8rem"
                 titleFontSize="0.8rem"
-                marginTop="0.5em"
+                marginTop="0.8em"
                 transform={false}
                 buttonType="submit"
               >
                 <FaSave />
               </ButtonIcon>
-            )}
 
           </>}
 
@@ -227,10 +226,9 @@ export default function DesignPage() {
         {customBioColor &&
           <>
             <BoxChecker chroma={true} toggled={bioChroma ? true : false} onClick={() => { toggleBioChroma() }} title='Chroma' />
-            <BoxChecker chroma={false} toggled={bioColor ? true : false} onClick={() => { toggleBioColor() }} title='Color' />
-            {bioColor && <input className={styles.rangeinput} type='color'></input>}
+            <BoxChecker chroma={false} toggled={true} onClick={() => { showError("You can't disable this feature") }} title='Color' />
+            <input className={styles.rangeinput} type='color'></input>
 
-            {(bioColor || bioChroma) && (
               <ButtonIcon
                 background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                 borderRadius="0.3em"
@@ -241,14 +239,13 @@ export default function DesignPage() {
                 titleColor="white"
                 iconFontSize="0.8rem"
                 titleFontSize="0.8rem"
-                marginTop="0.5em"
+                marginTop="0.8em"
                 transform={false}
                 buttonType="submit"
               >
                 <FaSave />
               </ButtonIcon>
-            )}
-
+              
           </>}
 
         <Toggler toggled={socialsDesign ? true : false} onClick={() => setSocialsDesign(p => !p)} title='Socials Design' />
