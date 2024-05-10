@@ -6,6 +6,7 @@ import '../../../animations.css'
 
 import { useAnimationsConfig } from '@/app/states/config/Animations_CF'
 import { useConfig } from '@/app/states/config/Main&&Design'
+import { wrap } from 'module'
 
 interface AnimationHandlerProps {
     children: React.ReactNode
@@ -23,27 +24,27 @@ export default function AnimationHandler({ children, gap, isSocials, display }: 
     return (
         <>
             {animation === 'none' &&
-                <div style={{ gap: isSocials ? gap : '', display: isSocials ? 'flex' : '' }} className={isAnimations ? '' : ''}>
+                <div style={{ paddingLeft: '1em', paddingRight: '1em', gap: isSocials ? gap : '', display: isSocials ? 'flex' : '', flexWrap: 'wrap', justifyContent: 'center' }} className={isAnimations ? '' : ''}>
                     {children}
                 </div>}
         
 
             {animation === "slide-right" &&
-                <div style={{ gap: isSocials ? gap : '', display: isSocials ? 'flex' : '' }} className={isAnimations ? 'slide-right' : ''}>
+                <div style={{paddingLeft: '1em', paddingRight: '1em', gap: isSocials ? gap : '', display: isSocials ? 'flex' : '', flexWrap: 'wrap', justifyContent: 'center' }} className={isAnimations ? 'slide-right' : ''}>
                     {children}
                 </div>}
 
             {animation === "slide-left" &&
-                <div style={{ gap: isSocials ? gap : '', display: isSocials ? 'flex' : '' }} className={isAnimations ? 'slide-left' : ''}>
+                <div style={{paddingLeft: '1em', paddingRight: '1em', gap: isSocials ? gap : '', display: isSocials ? 'flex' : '', flexWrap: 'wrap', justifyContent: 'center' }} className={isAnimations ? 'slide-left' : ''}>
                     {children}
                 </div>}
 
             {animation === "slide-top" &&
-                <div style={{ gap: isSocials ? gap : '', display: isSocials ? 'flex' : '' }} className={isAnimations ? 'slide-top' : ''}>
+                <div style={{paddingLeft: '1em', paddingRight: '1em', gap: isSocials ? gap : '', display: isSocials ? 'flex' : '', flexWrap: 'wrap', justifyContent: 'center' }} className={isAnimations ? 'slide-top' : ''}>
                     {children}
                 </div>}
             {animation === "slide-bottom" &&
-                <div style={{ gap: isSocials ? gap : '', display: isSocials ? 'flex' : '' }} className={isAnimations ? 'slide-bottom' : ''}>
+                <div style={{paddingLeft: '1em', paddingRight: '1em', gap: isSocials ? gap : '', display: isSocials ? 'flex' : '', flexWrap: 'wrap', justifyContent: 'center' }} className={isAnimations ? 'slide-bottom' : ''}>
                     {children}
                 </div>}
         </>
