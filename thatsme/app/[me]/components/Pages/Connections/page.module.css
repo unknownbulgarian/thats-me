@@ -1,18 +1,33 @@
-.connections{
+.connections {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    padding-right: 1em;
     padding-top: 2em;
-    gap: 2em;
+    column-gap: 15em;
 }
 
 
-.connection{
+.connection {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 300px;
+
 }
 
-.con{
+.con {
     width: 200px;
+}
+
+@media only screen and (max-width: 737px) {
+    .connection {
+        align-items: center;
+
+    }
+
+    .con {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
