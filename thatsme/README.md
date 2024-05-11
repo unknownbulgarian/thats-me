@@ -1,3 +1,31 @@
+# ThatsMe
+
+- [x] Build your own single-page profile on ThatsMe
+- [x] Unique profile settings
+- [x] Seo optimized
+
+## The Settings
+
+> [!IMPORTANT]
+> Some settings will be available soon
+
+<img src='https://i.ibb.co/YjqZVQr/Screenshot-2024-05-11-141647.png' width='600'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
