@@ -1,8 +1,8 @@
 # ThatsMe
 
-- [x] Build your own single-page profile on ThatsMe
-- [x] Unique profile settings
-- [x] Seo optimized
+✅ Build your own single-page profile on ThatsMe
+✅ Unique profile settings
+✅ Seo optimized
 
 ## The Settings
 
@@ -11,20 +11,7 @@
 
 <img src='https://i.ibb.co/YjqZVQr/Screenshot-2024-05-11-141647.png' width='600'>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Build
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
