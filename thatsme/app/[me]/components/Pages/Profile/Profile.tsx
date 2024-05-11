@@ -162,7 +162,7 @@ export default function ProfilePage() {
                     background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                     borderRadius="0.3em"
                     width="95px"
-                    height="30px"
+                    height="27px"
                     color="white"
                     fontSize='0.9rem'
                     title="Save"
@@ -196,7 +196,7 @@ export default function ProfilePage() {
                     background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                     borderRadius="0.3em"
                     width="95px"
-                    height="30px"
+                    height="27px"
                     color="white"
                     fontSize='0.9rem'
                     title="Save"
@@ -218,7 +218,7 @@ export default function ProfilePage() {
                     background="linear-gradient(to right, #470c7e, #4e1187, #551690, #5d1b99, #6420a2, #6524a6, #6728ab, #682caf, #6330ae, #5f33ae, #5a35ad, #5638ac)"
                     borderRadius="0.3em"
                     width="95px"
-                    height="30px"
+                    height="27px"
                     color="white"
                     fontSize='0.9rem'
                     title="Save"
