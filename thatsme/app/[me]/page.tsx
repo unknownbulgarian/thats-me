@@ -35,6 +35,7 @@ export async function generateMetadata(
         headers: {
             'Content-Type': 'application/json',
             'Cache-Control': 'no-cache'
+            
         },
         body: JSON.stringify({ username: params.me })
     }).then((res) =>  res.json())
