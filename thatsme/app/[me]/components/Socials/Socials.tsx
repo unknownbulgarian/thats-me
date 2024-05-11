@@ -40,7 +40,7 @@ export default function Socials() {
         <>
             {isConnections &&
                 <div className={styles.links}>
-                    <AnimationHandler isSocials={true} gap='1em'>
+                    <AnimationHandler isSocials={true} gap='0.3em'>
                         {instagram && <FaInstagram
                             style={{
                                 backgroundColor: socialsDesign ? socialsBackground ? theSocialsBackgroundColor : '' : '',
