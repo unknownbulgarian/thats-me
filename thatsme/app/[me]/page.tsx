@@ -30,13 +30,13 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
 
-    const userInfo = await fetch(`https://sie-queries-admit-epic.trycloudflare.com/getUserInfo`, {
+    const userInfo = await fetch(`https://painted-stack-trusted-appeared.trycloudflare.com/getUserInfo`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ username: params.me })
-    }).then((res) => res.json())
+    }).then((res) =>  res.json())
 
     return {
         title: userInfo.username !== undefined ? 'ThatsME ' + userInfo.username : 'Profile not found',

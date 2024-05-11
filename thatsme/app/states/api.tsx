@@ -21,7 +21,7 @@ interface ApiUrlProviderProps {
 }
 
 export const ApiUrlProvider: React.FC<ApiUrlProviderProps> = ({ children }) => {
-  const [apiUrl, setApiUrl] = useState<string>('https://sie-queries-admit-epic.trycloudflare.com');
+  const [apiUrl, setApiUrl] = useState<string>('https://painted-stack-trusted-appeared.trycloudflare.com');
 
   const value = { apiUrl };
 
