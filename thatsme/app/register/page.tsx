@@ -7,6 +7,9 @@ import RegisterForm from '../forms/register'
 export const metadata: Metadata = {
     title: 'ThatsMe Register Page',
     description: 'Create an amazing showcase profile in no time!',
+    openGraph: {
+        images: 'https://i.ibb.co/7R0pQyK/Screenshot-2024-05-11-111814.png'
+    }
   }
 
 export default function page() {

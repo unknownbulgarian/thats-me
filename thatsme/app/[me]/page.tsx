@@ -19,26 +19,33 @@ import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
     params: { me: string }
-    searchParams: { 
+    searchParams: {
         bio: string,
         img_link: string,
-     }
-  }
+    }
+}
 
 export async function generateMetadata(
-    { params, searchParams }: Props,
+    { params }: Props,
     parent: ResolvingMetadata
-  ): Promise<Metadata> {
+): Promise<Metadata> {
 
-   
+    const userInfo = await fetch(`https://sie-queries-admit-epic.trycloudflare.com/getUserInfo`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: params.me })
+    }).then((res) => res.json())
+
     return {
-      title: params.me,
-      description: 'View the profile of ' + params.me,
-      openGraph: {
-        images: searchParams.img_link,
-      },
+        title: 'ThatsME ' + userInfo.username,
+        description: userInfo.bio,
+        openGraph: {
+            images: userInfo.img_link
+        }
     }
-  }
+}
 
 export default async function page({ params, searchParams }: Props) {
 

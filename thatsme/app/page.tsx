@@ -6,6 +6,9 @@ import LoginForm from "./forms/login";
 export const metadata: Metadata = {
   title: 'ThatsMe Login Page',
   description: 'Log in to your account...',
+  openGraph: {
+    images: 'https://i.ibb.co/TvcQFDF/Screenshot-2024-05-11-111715.png'
+  }
 }
 
 
