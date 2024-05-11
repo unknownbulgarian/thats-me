@@ -15,6 +15,8 @@ import Socials from './components/Socials/Socials';
 import Username from './components/config/Design/Username/Username';
 import Bio from './components/config/Design/Bio/Bio';
 
+export const fetchCache = 'force-no-store';
+
 import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
@@ -31,10 +33,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 
     const userInfo = await fetch(`https://0f5b-77-64-210-32.ngrok-free.app/getUserInfo`, {
+        cache: 'no-store',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Cache-Control': 'no-cache'
+            
         },
         body: JSON.stringify({ username: params.me })
     }).then((res) =>  res.json())
