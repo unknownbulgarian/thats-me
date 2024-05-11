@@ -14,6 +14,7 @@
     border-radius: 0.4em;
     border: 1px solid red;
     animation: show 0.4s forwards;
+    z-index: 10000;
 }
 
 .success{
