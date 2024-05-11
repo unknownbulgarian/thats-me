@@ -33,7 +33,8 @@ export async function generateMetadata(
     const userInfo = await fetch(`https://0f5b-77-64-210-32.ngrok-free.app/getUserInfo`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
         },
         body: JSON.stringify({ username: params.me })
     }).then((res) =>  res.json())
