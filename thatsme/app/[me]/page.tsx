@@ -15,9 +15,32 @@ import Socials from './components/Socials/Socials';
 import Username from './components/config/Design/Username/Username';
 import Bio from './components/config/Design/Bio/Bio';
 
+import type { Metadata, ResolvingMetadata } from 'next'
 
+type Props = {
+    params: { me: string }
+    searchParams: { 
+        bio: string,
+        img_link: string,
+     }
+  }
 
-export default async function page({ params, searchParams }: any) {
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+  ): Promise<Metadata> {
+
+   
+    return {
+      title: params.me,
+      description: 'View the profile of ' + params.me,
+      openGraph: {
+        images: searchParams.img_link,
+      },
+    }
+  }
+
+export default async function page({ params, searchParams }: Props) {
 
 
     return (

@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from '../page.module.css'
+import type { Metadata } from 'next'
 
 import RegisterForm from '../forms/register'
+
+export const metadata: Metadata = {
+    title: 'ThatsMe Register Page',
+    description: 'Create an amazing showcase profile in no time!',
+  }
 
 export default function page() {
     return (

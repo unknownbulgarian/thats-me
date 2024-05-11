@@ -1,7 +1,12 @@
 import styles from "./page.module.css";
-
+import type { Metadata } from 'next'
 
 import LoginForm from "./forms/login";
+
+export const metadata: Metadata = {
+  title: 'ThatsMe Login Page',
+  description: 'Log in to your account...',
+}
 
 
 export default function Home() {
