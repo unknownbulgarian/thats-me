@@ -34,9 +34,7 @@ export async function generateMetadata(
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Cache-Control': 'public, s-maxage=1',
-            'CDN-Cache-Control': 'public, s-maxage=60',
-            'Vercel-CDN-Cache-Control': 'public, s-maxage=3600',
+            'Cache-Control': 'no-cache'
         },
         body: JSON.stringify({ username: params.me })
     }).then((res) =>  res.json())
