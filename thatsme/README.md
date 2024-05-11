@@ -1,7 +1,9 @@
 # ThatsMe
 
 ✅ Build your own single-page profile on ThatsMe
+
 ✅ Unique profile settings
+
 ✅ Seo optimized
 
 ## The Settings
