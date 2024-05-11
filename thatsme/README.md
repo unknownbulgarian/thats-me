@@ -6,6 +6,8 @@
 
 ✅ Seo optimized
 
+➼ [**Example**](https://thats--me.vercel.app/Charon)
+
 ## The Settings ⚙️
 
 > [!IMPORTANT]
