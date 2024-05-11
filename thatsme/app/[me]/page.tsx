@@ -30,7 +30,7 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
 
-    const userInfo = await fetch(`https://painted-stack-trusted-appeared.trycloudflare.com/getUserInfo`, {
+    const userInfo = await fetch(`https://0f5b-77-64-210-32.ngrok-free.app/getUserInfo`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

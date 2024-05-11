@@ -21,7 +21,7 @@ interface ApiUrlProviderProps {
 }
 
 export const ApiUrlProvider: React.FC<ApiUrlProviderProps> = ({ children }) => {
-  const [apiUrl, setApiUrl] = useState<string>('https://painted-stack-trusted-appeared.trycloudflare.com');
+  const [apiUrl, setApiUrl] = useState<string>('https://0f5b-77-64-210-32.ngrok-free.app');
 
   const value = { apiUrl };
 
