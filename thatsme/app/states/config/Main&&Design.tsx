@@ -315,7 +315,7 @@ export const UserConfigProvider: React.FC<{ children: ReactNode }> = ({ children
                 setBio(info.theBio)
                 setPhotoUrl(info.theImg)
             } else {
-                showError('Something went wrong')
+            //    showError('Something went wrong')
             }
 
             return data;
