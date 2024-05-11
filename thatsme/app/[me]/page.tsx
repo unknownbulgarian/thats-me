@@ -39,7 +39,7 @@ export async function generateMetadata(
     }).then((res) => res.json())
 
     return {
-        title: 'ThatsME ' + userInfo.username,
+        title: userInfo.username !== undefined ? 'ThatsME ' + userInfo.username : 'Profile not found',
         description: userInfo.bio,
         openGraph: {
             images: userInfo.img_link
