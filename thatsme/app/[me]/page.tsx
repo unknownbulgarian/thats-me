@@ -32,7 +32,7 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
 
-    const userInfo = await fetch(`https://0f5b-77-64-210-32.ngrok-free.app/getUserInfo`, {
+    const userInfo = await fetch(`https://thats-me-server.onrender.com/getUserInfo`, {
         cache: 'no-store',
         method: 'POST',
         headers: {
