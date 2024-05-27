@@ -62,7 +62,7 @@ interface userData {
 
 
 async function getUserInfo(username: string) {
-    const response = await fetch('https://thats-me-server.onrender.com/getCategoryGames', {
+    const response = await fetch('https://thats-me-server.onrender.com/getUserInfo', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
