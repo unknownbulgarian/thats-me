@@ -21,7 +21,7 @@ interface ApiUrlProviderProps {
 }
 
 export const ApiUrlProvider: React.FC<ApiUrlProviderProps> = ({ children }) => {
-  const [apiUrl, setApiUrl] = useState<string>('https://0f5b-77-64-210-32.ngrok-free.app');
+  const [apiUrl, setApiUrl] = useState<string>('https://thats-me-server.onrender.com');
 
   const value = { apiUrl };
 
