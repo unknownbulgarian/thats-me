@@ -18,6 +18,7 @@ import Bio from './components/config/Design/Bio/Bio';
 export const fetchCache = 'force-no-store';
 
 import type { Metadata, ResolvingMetadata } from 'next'
+import { userInfo } from 'os';
 
 type Props = {
     params: { me: string }
@@ -38,10 +39,10 @@ export async function generateMetadata(
         headers: {
             'Content-Type': 'application/json',
             'Cache-Control': 'no-cache'
-            
+
         },
         body: JSON.stringify({ username: params.me })
-    }).then((res) =>  res.json())
+    }).then((res) => res.json())
 
     return {
         title: userInfo.username !== undefined ? 'ThatsME ' + userInfo.username : 'Profile not found',
@@ -52,7 +53,36 @@ export async function generateMetadata(
     }
 }
 
+
+interface userData {
+    username: string;
+    bio: string;
+    img_link: string;
+}
+
+
+async function getUserInfo(username: string) {
+    const response = await fetch('https://thats-me-server.onrender.com/getCategoryGames', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username }),
+    });
+
+
+    if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+    }
+
+    return response.json();
+}
+
+
+
 export default async function page({ params, searchParams }: Props) {
+
+    const user : userData = await getUserInfo(params.me)
 
 
     return (
@@ -64,14 +94,11 @@ export default async function page({ params, searchParams }: Props) {
             <SessionProfile params={params} />
             <InfoProfile params={params} />
             <div className={styles.main}>
-                <AnimationHandler>
                     <div className={styles.profile}>
-                        <img className={styles.profileimg} src={searchParams.img_link}></img>
+                        <img className={styles.profileimg} src={user.img_link}></img>
                         <Username params={params} />
-                        <Bio bio={searchParams.bio} />
+                        <Bio bio={user.bio} />
                     </div>
-                </AnimationHandler>
-
                 <Socials />
 
             </div>
